@@ -113,7 +113,7 @@
                   </ul>
                 </div>
               </li>
-              <li class="drop-down"><a href="#">TRANG SỨC CƯỚI <i class="ti-angle-down"></i></a>
+              <li class="drop-down"><a href="#">TRANG Sức Kim Cương <i class="ti-angle-down"></i></a>
                 <ul class="menu-sub dropdown">
                   <li class="drop-down"><a href="#">Nhẫn cưới</a>
                     <ul class="dropdown menu-sub-child">
@@ -131,7 +131,7 @@
                   <li><a href="#">Kiềng cưới</a></li>
                 </ul>
               </li>
-              <li class="drop-down"><a href="#">TRANG SỨC CAO CẤP <i class="ti-angle-down"></i></a>
+              <li class="drop-down"><a href="#">TRANG Sức Đá Quý <i class="ti-angle-down"></i></a>
                 <ul class="menu-sub dropdown">
                   <li class="drop-down"><a href="#">Nhẫn</a>
                   </li>
