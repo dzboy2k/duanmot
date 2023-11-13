@@ -30,10 +30,9 @@
     <div class="container">
       <div class="video">video</div>
       <div class="her-style text-center">
-        <h3>Her style</h3>
+        <h3>TRIỂN LÃM TRANG SỨC QUỐC TẾ VIỆT NAM 2023</h3>
         <p>
-          Together with Loc Phuc Fine Jewelry, transform everyday style into a
-          difference.
+        Chạm đến tinh hoa - Nhận ngàn ưu đãi
         </p>
       </div>
     
@@ -152,9 +151,9 @@
         <img src="/img/SubBanner_PC_1.jpg" class="w-100" alt="" />
       </div>
       <div class="most text-center m-3">
-        <h3>MOST POPULAR WEDDING RINGS</h3>
+        <h3>Nhẫn cưới được ưa chuộng nhất</h3>
         <p>
-          More than a design, Loc Phuc wedding rings portray your own love
+        Hơn cả một thiết kế, nhẫn cưới Lộc Phúc khắc hoạ tình yêu của riêng bạn
         </p>
       </div>
       <div class="row">
@@ -222,8 +221,8 @@
         <img src="/img/Banner_BST_2.jpg" class="w-100" alt="" />
       </div>
       <div class="new text-center">
-        <h3>NEW ARRIVALS</h3>
-        <p>Discover new puzzle pieces for an extra striking look</p>
+        <h3>TRANG SỨC CAO CẤP</h3>
+        <p>Thỏa sức thể hiện sự kiêu kỳ, phô diễn trọn vẹn vẻ đẹp của kim cương thiên nhiên tiêu chuẩn quốc tế GIA với giác cắt hoàn hảo nhất.</p>
       </div>
       <div class="jquery">
         <div class="row">

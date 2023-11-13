@@ -40,34 +40,21 @@
                         </div>
                         <div class="col-md-2 col-sm-3 text-center">
                             <select>
-                                <option selected>tuổi vàng</option>
+                                <option selected>size</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
                             </select>
                         </div>
-                        <div class="col-md-2 col-sm-3 text-center">
-                            <select>
-                                <option selected>màu chất liệu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-                        <div class="col-md-2 col-sm-6  text-center">
-                            <select>
-                                <option selected>Loại đá</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
+                        
                         <div class="col-md-2 col-sm-6  text-center">
                             <select>
                                 <option selected>Giới tính</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                
+                                <?php foreach ($listgioitinh as $key => $value) { ?>
+                                <option value="<?=$value['id_gt']?>"><?=$value['ten_gt']?></option>
+                                   
+                               <?php } ?>
                             </select>
                         </div>
 
@@ -181,7 +168,6 @@
                     </div>
                 </div>
             </div>
-
             <div>
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">

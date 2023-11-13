@@ -1,11 +1,10 @@
 <body>
-
     <main>
         <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#"><i class="ti-home"></i></a></li>
-                    <li class="breadcrumb-item"><a href="#">Trang sức kim cương</a></li>
+                    <li class="breadcrumb-item"><a href="#">Trang sức vàng</a></li>
 
                 </ol>
             </nav>
@@ -18,6 +17,7 @@
         <div class="container">
             <div class="trangsucvang text-center mt-3">
                 <h1>Trang sức kim cương</h1>
+                <h1>Trang sức vàng</h1>
             </div>
             <div class="find p-3 ">
                 <form action="" method="post">
@@ -40,34 +40,21 @@
                         </div>
                         <div class="col-md-2 col-sm-3 text-center">
                             <select>
-                                <option selected>tuổi vàng</option>
+                                <option selected>size</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
                             </select>
                         </div>
-                        <div class="col-md-2 col-sm-3 text-center">
-                            <select>
-                                <option selected>màu chất liệu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-                        <div class="col-md-2 col-sm-6  text-center">
-                            <select>
-                                <option selected>Loại đá</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
+                        
                         <div class="col-md-2 col-sm-6  text-center">
                             <select>
                                 <option selected>Giới tính</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                
+                                <?php foreach ($listgioitinh as $key => $value) { ?>
+                                <option value="<?=$value['id_gt']?>"><?=$value['ten_gt']?></option>
+                                   
+                               <?php } ?>
                             </select>
                         </div>
 
@@ -183,19 +170,22 @@
             </div>
 
             <div>
+              
+         
+            <div>
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                            <a class="page-link">Previous</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
-                        </li>
+                      <li class="page-item disabled">
+                        <a class="page-link">Previous</a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                      </li>
                     </ul>
-                </nav>
+                  </nav>
             </div>
             <hr>
         </div>

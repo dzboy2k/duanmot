@@ -1,10 +1,17 @@
 <?php
+include('model/pdo.php');
 include('user/trangchu/head.php');
+
+// include('model/trangchu.php');
+
 include('user/trangchu/menu.php');
 include('model/trangsucvang.php');
 include('model/trangsuckimcuong.php');
 include('model/trangsucdaquy.php');
 include('model/pdo.php');
+include('model/find.php');
+
+
 
 
 if (isset($_GET['act'])) {
@@ -36,7 +43,6 @@ if (isset($_GET['act'])) {
             // trang
         case 'trangchu':
 
-
             include('user/maintrangchu.php');
             break;
 
@@ -54,7 +60,6 @@ if (isset($_GET['act'])) {
             break;
         case 'chitietsp':
             include('user/chitietsp.php');
-
             break;
             // dũng
 
