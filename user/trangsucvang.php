@@ -74,11 +74,12 @@
                     </div>
                 </form>
             </div>
+            <?php foreach($load_trangsucvang as $item): ?>
             <div class="product_vang ">
                 <div class="row p-3">
                     <div class="col-md-3 col-sm-4 col-6 add">
                         <div class="card cardto">
-                          <img src="/img/VMP1047AMW-RG06A-hover.jpg" class="card-img-top" alt="...">
+                          <img src="<?php echo $item['hinhanh'] ?>" alt="...">
                           <div class="heart">
             
                             <button><i class="ti-heart"></i></button><br>
@@ -88,7 +89,7 @@
                             <button type="button" class="btn btn-outline-success w-100">Thêm vào giỏ hàng</button>
                           </div>
                           <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
+                            <h5 class="card-title"><?php echo $item['tenspchitiet']; ?></h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                               card's content.</p>
             
@@ -97,7 +98,7 @@
                       </div>
                       <div class="col-md-3 col-sm-4 col-6 add">
                         <div class="card cardto">
-                          <img src="/img/VMP1047AMW-RG06A-hover.jpg" class="card-img-top" alt="...">
+                          <img src="<?php echo $item['hinhanh'] ?>" class="card-img-top" alt="...">
                           <div class="heart">
             
                             <button><i class="ti-heart"></i></button><br>
@@ -107,7 +108,7 @@
                             <button type="button" class="btn btn-outline-success w-100">Thêm vào giỏ hàng</button>
                           </div>
                           <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
+                            <h5 class="card-title"><?php echo $item['tenspchitiet'] ?></h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                               card's content.</p>
             
@@ -230,6 +231,7 @@
                     </div>
                 </div>
             </div>
+            <?php endforeach ?>
             <div>
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
