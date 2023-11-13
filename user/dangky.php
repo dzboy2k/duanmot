@@ -55,7 +55,7 @@
                             </p>
                           </div>
                         </div>
-                        <form action="#!">
+                        <form action="?act=dangky">
                           <div class="row gy-3 overflow-hidden">
                             <!-- Tên -->
                             <div class="col-12">
