@@ -67,7 +67,7 @@
                     <?php foreach ($load_trangsucvang as $item) : ?>
                         <div class="col-md-3 col-sm-4 col-6 add">
                             <div class="card cardto">
-                                <img src="<?php echo $item['hinhanh'] ?>" alt="...">
+                                <img src="admin/<?php echo $item['hinhanh'] ?>" alt="...">
                                 <div class="heart">
 
                                     <button><i class="ti-heart"></i></button><br>

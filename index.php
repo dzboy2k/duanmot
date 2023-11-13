@@ -8,7 +8,7 @@ include('user/trangchu/menu.php');
 include('model/trangsucvang.php');
 include('model/trangsuckimcuong.php');
 include('model/trangsucdaquy.php');
-include('model/pdo.php');
+
 include('model/find.php');
 
 
@@ -48,6 +48,7 @@ if (isset($_GET['act'])) {
 
         case 'trangsucvang':
             $load_trangsucvang = load_trangsucvang();
+            var_dump($load_trangsucvang);
             include('user/trangsucvang.php');
             break;
         case 'trangsuckimcuong':
