@@ -1,8 +1,14 @@
 <?php
+include('model/pdo.php');
 include('user/trangchu/head.php');
+
+// include('model/trangchu.php');
+
 include('user/trangchu/menu.php');
 include('model/trangsucvang.php');
-include('model/pdo.php');
+include('model/find.php');
+
+
 
 
 if (isset($_GET['act'])) {
@@ -35,19 +41,29 @@ if (isset($_GET['act'])) {
             // trang
         case 'trangchu':
 
-
             include('user/maintrangchu.php');
             break;
+
         case 'trangsucdaquy':
+            // $listdm=san
             include('user/trangsucdaquy.php');
 
             break;
-        case 'trangsucvang':
-            $load_trangsucvang = load_trangsucvang();
+        case 'trangsuckimcuong':
+            // $listdm=san
+            include('user/trangsuckimcuong.php');
 
+            break;
+        case 'trangsucvang':
+
+
+            $listgioitinh = getgt();
+            var_dump($listgioitinh);
             include('user/trangsucvang.php');
             break;
+
         case 'chitietsp':
+
             include('user/chitietsp.php');
 
             break;
