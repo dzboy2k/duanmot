@@ -2,18 +2,14 @@
 include('model/pdo.php');
 include('user/trangchu/head.php');
 
-// include('model/trangchu.php');
 
 include('user/trangchu/menu.php');
-include('model/trangsucvang.php');
-include('model/trangsuckimcuong.php');
-include('model/trangsucdaquy.php');
-
+include('model/loadsptheodm.php');
 include('model/find.php');
 
 
-
-
+// $getiddm = getiddm();
+// var_dump($getiddm);
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {
@@ -23,14 +19,12 @@ if (isset($_GET['act'])) {
             break;
         case 'dangnhap':
             include('user/dangnhap.php');
-
             break;
         case 'suatk':
             include('user/suatk.php');
             break;
         case 'lienhe':
             include('user/lienhe.php');
-
             break;
         case 'gioithieu':
             include('user/gioithieu.php');
@@ -47,17 +41,22 @@ if (isset($_GET['act'])) {
             break;
 
         case 'trangsucvang':
-            $load_trangsucvang = load_trangsucvang();
-            var_dump($load_trangsucvang);
-            include('user/trangsucvang.php');
+            // $getiddm1 = getiddm();
+            // echo $getiddm1[0]['id_dm'];
+            $iddm=$_GET['iddm'];
+            $loadsptheodm = loadsptheodm($iddm);
+            include('user/loadstheodm.php');
             break;
         case 'trangsuckimcuong':
-            $load_trangsuckimcuong = load_trangsuckimcuong();
-            include('user/trangsuckimcuong.php');
+            $iddm=$_GET['iddm'];
+            $loadsptheodm = loadsptheodm($iddm);
+            include('user/loadstheodm.php');
+
             break;
         case 'trangsucdaquy':
-            $load_trangsucdaquy = load_trangsucdaquy();
-            include('user/trangsucdaquy.php');
+            $iddm=$_GET['iddm'];
+            $loadsptheodm = loadsptheodm($iddm);
+            include('user/loadstheodm.php');
             break;
         case 'chitietsp':
             include('user/chitietsp.php');

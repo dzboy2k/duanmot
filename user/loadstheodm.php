@@ -18,6 +18,7 @@
         <div class="container">
             <div class="trangsucvang text-center mt-3">
                 <h1>Trang sức vàng</h1>
+               
             </div>
             <div class="find p-3 ">
                 <form action="" method="post">
@@ -64,7 +65,7 @@
 
             <div class="product_vang ">
                 <div class="row p-3">
-                    <?php foreach ($load_trangsucvang as $item) : ?>
+                    <?php foreach ($loadsptheodm as $item) : ?>
                         <div class="col-md-3 col-sm-4 col-6 add">
                             <div class="card cardto">
                                 <img src="admin/<?php echo $item['hinhanh'] ?>" alt="...">
@@ -88,9 +89,7 @@
                     <?php endforeach ?>
 
 
-
                 </div>
-
                 <div class="row p-3">
                     <div class="col-md-3 col-sm-4 col-6">
                         <div class="card">

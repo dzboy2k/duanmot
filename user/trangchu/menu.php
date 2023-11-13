@@ -1,3 +1,7 @@
+
+<?php 
+
+?>
 <header>
   <div class="title">
     <div class="container">
@@ -38,12 +42,12 @@
                   <i class="ti-user">
                   </i>
                 </button>
-               <div class="account">
+                <div class="account">
                   <li><a href="?act=dangnhap">đăng nhập</a></li>
                   <li><a href="?act=dangky">đăng ký</a></li>
                 </div>
               </a>
-             
+
             </div>
 
           </div>
@@ -60,12 +64,12 @@
           <div class="nav menu-destop">
             <ul class="d-flex justify-content-sm-between">
               <li><a href="?act=trangchu">TRANG CHỦ</a></li>
-              <li class="drop-down"><a href="?act=trangsucvang">TRANG SỨC VÀNG <i class="ti-angle-down"></i></a>
+              <li class="drop-down"><a href="?act=trangsucvang&iddm=<?php echo 1 ?>">TRANG SỨC VÀNG <i class="ti-angle-down"></i></a>
                 <div class="menu-sub-gold">
                   <ul class="mega-menu d-flex justify-content-evenly">
-                    <li class="mega-title"><a href="#"><span>Trang sức kim cương</span></a>
+                    <li class="mega-title"><a href="?act=trangsuckimcuong&iddm=<?php echo 2 ?>"><span>Trang sức kim cương</span></a>
                       <ul class="menu-item">
-                        <li><a href="#">Nhẫn kim cương</a>
+                        <li><a href="">Nhẫn kim cương</a>
 
                         </li>
                         <li><a href="#">Bông tai kim cương</a></li>
@@ -84,7 +88,7 @@
                         <li><a href="#">Vòng Pan-Charm</a></li>
                       </ul>
                     </li>
-                    <li class="mega-title"><a href="#"><span>Trang sức đá màu</span></a>
+                    <li class="mega-title"><a href=""><span>Trang sức đá màu</span></a>
                       <ul class="menu-item">
                         <li><a href="#">Nhẫn đá màu</a></li>
                         <li><a href="#">Bông tai đá màu</a></li>
@@ -113,7 +117,7 @@
                   </ul>
                 </div>
               </li>
-              <li class="drop-down"><a href="#">TRANG Sức Kim Cương <i class="ti-angle-down"></i></a>
+              <li class="drop-down"><a href="?act=trangsuckimcuong&iddm=<?php echo 2 ?>">TRANG Sức Kim Cương <i class="ti-angle-down"></i></a>
                 <ul class="menu-sub dropdown">
                   <li class="drop-down"><a href="#">Nhẫn cưới</a>
                     <ul class="dropdown menu-sub-child">
@@ -131,7 +135,7 @@
                   <li><a href="#">Kiềng cưới</a></li>
                 </ul>
               </li>
-              <li class="drop-down"><a href="#">TRANG Sức Đá Quý <i class="ti-angle-down"></i></a>
+              <li class="drop-down"><a href="?act=trangsucdaquy&iddm=<?php echo 3 ?>">TRANG Sức Đá Quý <i class="ti-angle-down"></i></a>
                 <ul class="menu-sub dropdown">
                   <li class="drop-down"><a href="#">Nhẫn</a>
                   </li>
