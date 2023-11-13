@@ -6,6 +6,9 @@ include('user/trangchu/head.php');
 
 include('user/trangchu/menu.php');
 include('model/trangsucvang.php');
+include('model/trangsuckimcuong.php');
+include('model/trangsucdaquy.php');
+include('model/pdo.php');
 include('model/find.php');
 
 
@@ -14,7 +17,6 @@ include('model/find.php');
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {
-
             // nguyệt
         case 'dangky':
             include('user/dangky.php');
@@ -44,28 +46,20 @@ if (isset($_GET['act'])) {
             include('user/maintrangchu.php');
             break;
 
-        case 'trangsucdaquy':
-            // $listdm=san
-            include('user/trangsucdaquy.php');
-
-            break;
-        case 'trangsuckimcuong':
-            // $listdm=san
-            include('user/trangsuckimcuong.php');
-
-            break;
         case 'trangsucvang':
-
-
-            $listgioitinh = getgt();
-            var_dump($listgioitinh);
+            $load_trangsucvang = load_trangsucvang();
             include('user/trangsucvang.php');
             break;
-
+        case 'trangsuckimcuong':
+            $load_trangsuckimcuong = load_trangsuckimcuong();
+            include('user/trangsuckimcuong.php');
+            break;
+        case 'trangsucdaquy':
+            $load_trangsucdaquy = load_trangsucdaquy();
+            include('user/trangsucdaquy.php');
+            break;
         case 'chitietsp':
-
             include('user/chitietsp.php');
-
             break;
             // dũng
 
