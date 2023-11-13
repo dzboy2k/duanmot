@@ -5,7 +5,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#"><i class="ti-home"></i></a></li>
-                    <li class="breadcrumb-item"><a href="#">Trang sức vàng</a></li>
+                    <li class="breadcrumb-item"><a href="#">Trang sức kim cương</a></li>
 
                 </ol>
             </nav>
@@ -17,7 +17,7 @@
         </div>
         <div class="container">
             <div class="trangsucvang text-center mt-3">
-                <h1>Trang sức vàng</h1>
+                <h1>Trang sức kim cương</h1>
             </div>
             <div class="find p-3 ">
                 <form action="" method="post">
@@ -77,7 +77,7 @@
 
             <div class="product_vang ">
                 <div class="row p-3">
-                    <?php foreach ($load_trangsucvang as $item) : ?>
+                    <?php foreach ($load_trangsuckimcuong as $item) : ?>
                         <div class="col-md-3 col-sm-4 col-6 add">
                             <div class="card cardto">
                                 <img src="<?php echo $item['hinhanh'] ?>" alt="...">
