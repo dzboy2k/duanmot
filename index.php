@@ -4,18 +4,21 @@ include('model/pdo.php');
 include('model/trangchu.php');
 
 include('user/trangchu/menu.php');
+include('model/trangsucvang.php');
+include('model/pdo.php');
 
 
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {
+
             // nguyệt
         case 'dangky':
             include('user/dangky.php');
             break;
         case 'dangnhap':
             include('user/dangnhap.php');
-            
+
             break;
         case 'suatk':
             include('user/suatk.php');
@@ -34,9 +37,8 @@ if (isset($_GET['act'])) {
             break;
             // trang
         case 'trangchu':
-            
+           
             include('user/maintrangchu.php');
-
             break;
         
         case 'trangsucdaquy':
@@ -46,8 +48,9 @@ if (isset($_GET['act'])) {
             break;
         case 'trangsucvang':
 
-            include('user/trangsucvang.php');
+            
 
+            include('user/trangsucvang.php');
             break;
         case 'chitietsp':
 
@@ -55,7 +58,7 @@ if (isset($_GET['act'])) {
 
             break;
             // dũng
-      
+
         case 'giohang':
             include('user/giohang.php');
 
@@ -69,8 +72,7 @@ if (isset($_GET['act'])) {
 
             break;
     }
-}else{
+} else {
     include('user/maintrangchu.php');
-
 }
 include('user/trangchu/footer.php');

@@ -11,7 +11,7 @@
           </div>
         </div>
         <div class="col-md-4">
-          <img src="img/logoJN.png"  class="w-50" alt="">
+          <!-- <img src="img/logoJN.png" class="w-50" alt=""> -->
         </div>
         <div class="col-md-4">
           <div class="row p-3">
@@ -32,14 +32,20 @@
                 </button>
               </a>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 btn-user">
               <a href="">
                 <button type="button" class="btn btn-primary position-relative">
-                  <i class="ti-user"></i>
-
+                  <i class="ti-user">
+                  </i>
                 </button>
+               <div class="account">
+                  <li><a href="?act=dangnhap">đăng nhập</a></li>
+                  <li><a href="?act=dangky">đăng ký</a></li>
+                </div>
               </a>
+             
             </div>
+
           </div>
 
         </div>
@@ -170,15 +176,15 @@
               </form>
             </div>
             <div class="col-md-2">
-              
-                <button type="button" class="btn btn-primary position-relative">
-                  <i class="ti-shopping-cart"></i>
-                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                    99+
-                    <span class="visually-hidden">unread messages</span>
-                  </span>
-                </button>
-              
+
+              <button type="button" class="btn btn-primary position-relative">
+                <i class="ti-shopping-cart"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  99+
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </button>
+
             </div>
             <div class="col-md-2">
               <button type="button" class="btn btn-primary position-relative">
