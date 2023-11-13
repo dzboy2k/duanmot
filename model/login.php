@@ -1,6 +1,6 @@
 <?php 
 function nhanvien(){
-    $sql="SELECT * FROM `ceo` JOIN nhanvien ON nhanvien.id_ceo=ceo.id_ceo;";
+    $sql="SELECT * FROM  nhanvien";
     return pdo_query($sql);
 }
 
