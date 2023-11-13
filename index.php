@@ -1,5 +1,7 @@
 <?php
 include('user/trangchu/head.php');
+include('model/pdo.php');
+include('model/trangchu.php');
 
 include('user/trangchu/menu.php');
 
@@ -32,18 +34,23 @@ if (isset($_GET['act'])) {
             break;
             // trang
         case 'trangchu':
+            
             include('user/maintrangchu.php');
 
             break;
+        
         case 'trangsucdaquy':
+// $listdm=san
             include('user/trangsucdaquy.php');
 
             break;
         case 'trangsucvang':
+
             include('user/trangsucvang.php');
 
             break;
         case 'chitietsp':
+
             include('user/chitietsp.php');
 
             break;
