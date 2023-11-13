@@ -1,8 +1,7 @@
 
 <?php
-
 session_start();
-if (!isset($_SESSION['user']) || !isset($_SESSION['ceo'])) {
+if (!isset($_SESSION['user'])) {
 
    header('location:login/login.php');
 } else {
@@ -245,10 +244,6 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['ceo'])) {
             if (isset($_SESSION['user'])) {
                unset($_SESSION['user']);
             }
-            if (isset($_SESSION['ceo'])) {
-               unset($_SESSION['ceo']);
-            }
-
             header('location:../admin/login/login.php');
 
             break;
