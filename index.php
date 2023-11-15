@@ -87,7 +87,7 @@ if (isset($_GET['act'])) {
             # code...
             break;
             // trang
-
+            
         case 'trangsucvang':
             $loaisp = loaisp($_GET['iddm']);
             $listgioitinh = getgt();
