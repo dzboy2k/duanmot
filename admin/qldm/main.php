@@ -41,16 +41,10 @@
                                         <button class="btn btn-primary btn-sm"><a href="?act=editdm&iddm=<?= $list['id_dm'] ?>" >
                                                 <i class="fas fa-edit"></i></a>
                                             </button>
-                                        <button class="btn btn-primary btn-sm "><a class="xoa" >
+                                        <button class="btn btn-primary btn-danger btn-sm "><a class="xoa" >
                                                 <i class="fas fa-trash-alt"></i> </a></button>
                                     </td>
-                                    <!-- <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i> 
-                                        </button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                      data-target="#ModalUP"><i class="fas fa-edit"></i></button>
-                                       
-                                    </td> -->
+                                
                                 </tr>
                             <?php endforeach ?>
                         </tbody>

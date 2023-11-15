@@ -1,8 +1,9 @@
-
-<?php 
+<?php
+$iddm = getiddm();
 
 ?>
 <header>
+
   <div class="title">
     <div class="container">
       <div class="row">
@@ -36,19 +37,35 @@
                 </button>
               </a>
             </div>
-            <div class="col-md-2 btn-user">
-              <a href="">
-                <button type="button" class="btn btn-primary position-relative">
-                  <i class="ti-user">
-                  </i>
-                </button>
-                <div class="account">
-                  <li><a href="?act=dangnhap">đăng nhập</a></li>
-                  <li><a href="?act=dangky">đăng ký</a></li>
-                </div>
-              </a>
 
-            </div>
+            <?php if (isset($_SESSION['emailkh'])) { ?>
+              <div class="col-md-2 btn-user">
+                <a href="">
+                  <button type="button" class="btn btn-primary position-relative">
+                    <?= $_SESSION['emailkh']  ?>
+                  </button>
+                  <div class="account">
+                    <a href="?act=dangxuat">đăng xuất</a>
+
+                  </div>
+                </a>
+
+              </div>
+            <?php } else { ?>
+              <div class="col-md-2 btn-user">
+                <a href="">
+                  <button type="button" class="btn btn-primary position-relative">
+                    <i class="ti-user">
+                    </i>
+                  </button>
+                  <div class="account">
+                    <li><a href="?act=dangnhap">đăng nhập</a></li>
+                    <li><a href="?act=dangky">đăng ký</a></li>
+                  </div>
+                </a>
+
+              </div>
+            <?php } ?>
 
           </div>
 
@@ -64,10 +81,10 @@
           <div class="nav menu-destop">
             <ul class="d-flex justify-content-sm-between">
               <li><a href="?act=trangchu">TRANG CHỦ</a></li>
-              <li class="drop-down"><a href="?act=trangsucvang&iddm=<?php echo 1 ?>">TRANG SỨC VÀNG <i class="ti-angle-down"></i></a>
+              <li class="drop-down"><a href="?act=trangsucvang&iddm=<?= $iddm[0]['id_dm'] ?>">TRANG SỨC VÀNG <i class="ti-angle-down"></i></a>
                 <div class="menu-sub-gold">
                   <ul class="mega-menu d-flex justify-content-evenly">
-                    <li class="mega-title"><a href="?act=trangsuckimcuong&iddm=<?php echo 2 ?>"><span>Trang sức kim cương</span></a>
+                    <li class="mega-title"><a href="?act=trangsuckimcuong&iddm=<?= $iddm[1]['id_dm'] ?>"><span>Trang sức kim cương</span></a>
                       <ul class="menu-item">
                         <li><a href="">Nhẫn kim cương</a>
 
@@ -117,7 +134,7 @@
                   </ul>
                 </div>
               </li>
-              <li class="drop-down"><a href="?act=trangsuckimcuong&iddm=<?php echo 2 ?>">TRANG Sức Kim Cương <i class="ti-angle-down"></i></a>
+              <li class="drop-down"><a href="?act=trangsuckimcuong&iddm=<?= $iddm[1]['id_dm'] ?>">TRANG Sức Kim Cương <i class="ti-angle-down"></i></a>
                 <ul class="menu-sub dropdown">
                   <li class="drop-down"><a href="#">Nhẫn cưới</a>
                     <ul class="dropdown menu-sub-child">
@@ -135,7 +152,7 @@
                   <li><a href="#">Kiềng cưới</a></li>
                 </ul>
               </li>
-              <li class="drop-down"><a href="?act=trangsucdaquy&iddm=<?php echo 3 ?>">TRANG Sức Đá Quý <i class="ti-angle-down"></i></a>
+              <li class="drop-down"><a href="?act=trangsucdaquy&iddm=<?= $iddm[2]['id_dm'] ?>">TRANG Sức Đá Quý <i class="ti-angle-down"></i></a>
                 <ul class="menu-sub dropdown">
                   <li class="drop-down"><a href="#">Nhẫn</a>
                   </li>
@@ -146,7 +163,10 @@
                 </ul>
               </li>
               <li><a href="#">KIM CƯƠNG</a></li>
-              <li><a href="#">BỘ SƯU TẬP</a></li>
+              <?php if (isset($_SESSION['emailkh'])) { ?>
+                <li><a href="?act=suatk">Quản lý tài khoản</a></li>
+
+              <?php } ?>
               <li><a href="?act=tintuc">TIN TỨC</a></li>
               <li><a href="?act=lienhe">LIÊN HỆ</a></li>
             </ul>
@@ -158,7 +178,7 @@
   </div>
 
 
-  <div class="title-mobile">
+  <!-- <div class="title-mobile">
     <div class="container">
       <div class="row">
         <div class="col-md-4">
@@ -311,6 +331,6 @@
       </div>
 
     </div>
-  </div>
+  </div> -->
 
 </header>

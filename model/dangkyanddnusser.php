@@ -1,6 +1,16 @@
 <?php 
-// function dangky(){
-//     $sql="INSERT INTO `khachhang`( `tenkh`, `email`, `sodienthoai`, `diachi`, `matkhau`, `ngaysinh`, `tentk`, `hinhanhkh`) 
-//     VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]','[value-9]')"
-// }
+function dangky($tenkh,$email,$sodienthoai,$diachi,$matkhau,$anh){
+    $sql="INSERT INTO `khachhang`( `tenkh`, `email`, `sodienthoai`, `diachi`, `matkhau`, `hinhanhkh`) 
+    VALUES ('$tenkh','$email','$sodienthoai','$diachi','$matkhau','$anh')";
+    pdo_execute($sql);
+}
+function dangnhap($email,$pass){
+    $sql="SELECT * FROM `khachhang` WHERE khachhang.email like '$email' AND khachhang.matkhau like '$pass'";
+    return pdo_query_one($sql);
+    
+}
+function quenmk($email){
+$sql="SELECT * FROM `khachhang` WHERE email like '$email'";
+return pdo_query_one($sql);
+}
 ?>
