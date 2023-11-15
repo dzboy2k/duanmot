@@ -9,4 +9,6 @@ function getiddm() {
     $sql = "SELECT * FROM danh_muc";
     return pdo_query($sql);
 }
+
+
 ?>

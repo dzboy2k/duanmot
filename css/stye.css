@@ -393,3 +393,39 @@ main {
     text-decoration: none;
     color: #555;
 }
+/* slider-img */
+
+.container-fluid .slider-img .user img{
+    height: 550px;
+    width: 270px;
+}
+
+
+.cart-main{
+    margin-top: 160px;
+}
+.check-main{
+    margin-top: 150px;
+}
+.quenmk{
+    margin-top: 150px;
+}
+.new-product-main{
+    margin-top: 150px;
+}
+.detail-product-main{
+    margin-top: 150px;
+}
+.edittk{
+    margin-top: 150px;
+}
+.card-img{
+    overflow: hidden;
+}
+.card img{
+transition: all 0.4s ease-in-out;
+
+}
+.card img:hover{
+  transform: scale(1.2);
+}

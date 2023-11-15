@@ -290,7 +290,7 @@ if (!isset($_SESSION['user'])) {
                $ngaysinh = $_POST['ngaysinh'];
 
 
-               $target_dir = "../upload-img/";
+               $target_dir = "upload-img/";
                $image = $_FILES['hinhanhnv']['name'];
                $random = rand(1, 100000);
                $target_file = $target_dir . $random . $image;
@@ -303,9 +303,9 @@ if (!isset($_SESSION['user'])) {
                $diachi = $_POST['diachi'];
                $vaitro = $_POST['vaitro'];
                $luong = $_POST['luong'];
-               $id_ceo = $_POST['id_ceo'];
+               
                $id_nv = $_POST['id_nv'];
-               modalnv($hoten, $tendangnhap, $ngaysinh, $target_file, $email, $sdt, $diachi, $vaitro, $luong, $id_ceo, $id_nv);
+               modalnv($hoten, $tendangnhap, $ngaysinh, $target_file, $email, $sdt, $diachi, $vaitro, $luong, $id_nv);
 
                header('location: ?act=quanlynhanvien');
             }

@@ -6,9 +6,10 @@ include('user/trangchu/head.php');
 include('user/trangchu/menu.php');
 include('model/loadsptheodm.php');
 include('model/find.php');
+include('model/loadsptrangchu.php');
 
 
-// $getiddm = getiddm();
+$getiddm = getiddm();
 // var_dump($getiddm);
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
@@ -36,13 +37,14 @@ if (isset($_GET['act'])) {
             break;
             // trang
         case 'trangchu':
-
+            $loadtrangsuccaocap=loadtrangsuccaocap();
+            $loadtrangsuckimcuong=loadtrangsuckimcuong();
+            // var_dump($loadtrangsuckimcuong);
+            // $loadsptheodm = loadsptheodm($iddm);
             include('user/maintrangchu.php');
             break;
 
         case 'trangsucvang':
-            // $getiddm1 = getiddm();
-            // echo $getiddm1[0]['id_dm'];
             $iddm=$_GET['iddm'];
             $loadsptheodm = loadsptheodm($iddm);
             include('user/loadstheodm.php');
@@ -51,7 +53,6 @@ if (isset($_GET['act'])) {
             $iddm=$_GET['iddm'];
             $loadsptheodm = loadsptheodm($iddm);
             include('user/loadstheodm.php');
-
             break;
         case 'trangsucdaquy':
             $iddm=$_GET['iddm'];
@@ -77,6 +78,8 @@ if (isset($_GET['act'])) {
             break;
     }
 } else {
+    $loadtrangsuccaocap=loadtrangsuccaocap();
+            $loadtrangsuckimcuong=loadtrangsuckimcuong();
     include('user/maintrangchu.php');
 }
 include('user/trangchu/footer.php');
