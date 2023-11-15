@@ -31,12 +31,12 @@
             <div class="form-group col-md-4"> 
               <label class="control-label">Ảnh nhân viên</label>
              <!--  <img name="hinhanhnv" style="width: 75px;" src="" alt=""> -->
-             <?php if($nhanvien['hinh_anhnv'] != null && $nhanvien['hinh_anhnv'] != ""): ?>
+             <?php if($nhanvien['hinhanhnv'] != null && $nhanvien['hinhanhnv'] != ""): ?>
               <?php 
                 var_dump($nhanvien);
                 // die;
                 ?>
-            <img width="75px" src="<?php echo $nhanvien['hinh_anhnv']; ?>" alt="">
+            <img width="75px" src="<?php echo $nhanvien['hinhanhnv']; ?>" alt="">
               <?php endif ?>
              <input type="file" name="hinhanhnv" value="" readonly>
             </div>
@@ -66,14 +66,7 @@
               <label class="control-label">Lương</label>
               <input class="form-control" value="<?php echo $nhanvien['luong']; ?>" type="text"  name="luong" required>
             </div>
-            <div class="form-group  col-md-3">
-              <label for="exampleSelect1" class="control-label">ID SEO</label>
-              <select class="form-control" id="exampleSelect1" name="id_ceo">
-                <?php foreach ($ceo as $item) : ?>
-                  <option value="<?php echo $item['id_ceo'] ?>"><?php echo $item['hoten'] ?></option>
-                <?php endforeach ?>
-              </select>
-            </div>
+         
 
 
 

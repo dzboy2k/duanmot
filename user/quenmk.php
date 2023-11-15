@@ -1,6 +1,7 @@
 <body>
     <!-- Login 1 - Bootstrap Brain Component -->
-    <div class="bg-light py-3 py-md-5 py-xl-8">
+  <div class="quenmk">
+  <div class="bg-light py-3 py-md-5 py-xl-8">
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6">
@@ -55,4 +56,5 @@
             </div>
         </div>
     </div>
+  </div>
 </body>

@@ -44,7 +44,7 @@
                   <td><?php echo $item['id_nv'] ?></td>
                   <td><?php echo $item['hoten'] ?></td>
                   <td><?php echo date('d-m-Y', strtotime($item['ngaysinh'] )) ?></td>
-                  <td><img style="width: 75px;" src="<?php echo $item['hinh_anhnv'] ?>" alt=""></td>
+                  <td><img style="width: 75px;" src="<?php echo $item['hinhanhnv'] ?>" alt=""></td>
                   <td><?php echo $item['tendangnhap'] ?></td>
                   <td><?php echo $item['email'] ?></td>
                   <td><?php echo $item['sdt'] ?></td>

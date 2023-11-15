@@ -7,7 +7,7 @@ $iddm = getiddm();
   <div class="title">
     <div class="container">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-2">
           <div class="header-link-icon mt-3">
             <a href=""> <i class="p-2  ti-facebook"></i></a>
             <a href=""> <i class="p-2  ti-instagram"></i></a>
@@ -15,15 +15,15 @@ $iddm = getiddm();
             <a href=""> <i class="p-2  ti-location-pin"></i></a>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
           <!-- <img src="img/logoJN.png" class="w-50" alt=""> -->
         </div>
         <div class="col-md-4">
           <div class="row p-3">
             <div class="col-md-8">
               <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-success text-bg-secondary" type="submit">Search</button>
               </form>
             </div>
             <div class="col-md-2">

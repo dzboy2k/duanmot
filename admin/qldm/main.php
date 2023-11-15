@@ -41,10 +41,10 @@
                                         <button class="btn btn-primary btn-sm"><a href="?act=editdm&iddm=<?= $list['id_dm'] ?>" >
                                                 <i class="fas fa-edit"></i></a>
                                             </button>
-                                        <button class="btn btn-primary btn-danger btn-sm "><a class="xoa" >
+                                        <button class="btn btn-primary btn-sm "><a href="?act=deletedm&iddm=<?= $list['id_dm'] ?>" class="xoa" >
                                                 <i class="fas fa-trash-alt"></i> </a></button>
                                     </td>
-                                
+                                  
                                 </tr>
                             <?php endforeach ?>
                         </tbody>
