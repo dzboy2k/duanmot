@@ -38,25 +38,25 @@
 
     <div class="product">
       <div class="row">
-        <?php foreach($loadtrangsuckimcuong as $item): ?>
-        <div class="col-md-3 col-sm-4 col-6">
-          <div class="card">
-          <div class="card-img">
-          <img src="admin/<?php echo $item['hinhanhchitiet']; ?>" class="card-img-top" alt="..." />
-          </div>
-            <div class="card-body">
-              <h5 class="card-title"><?php echo $item['tenspchitiet']; ?></h5>
-              <p class="price-product text-center" style="color: #C69967;"><?php echo number_format($item['gia']) ?> VNĐ </p>
-          <div class="d-flex">
-      <div class="buy-product">
-      <a href="#" class="btn btn-primary mr-5 " style="background-color: gray;">Mua ngay</a>
-      </div>
-          <a href="" class=" mt-2"><i style="color: #676767;">Xem chi tiết -></i></a>
-          </div>
+        <?php foreach ($loadtrangsuckimcuong as $item) : ?>
+          <div class="col-md-3 col-sm-4 col-6">
+            <div class="card">
+              <div class="card-img">
+                <img src="admin/<?php echo $item['hinhanhchitiet']; ?>" class="card-img-top" alt="..." />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title"><?php echo $item['tenspchitiet']; ?></h5>
+                <p class="price-product text-center" style="color: #C69967;"><?php echo number_format($item['gia']) ?> VNĐ </p>
+                <div class="d-flex">
+                  <div class="buy-product">
+                    <a href="#" class="btn btn-primary mr-5 " style="background-color: gray;">Mua ngay</a>
+                  </div>
+                  <a href="" class=" mt-2"><i style="color: #676767;">Xem chi tiết -></i></a>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-       <?php endforeach ?>
+        <?php endforeach ?>
       </div>
       <div class="btn d-flex justify-content-center m-3">
         <button type="button" class="btn btn-outline-info">Info</button>
@@ -163,37 +163,37 @@
     </div>
   </div>
   <section class="container">
-  
+
     <div class="row">
-     <div class="slider-img d-flex">
-     <div class="col-md-2 user">
-        <img src="img/anhng1.jpg" alt="" />
+      <div class="slider-img d-flex">
+        <div class="col-md-2 user">
+          <img src="img/anhng1.jpg" alt="" />
+        </div>
+        <div class="col-md-2 user">
+          <img src="img/anhng1.jpg" alt="" />
+        </div>
+        <div class="col-md-2 user">
+          <img src="img/anhng1.jpg" alt="" />
+        </div>
+        <div class="col-md-2 user">
+          <img src="img/anhng1.jpg" alt="" />
+        </div>
+        <div class="col-md-2 user">
+          <img src="img/anhng1.jpg" alt="" />
+        </div>
+        <div class="col-md-2 user">
+          <img src="img/anhng1.jpg" alt="" />
+        </div>
+        <div class="col-md-2 user">
+          <img src="img/anhng1.jpg" alt="" />
+        </div>
+        <div class="col-md-2 user">
+          <img src="img/anhng1.jpg" alt="" />
+        </div>
+        <div class="col-md-2 user">
+          <img src="img/anhng1.jpg" alt="" />
+        </div>
       </div>
-      <div class="col-md-2 user">
-      <img src="img/anhng1.jpg" alt="" />
-      </div>
-      <div class="col-md-2 user">
-      <img src="img/anhng1.jpg" alt="" />
-      </div>
-      <div class="col-md-2 user">
-      <img src="img/anhng1.jpg" alt="" />
-      </div>
-      <div class="col-md-2 user">
-      <img src="img/anhng1.jpg" alt="" />
-      </div>
-      <div class="col-md-2 user">
-      <img src="img/anhng1.jpg" alt="" />
-      </div>
-      <div class="col-md-2 user">
-      <img src="img/anhng1.jpg" alt="" />
-      </div>
-      <div class="col-md-2 user">
-      <img src="img/anhng1.jpg" alt="" />
-      </div>
-      <div class="col-md-2 user">
-      <img src="img/anhng1.jpg" alt="" />
-      </div>
-     </div>
     </div>
   </section>
   <div class="container">
@@ -535,6 +535,6 @@
     slidesToShow: 4,
     slidesToScroll: 1,
     dots: true,
-  //  Infinity: true,
+    //  Infinity: true,
   });
 </script>
