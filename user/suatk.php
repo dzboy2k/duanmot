@@ -1,7 +1,5 @@
 <body>
-  
-
-    <div class="container">
+    <div class="container edittk">
       <div class="main-body">
         <div class="row">
           <div class="col-md-4">
@@ -14,7 +12,7 @@
                     class="rounded-circle p-1 bg-dark"
                     width="110"
                   />
-                  <div class="mt-3">
+                  <div class="mt-3 ">
                     <h4>Minh Nguyệt</h4>
                   </div>
                 </div>

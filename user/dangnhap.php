@@ -167,7 +167,7 @@
                                 >Tạo tài khoản</a
                               >
                               <a
-                                href="quenMK.html"
+                                href="?act=quenmk"
                                 class="page-link link-secondary text-decoration-none"
                                 >Quên mật khẩu</a
                               >
