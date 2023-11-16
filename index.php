@@ -6,7 +6,7 @@ include('model/loadsptheodm.php');
 include('model/find.php');
 include('model/qltk.php');
 include('model/loadsptrangchu.php');
-
+include('model/loadsp.php');
 include('user/trangchu/head.php');
 include('user/trangchu/menu.php');
 if (isset($_GET['act'])) {
@@ -16,10 +16,9 @@ if (isset($_GET['act'])) {
         case 'trangchu':
             $loadtrangsuccaocap = loadtrangsuccaocap();
             $loadtrangsuckimcuong = loadtrangsuckimcuong();
-            if (isset($_POST['btnsubmit'])) {
-                $loadtrangsuccaocap=search($_POST['tensp']);
-            }
-           
+            $loadspsale = loadspsale();
+            $loaddm = loaddm();
+         
             include('user/maintrangchu.php');
             break;
         case 'dangky':
@@ -103,8 +102,7 @@ if (isset($_GET['act'])) {
             // var_dump($getsize);
 
             $loadsptheodm = loadsptheodm($_GET['iddm']);
-            // var_dump($loadsptheodm);
-            include('user/loadstheodm.php');
+               include('user/loadstheodm.php');
             break;
         case 'trangsuckimcuong':
             $loaisp = loaisp($_GET['iddm']);
@@ -112,9 +110,8 @@ if (isset($_GET['act'])) {
             $loadsptheodm = loadsptheodm($_GET['iddm']);
             include('user/loadstheodm.php');
             break;
-        case 'trangsucdaquy':
-            $loaisp = loaisp($_GET['iddm']);
-            $listgioitinh = getgt();
+        case 'trangsucngoctrai':
+
             $loadsptheodm = loadsptheodm($_GET['iddm']);
             include('user/loadstheodm.php');
             break;
@@ -137,8 +134,12 @@ if (isset($_GET['act'])) {
             break;
     }
 } else {
+    
     $loadtrangsuccaocap = loadtrangsuccaocap();
     $loadtrangsuckimcuong = loadtrangsuckimcuong();
+    $loadspsale = loadspsale();  
+    $loaddm = $loaddm();
     include('user/maintrangchu.php');
+   
 }
 include('user/trangchu/footer.php');

@@ -10,22 +10,21 @@ body {
     line-height: 1.7;
     font-size: 14px;
     font-weight: 400;
-    font-family: Helvetica Neue, Roboto, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+    font-family: 'popin';
+}
+@font-face {
+    font-family: 'popin';
+    src: url(/themify-icons/fonts/Poppins/Poppins-Black.ttf);
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none !important;
+    color: #000 !important;
 }
 
 li {
     list-style: none;
 }
-
-
-
-
-
-
 
 
 
@@ -426,6 +425,60 @@ main {
 transition: all 0.4s ease-in-out;
 
 }
-.card img:hover{
+.card .product-img-sale:hover{
   transform: scale(1.2);
+}
+.card{
+    height: 420px !important;
+
+}
+.card-dm{
+    height: 320px !important;
+    position: relative;
+}
+
+.card-btn>button{
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    /* display: none; */
+    position: absolute;
+    left: 33%;
+    bottom: 40px;
+    transition: all .2s ease-in-out;
+    opacity: 0;
+}
+.card-dm:hover .card-btn>button{
+opacity: 1;
+bottom: 70px;
+}
+/* .card-btn>button:hover{
+    background-color: #000;
+    .card-btn>button>a{
+        color: #fff !important;
+    }
+} */
+/* css nút mua ngay */
+.product .buy-product a{
+  background-color: #000;
+  color: #fff !important;
+  position: relative;
+  z-index: 1;
+ 
+}
+
+.product .buy-product a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #C69967;
+    z-index: -1;
+    transition: height 0.2s ease-in;
+}
+
+.product .buy-product a:hover::before {
+    height: 0;
 }

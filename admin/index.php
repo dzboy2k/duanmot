@@ -71,7 +71,7 @@ if (!isset($_SESSION['user'])) {
          case 'quanlysanpham':
             $listsp = listsp();
 
-            var_dump($listsp);
+        
 
             include('qlsp/main.php');
             include('qlsp/modal.php');
