@@ -58,6 +58,7 @@ if (isset($_GET['act'])) {
                 echo '<meta http-equiv="refresh" content="0;url=?act=trangchu">';
             }
             break;
+        
         case 'suatk':
             $gettk = qltk($_SESSION['id_kh']);
             // var_dump($gettk);
@@ -96,11 +97,16 @@ if (isset($_GET['act'])) {
         case 'trangsucvang':
             $loaisp = loaisp($_GET['iddm']);
             $listgioitinh = getgt();
+            $getsize=getsize();
+            $getgia=getgia();
+            // var_dump($getsize);
+
             $loadsptheodm = loadsptheodm($_GET['iddm']);
                include('user/loadstheodm.php');
             break;
         case 'trangsuckimcuong':
-
+            $loaisp = loaisp($_GET['iddm']);
+            $listgioitinh = getgt();
             $loadsptheodm = loadsptheodm($_GET['iddm']);
             include('user/loadstheodm.php');
             break;
