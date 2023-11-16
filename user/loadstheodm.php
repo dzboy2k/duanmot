@@ -17,7 +17,7 @@
         </div>
         <div class="container">
             <div class="trangsucvang text-center mt-3">
-                <h1><?=$loadsptheodm[0]['tendm']?></h1>
+                <h1><?=$loadsptheodm[1]['tendm']?></h1>
 
             </div>
             <div class="find p-3 ">
@@ -74,9 +74,9 @@
                                     <button><i class="ti-heart"></i></button><br>
                                     <button><i class="ti-search"></i></button>
                                 </div>
-                                <div class="addtocart">
+                                <!-- <div class="addtocart">
                                     <button type="button" class="btn btn-outline-success w-100">Thêm vào giỏ hàng</button>
-                                </div>
+                                </div> -->
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $item['tensp']; ?></h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the

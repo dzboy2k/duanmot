@@ -1,32 +1,26 @@
 <?php
 $iddm = getiddm();
-
+var_dump($iddm);
 ?>
 <header>
 
   <div class="title">
     <div class="container">
-      <div class="row">
+      <div class="row m-3">
         <div class="col-md-2">
-          <div class="header-link-icon mt-3">
-            <a href=""> <i class="p-2  ti-facebook"></i></a>
-            <a href=""> <i class="p-2  ti-instagram"></i></a>
-            <a href=""> <i class="p-2  ti-youtube"></i></a>
-            <a href=""> <i class="p-2  ti-location-pin"></i></a>
-          </div>
+         <!-- logo -->
         </div>
-        <div class="col-md-6">
-          <!-- <img src="img/logoJN.png" class="w-50" alt=""> -->
-        </div>
-        <div class="col-md-4">
-          <div class="row p-3">
-            <div class="col-md-8">
-              <form class="d-flex" role="search">
+        <div class="col-md-9">
+        <form class="d-flex" role="search">
                 <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-success text-bg-secondary" type="submit">Search</button>
               </form>
-            </div>
-            <div class="col-md-2">
+        </div>
+
+        <div class="col-md-1">
+          <div class="row ">
+           
+            <div class="col-md-8">
               <a href="?act=giohang">
                 <button type="button" class="btn btn-primary position-relative">
                   <i class="ti-shopping-cart"></i>
@@ -39,7 +33,7 @@ $iddm = getiddm();
             </div>
 
             <?php if (isset($_SESSION['emailkh'])) { ?>
-              <div class="col-md-2 btn-user">
+              <div class="col-md-6 btn-user">
                 <a href="">
                   <button type="button" class="btn btn-primary position-relative">
                     <?= $_SESSION['emailkh']  ?>
@@ -52,7 +46,7 @@ $iddm = getiddm();
 
               </div>
             <?php } else { ?>
-              <div class="col-md-2 btn-user">
+              <div class="col-md-4 btn-user">
                 <a href="">
                   <button type="button" class="btn btn-primary position-relative">
                     <i class="ti-user">
@@ -81,10 +75,10 @@ $iddm = getiddm();
           <div class="nav menu-destop">
             <ul class="d-flex justify-content-sm-between">
               <li><a href="?act=trangchu">TRANG CHỦ</a></li>
-              <li class="drop-down"><a href="?act=trangsucvang&iddm=<?= $iddm[0]['id_dm'] ?>">TRANG SỨC VÀNG <i class="ti-angle-down"></i></a>
+              <li class="drop-down"><a href="?act=trangsucvang&iddm=<?= $iddm[1]['id_dm'] ?>">TRANG SỨC VÀNG <i class="ti-angle-down"></i></a>
                 <div class="menu-sub-gold">
                   <ul class="mega-menu d-flex justify-content-evenly">
-                    <li class="mega-title"><a href="?act=trangsuckimcuong&iddm=<?= $iddm[1]['id_dm'] ?>"><span>Trang sức kim cương</span></a>
+                    <li class="mega-title"><a href="?act=trangsuckimcuong&iddm=<?= $iddm[2]['id_dm'] ?>"><span>TRANG SÚC KIM CƯƠNG</span></a>
                       <ul class="menu-item">
                         <li><a href="">Nhẫn kim cương</a>
 
@@ -134,7 +128,7 @@ $iddm = getiddm();
                   </ul>
                 </div>
               </li>
-              <li class="drop-down"><a href="?act=trangsuckimcuong&iddm=<?= $iddm[1]['id_dm'] ?>">TRANG Sức Kim Cương <i class="ti-angle-down"></i></a>
+              <li class="drop-down"><a href="?act=trangsuckimcuong&iddm=<?= $iddm[2]['id_dm'] ?>">TRANG SỨC KIM CƯƠNG<i class="ti-angle-down"></i></a>
                 <ul class="menu-sub dropdown">
                   <li class="drop-down"><a href="#">Nhẫn cưới</a>
                     <ul class="dropdown menu-sub-child">
@@ -152,7 +146,7 @@ $iddm = getiddm();
                   <li><a href="#">Kiềng cưới</a></li>
                 </ul>
               </li>
-              <li class="drop-down"><a href="?act=trangsucdaquy&iddm=<?= $iddm[2]['id_dm'] ?>">TRANG Sức Đá Quý <i class="ti-angle-down"></i></a>
+              <li class="drop-down"><a href="?act=trangsucngoctrai&iddm=<?= $iddm[3]['id_dm'] ?>">TRANG SỨC NGỌC TRAI <i class="ti-angle-down"></i></a>
                 <ul class="menu-sub dropdown">
                   <li class="drop-down"><a href="#">Nhẫn</a>
                   </li>
@@ -162,7 +156,7 @@ $iddm = getiddm();
                   <li><a href="#">Vòng & Lắc</a></li>
                 </ul>
               </li>
-              <li><a href="#">KIM CƯƠNG</a></li>
+              <li><a href="#">BẠC</a></li>
               <?php if (isset($_SESSION['emailkh'])) { ?>
                 <li><a href="?act=suatk">Quản lý tài khoản</a></li>
 
