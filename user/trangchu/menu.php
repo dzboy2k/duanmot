@@ -21,9 +21,9 @@ $iddm = getiddm();
         <div class="col-md-4">
           <div class="row p-3">
             <div class="col-md-8">
-              <form class="d-flex" role="search">
-                <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-success text-bg-secondary" type="submit">Search</button>
+              <form method="post" action="?act=trangchu" class="d-flex" role="search">
+                <input class="form-control me-1" name="tensp" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-success text-bg-secondary" name="btnsubmit" type="submit">Tìm kiềm</button>
               </form>
             </div>
             <div class="col-md-2">

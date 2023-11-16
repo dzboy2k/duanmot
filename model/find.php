@@ -4,15 +4,15 @@ function getgt()
         $sql = "SELECT * FROM `gioitinh`";
         return pdo_query($sql);
 }
-function getsize($id_size)
+function getsize()
 {
-        $sql = "SELECT * FROM `danh_muc` JOIN san_pham ON san_pham.id_dm=danh_muc.id_dm 
-JOIN size ON size.id_size=san_pham.id_sp JOIN chitietsize
- ON chitietsize.idsize=size.id_size WHERE size.id_size=$id_size;";
+        $sql = "SELECT * FROM `chitietsize` JOIN size ON size.id_size=chitietsize.idsize ";
         return pdo_query($sql);
 }
 function getgia()
 {
+$sql="SELECT * FROM `sanphamct`";
+return pdo_query($sql);
 }
 function loaisp($iddm)
 {
