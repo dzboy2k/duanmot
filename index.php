@@ -18,7 +18,7 @@ if (isset($_GET['act'])) {
             $loadtrangsuckimcuong = loadtrangsuckimcuong();
             $loadspsale = loadspsale();
             $loaddm = loaddm();
-         
+
             include('user/maintrangchu.php');
             break;
         case 'dangky':
@@ -58,7 +58,7 @@ if (isset($_GET['act'])) {
                 echo '<meta http-equiv="refresh" content="0;url=?act=trangchu">';
             }
             break;
-        
+
         case 'suatk':
             $gettk = qltk($_SESSION['id_kh']);
             // var_dump($gettk);
@@ -97,12 +97,12 @@ if (isset($_GET['act'])) {
         case 'trangsucvang':
             $loaisp = loaisp($_GET['iddm']);
             $listgioitinh = getgt();
-            $getsize=getsize();
-            $getgia=getgia();
+            $getsize = getsize();
+            $getgia = getgia();
             // var_dump($getsize);
 
             $loadsptheodm = loadsptheodm($_GET['iddm']);
-               include('user/loadstheodm.php');
+            include('user/loadstheodm.php');
             break;
         case 'trangsuckimcuong':
             $loaisp = loaisp($_GET['iddm']);
@@ -134,12 +134,10 @@ if (isset($_GET['act'])) {
             break;
     }
 } else {
-    
     $loadtrangsuccaocap = loadtrangsuccaocap();
     $loadtrangsuckimcuong = loadtrangsuckimcuong();
-    $loadspsale = loadspsale();  
-    $loaddm = $loaddm();
+    $loadspsale = loadspsale();
+    $loaddm = loaddm();
     include('user/maintrangchu.php');
-   
 }
 include('user/trangchu/footer.php');
