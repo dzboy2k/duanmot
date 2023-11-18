@@ -18,6 +18,7 @@ if (isset($_GET['act'])) {
             $loadtrangsuckimcuong = loadtrangsuckimcuong();
             $loadspsale = loadspsale();
             $loaddm = loaddm();
+           $loadsptheoluotxem = loadsptheoluotxem();
 
             include('user/maintrangchu.php');
             break;
@@ -138,6 +139,8 @@ if (isset($_GET['act'])) {
     $loadtrangsuckimcuong = loadtrangsuckimcuong();
     $loadspsale = loadspsale();
     $loaddm = loaddm();
+    $loadsptheoluotxem = loadsptheoluotxem();
+
     include('user/maintrangchu.php');
 }
 include('user/trangchu/footer.php');

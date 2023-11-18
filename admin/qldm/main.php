@@ -36,7 +36,7 @@
                                     <th width="10"><input type="checkbox" id="all"></th>
                                     <td><?= $key + 1 ?></td>
                                     <td><?= $list['tendm'] ?></td>
-                                    <td><img src="<?= $list['hinhanhdm'] ?>" style="width: 200px;" alt=""></td>
+                                    <td><img style="width: 100px;" src="<?= $list['hinhanhdm'] ?>"alt=""></td>
 
                                     <td colspan="2">
                                         <button class="btn btn-primary btn-sm"><a href="?act=editdm&iddm=<?= $list['id_dm'] ?>" >
@@ -50,8 +50,6 @@
                             <?php endforeach ?>
                         </tbody>
                         <tbody>
-
-
                         </tbody>
                     </table>
                 </div>
