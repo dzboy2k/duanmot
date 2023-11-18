@@ -22,6 +22,7 @@
                 <th width="10"><input type="checkbox" id="all"></th>
                 <th>Id khách hàng</th>
                 <th>Tên khách hàng</th>
+                <th>Ảnh khách hàng</th>
                 <th>Email</th>
                 <th>Số điện thoại</th>
                 <th>Địa chỉ</th>
@@ -33,10 +34,10 @@
             <?php foreach ($listkh as $item) : ?>
               <tbody>
                 <tr>
-
                   <th></th>
                   <th><?php echo $item['id_kh'] ?></th>
                   <th><?php echo $item['tenkh'] ?></th>
+                  <th><img style="width: 100px;" src="../<?php echo $item['hinhanhkh'] ?>" alt=""></th>
                   <th><?php echo $item['email'] ?></th>
                   <th><?php echo $item['sodienthoai'] ?></th>
                   <th><?php echo $item['diachi'] ?></th>

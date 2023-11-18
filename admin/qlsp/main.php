@@ -29,7 +29,7 @@
                                 <th>Tên sản phẩm</th>
                                 <th>Ảnh</th>
 
-                                <th>Tình trạng</th>
+                                <th>Giảm giá</th>
                                 <th>Giới tính</th>
                                 <th>size</th>
                                 <th>Danh mục</th>
@@ -46,7 +46,7 @@
                                     <td><?= $list['tensp'] ?></td>
                                     <td><img src="<?= $list['hinhanh'] ?>" alt="" width="100px"></td>
 
-                                    <td><?= $list['dacbiet'] ?></td>
+                                    <td><?= $list['dacbiet'] ?>%</td>
                                     <td><?= $list['ten_gt'] ?></td>
                                     <td><?= $list['id_size'] ?></td>
                                     <td><?= $list['tendm'] ?></td>

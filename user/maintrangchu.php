@@ -46,13 +46,13 @@
               </div>
               <div class="card-body">
                 <h6 class="card-title"><?php echo $item['tenspchitiet']; ?></h6>
-                <del class="price-product-initial"><?php echo $item['gia']; ?></del>
+                <del class="price-product-initial"><?php echo number_format( $item['gia']) ?> VND</del>
                 <p class="price-product" style="color: #C69967; font-size: 16px;"><?php
-
+  
                                                                                   $price = $item['gia'];
-                                                                                  $phantram = 10;
+                                                                                  $phantram = $item['dacbiet'];
                                                                                   echo number_format($item['gia'] - ($price * $phantram) / 100)
-                                                                                  ?> VNĐ </p>
+                                                                                  ?> VND </p>
                 <div class="d-flex">
                   <div class="buy-product">
                     <a href="?act=muahang&id_spct=<?=$item['id_spct']?>" class="btn btn-primary mr-5" >Mua ngay</a>
@@ -81,10 +81,10 @@
          
               <div class="card card-dm">
                 <div class="card-img">
-                  <img src="admin/<?php echo $item['hinhanh']; ?>" class="card-img-top" alt="..." />
+                  <img src="admin/<?php echo $item['hinhanhdm']; ?>" class="card-img-top" alt="..." />
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title text-center"><?php echo $item['tensp']; ?></h5>
+                  <h5 class="card-title text-center"><?php echo $item['tendm']; ?></h5>
                 </div>
                 <div class="card-btn">
                   <button><a href="">Xem thêm</a></button>
@@ -163,19 +163,44 @@
   </section>
   <div class="container">
     <div class="hiden-end text-center">
-      <h3>TRANG SỨC CAO CẤP</h3>
+      <h3>SẢN PHẨM ĐƯỢC XEM NHIỀU NHẤT</h3>
       <p>
         Thỏa sức thể hiện sự kiêu kỳ, phô diễn trọn vẹn vẻ đẹp của kim cương
         thiên nhiên tiêu chuẩn quốc tế GIA với giác cắt hoàn hảo nhất.
       </p>
     </div>
     <div class="row">
-      <div class="col-md-6">video</div>
-      <div class="col-md-6">slide</div>
-      <div class="col-12">
-        <img src="/img/2_Banner_BST-_PC.jpg" class="w-100" alt="" />
-      </div>
+      <!-- <div class="col-md-6">video</div>
+      <div class="col-md-6">slide</div> -->
+    
+        <?php foreach ($loadsptheoluotxem as $item) : ?>
+          <div class="col-md-3 col-sm-4 col-6">
+            <div class="card">
+              <div class="card-img">
+                
+                <img src="admin/<?php echo $item['hinhanhchitiet']; ?>" class="card-img-top product-img-sale" alt="..." />
+              </div>
+              <div class="card-body">
+                <h6 class="card-title"><?php echo $item['tenspchitiet']; ?></h6>
+                <!-- <del class="price-product-initial"><?php echo $item['gia']; ?></del> -->
+                <p class="price-product" style="color: #C69967; font-size: 16px;"><?php
+ echo number_format($item['gia']);
+                                                                            
+                                                                                  ?> VNĐ </p>
+              
+                 
+                  <a href="" class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
+                  <!-- <div class="buy-product">
+                    <a href="#" class="btn btn-primary mr-5" >Thêm giỏ hàng</a>
+                  </div> -->
+              </div>
+            </div>
+          </div>
+        <?php endforeach ?>
+    
     </div>
+
+
     <div class="vong">
       <div class="row">
         <div class="col-md-6">

@@ -15,8 +15,8 @@ function getname($id){
     $sql="SELECT*FROM danh_muc where id_dm=$id";
     return pdo_query_one($sql);
 }
-function updatedm($iddm,$namedm){
-    $sql="UPDATE `danh_muc` SET `id_dm`='[value-1]',`tendm`='$namedm' WHERE id_dm=$iddm ";
+function updatedm($iddm,$namedm,$hinhanhdm){
+    $sql="UPDATE `danh_muc` SET `tendm`='$namedm',`hinhanhdm`='$hinhanhdm' WHERE id_dm=$iddm ";
     pdo_execute($sql);
 }
 
