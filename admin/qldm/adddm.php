@@ -10,9 +10,11 @@
             <div class="tile">
                 <h3 class="tile-title">Tạo mới danh mục</h3>
                 <div class="tile-body">
-                    <form action="?act=adddm" method="post">
+                    <form action="?act=adddm" method="post" enctype="multipart/form-data">
                         <label>Tên danh mục</label>
-                        <input name="tendm" type="text">
+                        <input name="tendm" type="text"> <br>
+                        <label class="mt-3">Hình ảnh danh mục</label>
+                        <input name="hinhanhdm" type="file"><br>
                         <button type="submit" name="btnsubmit" class="btn btn-success mt-3">Thêm mới</button>
                     </form>
 
