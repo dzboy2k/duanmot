@@ -58,7 +58,12 @@ if (!isset($_SESSION['user'])) {
                $editdm = getname($_GET['iddm']);
             }
             if (isset($_POST['btnsubmit'])) {
-               updatedm($_GET['iddm'], $_POST['namedm']);
+
+               $upload_img="upload_img/".time().$_FILES['hinhanhdm']['name'];
+               move_uploaded_file($_FILES['hinhanhdm']['tmp_name'],$upload_img);
+              
+
+               updatedm($_GET['iddm'], $_POST['namedm'],$upload_img);
                header('location:?act=quanlydanhmuc');
             }
             include('qldm/editdm.php');
@@ -170,7 +175,7 @@ if (!isset($_SESSION['user'])) {
             break;
          case 'updatespchitiet':
             $getspchitiet = getchitietsp($_GET['idspchitiet']);
-            // var_dump($getspchitiet);
+
             if (isset($_POST['btnsubmit'])) {
 
                if ($_FILES['hinhanhchitiet']['name'] == '') {
