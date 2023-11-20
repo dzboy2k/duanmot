@@ -396,21 +396,25 @@ li>a {
     width: 270px;
 }
 
-
+/* loadsptheodm */
+main{
+    margin-top: 60px;
+}
+/*  */
 .cart-main{
     margin-top: 160px;
 }
 .check-main{
-    margin-top: 150px;
+    margin-top: 160px;
 }
 .quenmk{
-    margin-top: 150px;
+    margin-top: 160px;
 }
 .new-product-main{
-    margin-top: 150px;
+    margin-top: 140px;
 }
 .detail-product-main{
-    margin-top: 150px;
+    margin-top: 160px;
 }
 .edittk{
     margin-top: 150px;
@@ -425,11 +429,11 @@ transition: all 0.4s ease-in-out;
 .card .product-img-sale:hover{
   transform: scale(1.2);
 }
-/* .card{
+.card{
     height: 420px !important;
 
-} */
-.card-dm{
+} 
+ .card-dm{
     height: 320px !important;
     position: relative;
 }
@@ -438,7 +442,6 @@ transition: all 0.4s ease-in-out;
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
-    /* display: none; */
     position: absolute;
     left: 33%;
     bottom: 40px;
@@ -448,13 +451,37 @@ transition: all 0.4s ease-in-out;
 .card-dm:hover .card-btn>button{
 opacity: 1;
 bottom: 70px;
+} 
+ 
+
+/* css thêm giỏ hàng  */
+.card_topsp{
+    height: 370px !important;
+    position: relative;
 }
-/* .card-btn>button:hover{
-    background-color: #000;
-    .card-btn>button>a{
-        color: #fff !important;
-    }
-} */
+ .card-btn>button a{
+  color: #fff !important; 
+ } 
+.card-btn>button{
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    position: absolute;
+    left: 30%;
+    bottom: 40px;
+    background-color: #CC8811;
+    transition: all .2s ease-in-out;    
+    opacity: 0;
+}
+.card_topsp:hover .card-btn>button{
+opacity: 1;
+bottom: 120px;
+}
+.cardto:hover .card-btn>button{
+    opacity: 1;
+    bottom: 140px;
+    } 
+
 /* css nút mua ngay */
 .product .buy-product a{
   background-color: #000;
@@ -463,7 +490,6 @@ bottom: 70px;
   z-index: 1;
  
 }
-
 .product .buy-product a::before {
     content: "";
     position: absolute;
@@ -475,7 +501,17 @@ bottom: 70px;
     z-index: -1;
     transition: height 0.2s ease-in;
 }
-
 .product .buy-product a:hover::before {
     height: 0;
+}
+/* css sizze */
+.size{
+    flex-direction: column;
+}
+/* css logo  */
+
+.logo>img{
+    margin-top: -10px;
+    width: 140px;
+    height: 80px;
 }

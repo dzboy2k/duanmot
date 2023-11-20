@@ -17,7 +17,7 @@
         </div>
         <div class="container">
             <div class="trangsucvang text-center mt-3">
-                <h1><?=$loadsptheodm[1]['tendm']?></h1>
+                <h1><?= $loadsptheodm[0]['tendm'] ?></h1>
 
             </div>
             <div class="find p-3 ">
@@ -72,20 +72,24 @@
                 <div class="row p-3">
                     <?php foreach ($loadsptheodm as $item) : ?>
                         <div class="col-md-3 col-sm-4 col-6 add">
-                            <div class="card cardto">
-                                <img src="admin/<?php echo $item['hinhanh'] ?>" alt="...">
+                            <div class="card cardto card_topsp">
+                                <img src="admin/<?php echo $item['hinhanhchitiet'] ?>" alt="...">
                                 <div class="heart">
 
                                     <button><i class="ti-heart"></i></button><br>
                                     <button><i class="ti-search"></i></button>
                                 </div>
-                                <!-- <div class="addtocart">
-                                    <button type="button" class="btn btn-outline-success w-100">Thêm vào giỏ hàng</button>
-                                </div> -->
                                 <div class="card-body">
-                                    <h5 class="card-title"><?php echo $item['tensp']; ?></h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                        card's content.</p>
+                                    <h5 class="card-title"><?php echo $item['tenspchitiet']; ?></h5>
+                                    <p class="price-product" style="color: #C69967; font-size: 16px;"><?php
+                                                                                                        echo number_format($item['gia']);
+                                                                                                        ?> VNĐ </p>
+
+                                    <a href="" class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
+
+                                    <div class="card-btn">
+                                        <button><a href="">Thêm giỏ hàng</a></button>
+                                    </div>
 
                                 </div>
                             </div>
