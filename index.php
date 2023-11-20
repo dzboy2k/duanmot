@@ -56,6 +56,7 @@ if (isset($_GET['act'])) {
         case 'dangxuat':
             if (isset($_SESSION['emailkh'])) {
                 unset($_SESSION['emailkh']);
+                unset($_SESSION['id_kh']);
                 // header('location:?act=trangchu');
                 echo '<meta http-equiv="refresh" content="0;url=?act=trangchu">';
             }
@@ -133,21 +134,50 @@ if (isset($_GET['act'])) {
             break;
         case 'muahang':
             if (isset($_GET['id_spct'])) {
-            $getmuahang=getmuahangtheospct($_GET['id_spct']);
-            $getkh=qltk($_SESSION['id_kh']);
-            $_SESSION['slspct']=1;
-            if (isset($_POST['btnsubmitsl'])) {
-                $_SESSION['slspct']=$_POST['soluongspct'];
-                
-            }
-            if (isset($_POST['btnsubmitdm'])) {
-                adddh($_POST['diachinhan'],$_POST['sodienthoai'],$_POST['option'],$_SESSION['id_kh']);
-                $getdh=getdh($_SESSION['id_kh']);
-                var_dump($getdh);
-                addchitietdh(intval($_POST['soluongspct']),floatval($_POST['gia']),floatval($_POST['thanhtien']),
-                $getdh['id_dh'],intval($_GET['id_spct']),intval($_POST['magiamgia']));
-            }
-                
+                $getmuahang = getmuahangtheospct($_GET['id_spct']);
+                if (isset($_SESSION['id_kh'])) {
+                    $getkh = qltk($_SESSION['id_kh']);
+                    var_dump($getkh);
+                    $_SESSION['slspct'] = 1;
+                    if (isset($_POST['btnsubmitsl'])) {
+                        $_SESSION['slspct'] = $_POST['soluongspct'];
+                    }
+                    if (isset($_POST['btnsubmitdm'])) {
+                        adddh($_POST['diachinhan'], $_POST['sodienthoai'], $_POST['option'], $_SESSION['id_kh']);
+                        $getdh = getdh($_SESSION['id_kh']);
+                        addchitietdh(
+                            intval($_POST['soluongspct']),
+                            floatval($_POST['gia']),
+                            floatval($_POST['thanhtien']),
+                            $getdh['id_dh'],
+                            intval($_GET['id_spct']),
+                            intval($_POST['magiamgia'])
+                        );
+                    }
+                }else{
+                    $_SESSION['slspct'] = 1;
+                    if (isset($_POST['btnsubmitsl'])) {
+                        $_SESSION['slspct'] = $_POST['soluongspct'];
+                    }
+                    if (isset($_POST['btnsubmitdm'])) {
+                        addkhkhimuahang($_POST['username'],$_POST['email'],$_POST['sodienthoai']);
+                        // die;
+                        $getmaxidkh=getkhmax();
+                        $_SESSION['id_khkhongdangky']=$getmaxidkh['id_kh'];
+                        // var_dump($getmaxidkh);
+                        // die;
+                        adddh($_POST['diachinhan'], $_POST['sodienthoai'], $_POST['option'], $_SESSION['id_khkhongdangky']);
+                        $getdh = getdh($_SESSION['id_khkhongdangky']);
+                        addchitietdh(
+                            intval($_POST['soluongspct']),
+                            floatval($_POST['gia']),
+                            floatval($_POST['thanhtien']),
+                            $getdh['id_dh'],
+                            intval($_GET['id_spct']),
+                            intval($_POST['magiamgia'])
+                        );
+                    }
+                }
             }
 
             include('user/muahang.php');
