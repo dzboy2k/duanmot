@@ -7,6 +7,8 @@ include('model/find.php');
 include('model/qltk.php');
 include('model/loadsptrangchu.php');
 include('model/loadsp.php');
+include('model/muahang.php');
+
 include('user/trangchu/head.php');
 include('user/trangchu/menu.php');
 if (isset($_GET['act'])) {
@@ -130,6 +132,24 @@ if (isset($_GET['act'])) {
 
             break;
         case 'muahang':
+            if (isset($_GET['id_spct'])) {
+            $getmuahang=getmuahangtheospct($_GET['id_spct']);
+            $getkh=qltk($_SESSION['id_kh']);
+            $_SESSION['slspct']=1;
+            if (isset($_POST['btnsubmitsl'])) {
+                $_SESSION['slspct']=$_POST['soluongspct'];
+                
+            }
+            if (isset($_POST['btnsubmitdm'])) {
+                adddh($_POST['diachinhan'],$_POST['sodienthoai'],$_POST['option'],$_SESSION['id_kh']);
+                $getdh=getdh($_SESSION['id_kh']);
+                var_dump($getdh);
+                addchitietdh(intval($_POST['soluongspct']),floatval($_POST['gia']),floatval($_POST['thanhtien']),
+                $getdh['id_dh'],intval($_GET['id_spct']),intval($_POST['magiamgia']));
+            }
+                
+            }
+
             include('user/muahang.php');
 
             break;

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 13, 2023 lúc 08:56 AM
+-- Thời gian đã tạo: Th10 18, 2023 lúc 02:26 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
--- Phiên bản PHP: 8.2.4
+-- Phiên bản PHP: 8.1.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -46,7 +46,6 @@ CREATE TABLE `chitietdonhang` (
   `soluongchitiet` int(11) NOT NULL,
   `giasp` float NOT NULL,
   `tongtien` float NOT NULL,
-  `soluong` int(11) NOT NULL,
   `iddh` int(11) NOT NULL,
   `idspct` int(11) NOT NULL,
   `idmagiamgia` int(11) NOT NULL
@@ -88,17 +87,18 @@ INSERT INTO `chitietsize` (`id_chitietsize`, `idsize`, `bankinh`) VALUES
 CREATE TABLE `danh_muc` (
   `id_dm` int(11) NOT NULL,
   `tendm` varchar(50) NOT NULL,
-  `hinhanh` varchar(255) NOT NULL
+  `hinhanhdm` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `danh_muc`
 --
 
-INSERT INTO `danh_muc` (`id_dm`, `tendm`, `hinhanh`) VALUES
-(1, 'Trang Sức Vàng', ''),
-(2, 'Trang Sức Kim Cương', ''),
-(5, 'Trang Sức Đá Quý', '');
+INSERT INTO `danh_muc` (`id_dm`, `tendm`, `hinhanhdm`) VALUES
+(1, 'Trang Sức Vàng', 'upload_img/1700278186DWR0037R-D01200048-thumbnail.jpg'),
+(2, 'Trang Sức Kim Cương', 'upload_img/1700278278DFH0218AEW-WG01A-thumbnail.jpg'),
+(5, 'Trang Sức Ngọc Trai', 'upload_img/1700278242nhanngoctrai1.jpg'),
+(15, 'Trang Sức Bạc', 'upload_img/1700278603trangsucbac.jfif');
 
 -- --------------------------------------------------------
 
@@ -168,16 +168,18 @@ CREATE TABLE `khachhang` (
   `diachi` varchar(50) NOT NULL,
   `matkhau` varchar(30) NOT NULL,
   `ngaysinh` date NOT NULL,
-  `tentk` varchar(20) NOT NULL
+  `tentk` varchar(20) NOT NULL,
+  `hinhanhkh` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `khachhang`
 --
 
-INSERT INTO `khachhang` (`id_kh`, `tenkh`, `email`, `sodienthoai`, `diachi`, `matkhau`, `ngaysinh`, `tentk`) VALUES
-(1, 'Nguyễn Văn A', '', '', '', '', '2002-11-12', ''),
-(2, 'Nguyễn Văn B', '', '', '', '', '2003-11-12', '');
+INSERT INTO `khachhang` (`id_kh`, `tenkh`, `email`, `sodienthoai`, `diachi`, `matkhau`, `ngaysinh`, `tentk`, `hinhanhkh`) VALUES
+(1, 'Nguyễn Văn A', '', '', '', '12345', '2002-11-12', 'anv', ''),
+(2, 'Nguyễn Văn B', '', '', '', '', '2003-11-12', '', ''),
+(4, 'trang', 'dungncph44249@fpt.edu.vn', '1223', 'Cầu Giấy', 'trang123', '0000-00-00', '', 'admin/upload_img/1700038938a2.jpg');
 
 -- --------------------------------------------------------
 
@@ -207,7 +209,8 @@ CREATE TABLE `nhanvien` (
 INSERT INTO `nhanvien` (`id_nv`, `hoten`, `tendangnhap`, `email`, `sdt`, `diachi`, `vaitro`, `matkhau`, `role`, `hinhanhnv`, `ngaysinh`, `luong`) VALUES
 (1, 'Nguyễn Thi Minh Nguyệt', 'nguyetntm', 'nguyetntm@fpt.edu.vn', '', '', '', 'ceo1234', 2, '', NULL, 0),
 (2, 'Nguyễn công trang', 'trangnc', '', '', '', 'nhân viên', 'nv1234', 1, '', NULL, 0),
-(3, 'Nguyễn Tiến Dũng', 'dungnt', '', '', '', '', 'nv1234', 1, '', NULL, 0);
+(5, 'trang1', 'trangnc', 'trangncph44249@fpt.edu.vn', '0977600724', 'hà nội', 'nhân viên', '', 0, 'upload_img/8511avatar_nguyet.jpg', '2023-11-01', 123),
+(7, 'Nguyễn Tiến Dũng', 'dungnt', 'dung', '0345196423', 'Hà Nam', 'Nhân viên', '', 0, 'upload_img/6522avatar_nguyet.jpg ', '2004-08-11', 12000000);
 
 -- --------------------------------------------------------
 
@@ -230,9 +233,16 @@ CREATE TABLE `sanphamct` (
 --
 
 INSERT INTO `sanphamct` (`id_spct`, `soluong`, `gia`, `mota`, `tenspchitiet`, `hinhanhchitiet`, `idsp`) VALUES
-(14, 12, 23709000, '', 'Nhẫn Vàng Trơn', 'upload_img/1699861582banner nhancuoi.jfif', 1),
-(15, 12, 123457000, '', 'Vòng Vàng ý', 'upload_img/1699861630bong-tai-kim-cuong-loc-phuuc-essenza.jpg', 2),
-(16, 0, 0, '', 'Vòng chân', 'upload_img/1699861665K1B-LPW0014R-YG-W-hover.jpg', 3);
+(14, 12, 23709000, '', 'Nhẫn Vàng Trơn', 'upload_img/1700277277DWR0037R-D01200048-thumbnail.jpg', 1),
+(15, 12, 123457000, '', 'Vòng Vàng ý', 'upload_img/1700279405vongtayvang1.jpg', 2),
+(16, 0, 0, '', 'Vòng chân', 'upload_img/1700279143vongchanvang1.jfif', 3),
+(19, 100, 4000000, 'Bông Tai vàng 24k của Hải Hồng được chế tác bởi những nghệ nhân lành nghề nhất, trải qua nhiều  bước gồm nhiều thao tác thủ công. Đây sẽ là sự lựa chọn tốt nhất cho bộ sưu tập trang sức của bạn....', 'Bông Tai Vàng', 'upload_img/1700278809DMP0140AEW-RG01A-thumbnail.jpg', 21),
+(20, 122, 21000000, 'Một chiếc nhẫn đơn giản với đường viền trơn. Viên chủ và chiếc nhẫn kết hợp tạo thành bông hoa ở giữa đang nở rộ như tình yêu của bạn.', 'Nhẫn kim cương cầu hôn', 'upload_img/1700279047DWR0099ARW-WG01A-hover.jpg', 22),
+(21, 32, 18000000, 'Sự kết hợp hài hòa giữa ngọc trai biển South Sea màu vàng kim tự nhiên và kim cương đã tạo nên một thiết kế sang trọng, tinh tế, tôn vinh vẻ đẹp kiêu sa, quý phái của chủ nhân.', 'Nhẫn Ngọc Trai Viha', 'upload_img/1700279550nhanngoctrai1.jpg', 23),
+(22, 56, 18000000, 'Vòng kim cương nổi bật với thiết kế đột phá, vẫn bám sát ôm vào cổ tay với kiểu cách độc đáo. Lấy ý tưởng và cảm hứng từ vành đai sao thổ, mang vẻ đẹp tuyệt vời của vũ trụ. Một chiếc vòng mang sắc trắng lấp lánh phản chiếu ánh sáng từ nhiều viên kim ', 'Vòng Kim Cương', 'upload_img/1700311174KC_vongtay01.1.jpg', 24),
+(23, 6, 78000000, 'Với nhiều viên kim cương dáng tròn size nhỏ trải dọc theo chiều dài của chiếc vòng kim cương. Điểm xuyến của chiếc vòng là các viên kim cương hình chữ nhật xếp tầng được sắp xếp thành hình chữ thập. Xung quanh là những viên kim cương dáng tròn bao qu', 'Vòng Kim Cương Huna', 'upload_img/1700311235KC_vongtay02.1.jpg', 24),
+(24, 188, 12000000, 'Mẫu nhẫn vàng 14k kết hợp với ngọc trai Southsea vàng với vẻ đẹp đơn giản, tinh tế do Marian Pearls chế tác. Hãy liên hệ ngay với chúng tôi để sở hữu ngay mẫu nhẫn tuyệt vời này với mức giá vô cùng hấp dẫn nhé!', 'Nhẫn Vàng ', 'upload_img/1700311338LPW0040ARM-YG06A-hover.jpg', 1),
+(25, 177, 1688890, 'Trong số các loại trang sức, nhẫn luôn được đánh giá là một trong những vật phẩm thiêng liêng nhất với con người bởi nó luôn mang những ý nghĩa đặc biệt trong từng trường hợp khác nhau. Từ đó, những mẫu nhẫn Nam được cho ra đời để mang những ý nghĩa ', 'Nhẫn Vàng 18K', 'upload_img/1700311499nhanvang1.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -245,7 +255,7 @@ CREATE TABLE `san_pham` (
   `tensp` varchar(50) NOT NULL,
   `hinhanh` text NOT NULL,
   `luotxem` int(11) NOT NULL,
-  `dacbiet` varchar(50) NOT NULL,
+  `dacbiet` int(50) NOT NULL,
   `id_dm` int(11) NOT NULL,
   `id_gt` int(11) NOT NULL,
   `id_size` int(11) NOT NULL
@@ -256,9 +266,13 @@ CREATE TABLE `san_pham` (
 --
 
 INSERT INTO `san_pham` (`id_sp`, `tensp`, `hinhanh`, `luotxem`, `dacbiet`, `id_dm`, `id_gt`, `id_size`) VALUES
-(1, 'Nhẫn Vàng', '', 124, 'Còn Hàng', 1, 3, 1),
-(2, 'Vòng Vàng', '', 120, 'Còn Hàng', 1, 3, 2),
-(3, 'Vòng Chân Vàng', '', 140, 'Còn Hàng', 1, 2, 3);
+(1, 'Nhẫn Vàng', 'upload_img/1700313378DWR0037R-D01200048-thumbnail-hover.jpg', 124, 10, 1, 3, 1),
+(2, 'Vòng Vàng', 'upload_img/1700313427VANG_vongco01.2.jpg', 120, 10, 1, 3, 2),
+(3, 'Vòng Chân Kim Cương', 'upload_img/1700313499vongchankimcuong1.jfif', 140, 0, 1, 2, 3),
+(21, 'Bông tai vàng', 'upload_img/1699866999CZ_PC.jpg', 120, 10, 1, 2, 1),
+(22, 'Nhẫn kim cương', 'upload_img/1700041738DFH0109BRW-WG01A-model-hover.jfif', 90, 10, 2, 3, 1),
+(23, 'Nhẫn Ngọc Trai', 'upload_img/1700313556nhanngoctrai1.jpg', 12, 15, 5, 3, 1),
+(24, 'Vòng Kim Cương', 'upload_img/1700311103KC_vongtay01.1.jpg', 121, 10, 2, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -276,9 +290,9 @@ CREATE TABLE `size` (
 --
 
 INSERT INTO `size` (`id_size`, `tensptheosize`) VALUES
-(1, 'size theo nhẫn vàng'),
-(2, 'size theo vòng tay vàng'),
-(3, 'size theo lắc chân vàng');
+(1, 'size theo nhẫn '),
+(2, 'size theo vòng tay '),
+(3, 'size theo lắc chân ');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -393,7 +407,7 @@ ALTER TABLE `chitietsize`
 -- AUTO_INCREMENT cho bảng `danh_muc`
 --
 ALTER TABLE `danh_muc`
-  MODIFY `id_dm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_dm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `donhang`
@@ -414,22 +428,28 @@ ALTER TABLE `gioitinh`
   MODIFY `id_gt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT cho bảng `khachhang`
+--
+ALTER TABLE `khachhang`
+  MODIFY `id_kh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT cho bảng `nhanvien`
 --
 ALTER TABLE `nhanvien`
-  MODIFY `id_nv` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_nv` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `sanphamct`
 --
 ALTER TABLE `sanphamct`
-  MODIFY `id_spct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_spct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT cho bảng `san_pham`
 --
 ALTER TABLE `san_pham`
-  MODIFY `id_sp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_sp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT cho bảng `size`

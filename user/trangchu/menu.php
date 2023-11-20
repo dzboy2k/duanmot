@@ -1,5 +1,6 @@
 <?php
 $iddm = getiddm();
+// var_dump($iddm);
 ?>
 <header>
 
