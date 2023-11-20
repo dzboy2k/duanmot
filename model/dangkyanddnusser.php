@@ -13,4 +13,13 @@ function quenmk($email){
 $sql="SELECT * FROM `khachhang` WHERE email like '$email'";
 return pdo_query_one($sql);
 }
+function addkhkhimuahang($tenkh,$email,$sodienthoai){
+    $sql="INSERT INTO `khachhang`( `tenkh`, `email`, `sodienthoai`) 
+    VALUES ('$tenkh','$email','$sodienthoai')";
+    pdo_execute($sql);
+}
+function getkhmax(){
+    $sql="SELECT MAX(id_kh) AS 'id_kh' FROM khachhang;";
+return pdo_query_one($sql);
+}
 ?>

@@ -1,7 +1,7 @@
-
-<?php  
-  $getgiamgia=getmagiamgia();   
+<?php
+$getgiamgia = getmagiamgia();
 ?>
+
 <body>
 
     <div class="check-main">
@@ -18,22 +18,40 @@
                 <div class="row">
                     <div class="col-lg-7">
                         <h5 class="checkout-title">Thông tin người mua</h5>
+                        <?php if (isset($_SESSION['id_kh'])) { ?>
+                            <div class="single-input-item">
+                                <input class="form-control p-3" value="<?= $getkh['tenkh'] ?>" type="text" id="name" name="username" placeholder="Họ và tên của bạn">
 
-                        <div class="single-input-item">
-                            <input class="form-control p-3" value="<?= $getkh['tenkh'] ?>" type="text" id="name" name="UserName" placeholder="Họ và tên của bạn">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
 
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-
-                                <div class="single-input-item">
-                                    <input class="form-control mt-5 w-100 p-3" value="<?= $getkh['email'] ?>" type="email" id="email" name="email" placeholder="Email của bạn">
+                                    <div class="single-input-item">
+                                        <input class="form-control mt-5 w-100 p-3" value="<?= $getkh['email'] ?>" type="email" id="email" name="email" placeholder="Email của bạn">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control mt-5 w-100 p-3" type="phone" value="<?= $getkh['sodienthoai'] ?>" id="phone" name="sodienthoai" placeholder="Số điện thoại của bạn">
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <input class="form-control mt-5 w-100 p-3" type="phone" value="<?= $getkh['sodienthoai'] ?>" id="phone" name="sodienthoai" placeholder="Số điện thoại của bạn">
+                        <?php  } else { ?>
+                            <div class="single-input-item">
+                                <input class="form-control p-3" type="text" id="name" name="username" placeholder="Họ và tên của bạn">
+
                             </div>
-                        </div>
+                            <div class="row">
+                                <div class="col-md-6">
+
+                                    <div class="single-input-item">
+                                        <input class="form-control mt-5 w-100 p-3" type="email" id="email" name="email" placeholder="Email của bạn">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control mt-5 w-100 p-3" type="phone" id="phone" name="sodienthoai" placeholder="Số điện thoại của bạn">
+                                </div>
+                            </div>
+                        <?php } ?>
+
 
 
                         <h5 class="mt-5 checkout-title">Địa chỉ nhận hàng</h5>
@@ -77,7 +95,7 @@
                                             <input type="number" min="1" value="<?= $_SESSION['slspct'] ?>" name="soluongspct">
                                             <button type="submit" class="btn btn-secondary mt-3" name="btnsubmitsl">Cập nhật số lượng</button>
                                         </th>
-                                        <th ><input name="gia" type="text" value="<?= $getmuahang['gia'] ?>">VND</th>
+                                        <th><input name="gia" type="text" value="<?= $getmuahang['gia'] ?>">VND</th>
 
                                     </tr>
 
@@ -89,11 +107,11 @@
                                     <th colspan="2">
                                         <div class="title-sale">
                                             Nhập mã ưu đãi <br>
-                                         <select name="magiamgia" id="">
-                                            <?php foreach ($getgiamgia as $key => $giamgia) { ?>
-                                               <option value="<?=$giamgia['idgiamgia']?>"><?=$giamgia['magiamgia']?></option>
-                                             <?php } ?>
-                                         </select>
+                                            <select name="magiamgia" id="">
+                                                <?php foreach ($getgiamgia as $key => $giamgia) { ?>
+                                                    <option value="<?= $giamgia['idgiamgia'] ?>"><?= $giamgia['magiamgia'] ?></option>
+                                                <?php } ?>
+                                            </select>
                                         </div>
                                     </th>
                                     <th>
@@ -106,7 +124,7 @@
                                 <tr>
                                     <th>Thành tiền</th>
                                     <th colspan="2">
-                                        <input type="text" name="thanhtien" value="<?=$getmuahang['gia'] * $_SESSION['slspct'] ?>">VND
+                                        <input type="text" name="thanhtien" value="<?= $getmuahang['gia'] * $_SESSION['slspct'] ?>">VND
                                     </th>
                                 </tr>
 
