@@ -21,7 +21,6 @@ if (isset($_GET['act'])) {
             $loadspsale = loadspsale();
             $loaddm = loaddm();
             $loadsptheoluotxem = loadsptheoluotxem();
-
             include('user/maintrangchu.php');
             break;
         case 'dangky':
@@ -103,15 +102,17 @@ if (isset($_GET['act'])) {
             $listgioitinh = getgt();
             $getsize = getsize();
             $getgia = getgia();
-            // var_dump($getsize);
+           
 
             $loadsptheodm = loadsptheodm($_GET['iddm']);
+          
             include('user/loadstheodm.php');
             break;
         case 'trangsuckimcuong':
             $loaisp = loaisp($_GET['iddm']);
             $listgioitinh = getgt();
             $loadsptheodm = loadsptheodm($_GET['iddm']);
+            // var_dump($loadsptheodm);
             include('user/loadstheodm.php');
             break;
         case 'trangsucngoctrai':
@@ -120,6 +121,9 @@ if (isset($_GET['act'])) {
             include('user/loadstheodm.php');
             break;
         case 'chitietsp':
+         $chitietsp=chitietsp($_GET['id_spct']);
+         var_dump($chitietsp);
+        //  die;
             include('user/chitietsp.php');
             break;
             // dũng

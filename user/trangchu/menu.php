@@ -6,21 +6,23 @@ $iddm = getiddm();
 
   <div class="title">
     <div class="container">
-      <div class="row m-3">
+      <div class="row m-4">
         <div class="col-md-2">
-         <!-- logo -->
+          <div class="logo">
+            <img src="img/logonew.png" alt="">
+          </div>
         </div>
         <div class="col-md-9">
-        <form class="d-flex" role="search">
-                <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-success text-bg-secondary" type="submit">Search</button>
-              </form>
+          <form class="d-flex" role="search">
+            <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-success text-bg-secondary" type="submit">Search</button>
+          </form>
         </div>
 
         <div class="col-md-1">
           <div class="row ">
-           
-            <div class="col-md-8">
+
+            <div class="col-md-6">
               <a href="?act=giohang">
                 <button type="button" class="btn btn-primary position-relative">
                   <i class="ti-shopping-cart"></i>
@@ -46,7 +48,7 @@ $iddm = getiddm();
 
               </div>
             <?php } else { ?>
-              <div class="col-md-4 btn-user">
+              <div class="col-md-6 btn-user">
                 <a href="">
                   <button type="button" class="btn btn-primary position-relative">
                     <i class="ti-user">
@@ -75,10 +77,10 @@ $iddm = getiddm();
           <div class="nav menu-destop">
             <ul class="d-flex justify-content-sm-between">
               <li><a href="?act=trangchu">TRANG CHỦ</a></li>
-              <li class="drop-down"><a href="?act=trangsucvang&iddm=<?= $iddm[1]['id_dm'] ?>">TRANG SỨC VÀNG <i class="ti-angle-down"></i></a>
+              <li class="drop-down"><a href="?act=trangsucvang&iddm=<?= $iddm[0]['id_dm'] ?>">TRANG SỨC VÀNG <i class="ti-angle-down"></i></a>
                 <div class="menu-sub-gold">
                   <ul class="mega-menu d-flex justify-content-evenly">
-                    <li class="mega-title"><a href="?act=trangsuckimcuong&iddm=<?= $iddm[2]['id_dm'] ?>"><span>TRANG SÚC KIM CƯƠNG</span></a>
+                    <li class="mega-title"><a href="?act=trangsuckimcuong&iddm=<?= $iddm[1]['id_dm'] ?>"><span>TRANG SÚC KIM CƯƠNG</span></a>
                       <ul class="menu-item">
                         <li><a href="">Nhẫn kim cương</a>
 
@@ -128,7 +130,7 @@ $iddm = getiddm();
                   </ul>
                 </div>
               </li>
-              <li class="drop-down"><a href="?act=trangsuckimcuong&iddm=<?= $iddm[2]['id_dm'] ?>">TRANG SỨC KIM CƯƠNG<i class="ti-angle-down"></i></a>
+              <li class="drop-down"><a href="?act=trangsuckimcuong&iddm=<?= $iddm[1]['id_dm'] ?>">TRANG SỨC KIM CƯƠNG<i class="ti-angle-down"></i></a>
                 <ul class="menu-sub dropdown">
                   <li class="drop-down"><a href="#">Nhẫn cưới</a>
                     <ul class="dropdown menu-sub-child">
@@ -146,7 +148,7 @@ $iddm = getiddm();
                   <li><a href="#">Kiềng cưới</a></li>
                 </ul>
               </li>
-              <li class="drop-down"><a href="?act=trangsucngoctrai&iddm=<?= $iddm[3]['id_dm'] ?>">TRANG SỨC NGỌC TRAI <i class="ti-angle-down"></i></a>
+              <li class="drop-down"><a href="?act=trangsucngoctrai&iddm=<?= $iddm[2]['id_dm'] ?>">TRANG SỨC NGỌC TRAI <i class="ti-angle-down"></i></a>
                 <ul class="menu-sub dropdown">
                   <li class="drop-down"><a href="#">Nhẫn</a>
                   </li>
