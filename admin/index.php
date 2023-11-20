@@ -95,7 +95,7 @@ if (!isset($_SESSION['user'])) {
                   $upload,
                   intval($_POST['luotxem']),
                   $_POST['dacbiet'],
-                  intval($_POST['danhmuc']),
+                  intval($_POST['danhmuc']), 
                   intval($_POST['gioitinh']),
                   intval($_POST['size'])
 

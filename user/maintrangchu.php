@@ -41,14 +41,14 @@
           <div class="col-md-3 col-sm-4 col-6">
             <div class="card">
               <div class="card-img">
-                
+
                 <img src="admin/<?php echo $item['hinhanhchitiet']; ?>" class="card-img-top product-img-sale" alt="..." />
               </div>
               <div class="card-body">
                 <h6 class="card-title"><?php echo $item['tenspchitiet']; ?></h6>
-                <del class="price-product-initial"><?php echo number_format( $item['gia']) ?> VND</del>
+                <del class="price-product-initial"><?php echo number_format($item['gia']) ?> VND</del>
                 <p class="price-product" style="color: #C69967; font-size: 16px;"><?php
-  
+
                                                                                   $price = $item['gia'];
                                                                                   $phantram = $item['dacbiet'];
                                                                                   echo number_format($item['gia'] - ($price * $phantram) / 100)
@@ -57,7 +57,7 @@
                   <div class="buy-product">
                     <a href="?act=muahang&id_spct=<?=$item['id_spct']?>" class="btn btn-primary mr-5" >Mua ngay</a>
                   </div>
-                  <a href="" class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
+                  <a href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>" class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
                 </div>
               </div>
             </div>
@@ -76,24 +76,24 @@
       </p>
     </div>
     <div class="row">
-    <?php foreach ($loaddm as $item) : ?>
-          <div class="col-md-3 col-sm-4 col-6">
-         
-              <div class="card card-dm">
-                <div class="card-img">
-                  <img src="admin/<?php echo $item['hinhanhdm']; ?>" class="card-img-top" alt="..." />
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title text-center"><?php echo $item['tendm']; ?></h5>
-                </div>
-                <div class="card-btn">
-                  <button><a href="">Xem thêm</a></button>
-                </div>
-              </div>
-       
+      <?php foreach ($loaddm as $item) : ?>
+        <div class="col-md-3 col-sm-4 col-6">
+
+          <div class="card card-dm">
+            <div class="card-img">
+              <img src="admin/<?php echo $item['hinhanhdm']; ?>" class="card-img-top" alt="..." />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title text-center"><?php echo $item['tendm']; ?></h5>
+            </div>
+            <div class="card-btn">
+              <button><a href="">Xem thêm</a></button>
+            </div>
           </div>
-          <?php endforeach ?>
-       </div>
+
+        </div>
+      <?php endforeach ?>
+    </div>
 
 
 
@@ -123,7 +123,7 @@
 
       </div>
       <div class="btn d-flex justify-content-center m-3">
-        <button type="button" class="btn btn-outline-info">Info</button>
+        <!-- <button type="button" class="btn btn-outline-info">Info</button> -->
       </div>
     </div>
   </div>
@@ -172,32 +172,33 @@
     <div class="row">
       <!-- <div class="col-md-6">video</div>
       <div class="col-md-6">slide</div> -->
-    
-        <?php foreach ($loadsptheoluotxem as $item) : ?>
-          <div class="col-md-3 col-sm-4 col-6">
-            <div class="card">
-              <div class="card-img">
-                
-                <img src="admin/<?php echo $item['hinhanhchitiet']; ?>" class="card-img-top product-img-sale" alt="..." />
-              </div>
-              <div class="card-body">
-                <h6 class="card-title"><?php echo $item['tenspchitiet']; ?></h6>
-                <!-- <del class="price-product-initial"><?php echo $item['gia']; ?></del> -->
-                <p class="price-product" style="color: #C69967; font-size: 16px;"><?php
- echo number_format($item['gia']);
-                                                                            
-                                                                                  ?> VNĐ </p>
-              
-                 
-                  <a href="" class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
-                  <!-- <div class="buy-product">
+
+      <?php foreach ($loadsptheoluotxem as $item) : ?>
+        <div class="col-md-3 col-sm-4 col-6">
+          <div class="card card_topsp">
+            <div class="card-img">
+              <img src="admin/<?php echo $item['hinhanhchitiet']; ?>" class="card-img-top product-img-sale" alt="..." />
+            </div>
+            <div class="card-body">
+              <h6 class="card-title"><?php echo $item['tenspchitiet']; ?></h6>
+
+              <p class="price-product" style="color: #C69967; font-size: 16px;"><?php
+                                                                                echo number_format($item['gia']);
+                                                                                ?> VNĐ </p>
+
+
+              <a href="" class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
+              <!-- <div class="buy-product">
                     <a href="#" class="btn btn-primary mr-5" >Thêm giỏ hàng</a>
                   </div> -->
+              <div class="card-btn">
+                <button><a href="">Thêm giỏ hàng</a></button>
               </div>
             </div>
           </div>
-        <?php endforeach ?>
-    
+        </div>
+      <?php endforeach ?>
+
     </div>
 
 
