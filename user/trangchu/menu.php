@@ -9,7 +9,9 @@ $iddm = getiddm();
       <div class="row m-4">
         <div class="col-md-2">
           <div class="logo">
-            <img src="img/logonew.png" alt="">
+            <img style="margin-top: -10px;
+    width: 140px;
+    height: 80px;" src="img/logonew.png" alt="">
           </div>
         </div>
         <div class="col-md-9">
@@ -23,7 +25,7 @@ $iddm = getiddm();
           <div class="row ">
 
             <div class="col-md-6">
-              <a href="?act=giohang">
+              <a href="?act=cart">
                 <button type="button" class="btn btn-primary position-relative">
                   <i class="ti-shopping-cart"></i>
                   <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">

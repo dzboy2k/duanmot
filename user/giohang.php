@@ -1,3 +1,8 @@
+<?php 
+ $getgiohang=getgiohang($_SESSION['id_kh']);
+//  var_dump($getgiohang);
+
+?>
 <body>
     <div class="cart-main ">
         <div class="container">
@@ -10,22 +15,29 @@
                                     <th class="pro-img">Sản phẩm</th>
                                     <th class="pro-name">Tên sản phẩm</th>
                                     <th class="pro-quantity">Số lượng</th>
+                                    <th class="pro-price">size</th>
+
                                     <th class="pro-price">Giá</th>
                                     <th class="pro-delete">Thao tác</th>
                                 </tr>
 
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th><img style="width: 120px; height: 100px;" src="/img/DBC0014BRW.WR20A-hover.jpg"
+                                
+                                 <?php foreach ($getgiohang as $key => $giohang) { ?>
+                                    <tr>
+                                    <th><img style="width: 120px; height: 100px;" src="admin/<?=$giohang['hinhanhspct']?>"
                                             alt=""></th>
-                                    <th>Nhẫn</th>
-                                    <th>2</th>
-                                    <th>120.000.00</th>
-                                    <th>Xóa</th>
-                                </tr>
+                                  <th><?=$giohang['tensp']?></th>
+                                  <th><?=$giohang['slgiohang']?></th>
+                                  <th><?=$giohang['bankinh']?></th>
+                                  <th><?=number_format($giohang['giasp'])?>VND</th>
+                                  <th><a href="?act=deletegiohang&idgiohang=<?=$giohang['idgiohang']?>">xóa</a></th>
+                                  </tr>
+                                <?php } ?>
+                                
                                 <tr>
-                                    <th colspan="5"> <button type="button" class="pro-add btn btn-secondary">Thêm sản
+                                    <th colspan="6"> <button type="button" class="pro-add btn btn-secondary">Thêm sản
                                             phẩm</button></th>
                                 </tr>
                             </tbody>
@@ -38,7 +50,7 @@
 
                             </div>
                             <div class="cart-update">
-                               <a href="?act=muahang"> <button type="button" class="btn btn-secondary">Đặt hàng</button></a>
+                               <a href="?act=muahangformcart"> <button type="button" class="btn btn-secondary">Đặt hàng</button></a>
                             </div>
                         </div>
                     </div>

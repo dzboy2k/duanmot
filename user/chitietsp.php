@@ -1,9 +1,13 @@
+<?php
+$getsizetheosp = getsizetheosp($_GET['idsp']);
+// var_dump($getsizetheosp);
+?>
 <body>
     <div class="detail-product-main">
 
         <div class="container">
             <div class="row">
-               
+
                 <div class="col-lg-5">
                     <div class="product-img w-100">
                         <img class="w-100" src="admin/<?php echo $chitietsp['hinhanhchitiet']; ?>" alt="">
@@ -27,7 +31,8 @@
 
                 </div>
                 <div class="col-lg-7">
-                    <div class="product-info">
+                   <form action="?act=addgiohang&idspct=<?=$_GET['id_spct']?>" method="post">
+                   <div class="product-info">
                         <div class="product-name display-6">
                             <p><?php echo $chitietsp['tenspchitiet']; ?></p>
                         </div>
@@ -45,18 +50,22 @@
                             </div>
                         </div>
                         <div class="product-price  mt-4">
-                            <p><?php echo number_format($chitietsp['gia']) ; ?> VND</p>
+                            <p><?php echo number_format($chitietsp['gia']); ?> VND</p>
                         </div>
                         <div class="pro-text  mt-4">
-                        <p><?php echo $chitietsp['mota']; ?></p>
-                        </div>  
+                            <p><?php echo $chitietsp['mota']; ?></p>
+                        </div>
                         <div class="product-size d-flex my-4">
                             <div class="mr-5 d-flex size">
-                            <h6 class="option-title">Size:</h6>
-                            <select class="nice-select">
-                                <option>Chọn kích cỡ</option>
-                                <option>0</option>
-                            </select>
+                                <h6 class="option-title">Size:</h6>
+                                <select class="nice-select" name="size">
+                                    <option>Chọn kích cỡ</option>
+                                    <?php foreach ($getsizetheosp as $key => $value) { ?>
+                                        <option value="<?= $value['id_chitietsize'] ?>"><?= $value['bankinh'] ?></option>
+
+                                   <?php } ?>
+
+                                </select>
                             </div>
                             <div class="action_link">
                                 <a class="size-a" href="/huong-dan-do-size">Hướng dẫn do size <i class="fa fa-angle-right"></i></a>
@@ -64,15 +73,16 @@
                         </div>
                         <div class="quantity-cart-box  align-items-center ">
                             <h6 class="option-title ">Số lượng:</h6>
-                            <input type="number" min="0"> 
+                            <input type="number" name="soluong" value="1" min="1">
                             <div class="action_link mt-5">
-                                <button class="btn btn-secondary " id="submit" type="submit">Thêm giỏ hàng</button>
+                                <button class="btn btn-secondary " name="btngiohang" id="submit" type="submit">Thêm giỏ hàng</button>
                                 <button class="btn btn-secondary " id="submit" type="submit">Mua ngay</button>
                             </div>
                         </div>
                     </div>
+                   </form>
                 </div>
-               
+
             </div>
         </div>
     </div>

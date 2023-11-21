@@ -57,7 +57,7 @@
                   <div class="buy-product">
                     <a href="?act=muahang&id_spct=<?=$item['id_spct']?>" class="btn btn-primary mr-5" >Mua ngay</a>
                   </div>
-                  <a href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>" class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
+                  <a href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&idsp=<?=$item['id_sp']?>" class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
                 </div>
               </div>
             </div>

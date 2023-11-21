@@ -429,10 +429,7 @@ transition: all 0.4s ease-in-out;
 .card .product-img-sale:hover{
   transform: scale(1.2);
 }
-.card{
-    height: 420px !important;
 
-} 
  .card-dm{
     height: 320px !important;
     position: relative;
@@ -510,8 +507,8 @@ bottom: 120px;
 }
 /* css logo  */
 
-.logo>img{
+/* .logo>img{
     margin-top: -10px;
     width: 140px;
     height: 80px;
-}
+} */

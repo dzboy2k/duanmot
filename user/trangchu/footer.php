@@ -3,7 +3,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-3 col-sm-6">
-              <img src="img/logoJN.png" class="w-100" alt="" />
+              <img src="img/logonew.png" class="w-100" alt="" />
             </div>
             <div class="col-md-3 col-sm-6">
               <p>Liên Hệ</p>
