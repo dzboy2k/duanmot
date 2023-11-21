@@ -511,4 +511,11 @@ bottom: 120px;
     margin-top: -10px;
     width: 140px;
     height: 80px;
-} */
+}
+/* css bình luận  */
+.comment>form>button{
+    background-color: red;
+}
+.footer{
+    background-color: #514949;
+}

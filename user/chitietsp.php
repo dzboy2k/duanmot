@@ -53,7 +53,7 @@ $getsizetheosp = getsizetheosp($_GET['idsp']);
                             <p><?php echo number_format($chitietsp['gia']); ?> VND</p>
                         </div>
                         <div class="pro-text  mt-4">
-                            <p><?php echo $chitietsp['mota']; ?></p>
+                            <p>Mô tả:<?php echo $chitietsp['mota']; ?></p>
                         </div>
                         <div class="product-size d-flex my-4">
                             <div class="mr-5 d-flex size">
@@ -79,65 +79,61 @@ $getsizetheosp = getsizetheosp($_GET['idsp']);
                                 <button class="btn btn-secondary " id="submit" type="submit">Mua ngay</button>
                             </div>
                         </div>
+                        <div class="comment mt-5 ">
+                            <form action="?act=chitietsp&id_spct=<?php echo $chitietsp['id_spct'] ?>&id_sp=<?php echo $_GET['id_sp'] ?>" method="POST">
+                           
+                                <input type="text" placeholder="Nhập bình luận" name="binhluan">
+                                <button type="submit" name="btnsubmit">Gửi bình luận</button>
+                            </form>
+
+                        </div>
                     </div>
                    </form>
                 </div>
 
             </div>
+            <table>
+                <?php foreach ($binhluan as $bl) : ?>
+                    <tr>
+                        <td class="p-5"><?php echo $bl['tenkh']; ?></td>
+                        <td class="p-5"> <img style="width: 75px; height: 75px;" src="admin/<?php echo $bl['hinhanhchitiet'] ?>" alt=""></td>
+                        <td class="p-5"><?php echo $bl['noidung']; ?></td>
+                    </tr>
+
+                <?php endforeach ?>
+            </table>
+
         </div>
     </div>
 
     <div class="related-product mt-5">
         <div class="related-product-title text-center">
-            <h3> SẢN PHẨM CÙNG LOẠI</h3>
+            <h3 class="m-5"> SẢN PHẨM CÙNG LOẠI</h3>
         </div>
         <div class="container">
-            <div class="row">
-                <div class="col-md-3  col-sm-4 col-6">
-                    <div class="card">
-                        <img src="/img/VMP1047AMW-RG06A-hover.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+           
+                <div class="row">
+                  <?php foreach ($loadspcungloai as $item) : ?>
+                    <div class="col-md-3  col-sm-4 col-6">
+                        <div class="card">
+                            <img src="admin/<?php echo $item['hinhanhchitiet']  ?>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $item['tenspchitiet'];  ?></h5>
+                                <p class="price-product" style="color: #C69967; font-size: 16px;"><?php
+                                                                                                    echo number_format($item['gia']);
+                                                                                                    ?> VNĐ </p>
+
+
+                                <a href="" class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
+                                <div class="card-btn">
+                                    <button><a href="">Thêm giỏ hàng</a></button>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <?php endforeach ?>
                 </div>
-                <div class="col-md-3  col-sm-4 col-6">
-                    <div class="card">
-                        <img src="/img/VMP1047AMW-RG06A-hover.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3  col-sm-4 col-6">
-                    <div class="card">
-                        <img src="/img/VMP1047AMW-RG06A-hover.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3  col-sm-4 col-6">
-                    <div class="card">
-                        <img src="/img/VMP1047AMW-RG06A-hover.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
         </div>
     </div>
 
