@@ -8,6 +8,8 @@ include('model/qltk.php');
 include('model/loadsptrangchu.php');
 include('model/loadsp.php');
 include('model/muahang.php');
+include('model/binhluan.php');
+include('model/qlkh.php');
 
 include('user/trangchu/head.php');
 include('user/trangchu/menu.php');
@@ -21,6 +23,10 @@ if (isset($_GET['act'])) {
             $loadspsale = loadspsale();
             $loaddm = loaddm();
             $loadsptheoluotxem = loadsptheoluotxem();
+            $loadkhachhang = load_kh();
+           
+          
+
             include('user/maintrangchu.php');
             break;
         case 'dangky':
@@ -101,10 +107,7 @@ if (isset($_GET['act'])) {
             $listgioitinh = getgt();
             $getsize = getsize();
             $getgia = getgia();
-           
-
-            $loadsptheodm = loadsptheodm($_GET['iddm']);
-          
+            $loadsptheodm = loadsptheodm($_GET['iddm']);         
             include('user/loadstheodm.php');
             break;
         case 'trangsuckimcuong':
@@ -120,11 +123,23 @@ if (isset($_GET['act'])) {
             include('user/loadstheodm.php');
             break;
         case 'chitietsp':
-         $chitietsp=chitietsp($_GET['id_spct']);
-         var_dump($chitietsp);
-        //  die;
-            include('user/chitietsp.php');
+          $chitietsp=chitietsp($_GET['id_spct']);
+     
+       
+            $loadspcungloai = loadspcungloai($_GET['id_sp'],$_GET['id_spct']);
+            $binhluan = binhluan($_GET['id_spct']);
+           if(isset($_POST['btnsubmit'])) {
+            $idspct = $_GET['id_spct'];
+            $id_kh =  $_SESSION['id_kh'];
+          
+            guibinhluan($id_kh,$idspct,$_POST['binhluan']);
+            
+           }
+            include('user/chitietsp.php');  
             break;
+
+            case 'guibinluan' :
+     
             // dũng
 
         case 'giohang':
@@ -164,7 +179,7 @@ if (isset($_GET['act'])) {
     $loadspsale = loadspsale();
     $loaddm = loaddm();
     $loadsptheoluotxem = loadsptheoluotxem();
-
+   
     include('user/maintrangchu.php');
 }
 include('user/trangchu/footer.php');

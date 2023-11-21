@@ -57,7 +57,7 @@
                   <div class="buy-product">
                     <a href="?act=muahang&id_spct=<?=$item['id_spct']?>" class="btn btn-primary mr-5" >Mua ngay</a>
                   </div>
-                  <a href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>" class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
+                  <a href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?php echo $item['id_sp'] ?>" class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
                 </div>
               </div>
             </div>
@@ -87,7 +87,7 @@
               <h5 class="card-title text-center"><?php echo $item['tendm']; ?></h5>
             </div>
             <div class="card-btn">
-              <button><a href="">Xem thêm</a></button>
+              <button><a href="?act=trangsucvang&iddm=<?= $item['id_dm'] ?>">Xem thêm</a></button>
             </div>
           </div>
 
@@ -202,11 +202,10 @@
     </div>
 
 
-    <div class="vong">
+    <div class="vong ">
+      <h3 class="m-5 text-center">SẢN PHẨM DÀNH RIÊNG CHO BẠN</h3>
       <div class="row">
-        <div class="col-md-6">
-          <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-3">
               <div class="card">
                 <img src="/img/VMP1047AMW-RG06A-hover.jpg" class="card-img-top" alt="..." />
                 <div class="card-body">
@@ -219,248 +218,21 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="card">
-                <img src="/img/VMP1047AMW-RG06A-hover.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
+           
           </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="card">
-                <img src="/img/VMP1047AMW-RG06A-hover.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="card">
-                <img src="/img/VMP1047AMW-RG06A-hover.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">video</div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">video</div>
-        <div class="col-md-6">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="card">
-                <img src="/img/VMP1047AMW-RG06A-hover.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="card">
-                <img src="/img/VMP1047AMW-RG06A-hover.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="card">
-                <img src="/img/VMP1047AMW-RG06A-hover.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="card">
-                <img src="/img/VMP1047AMW-RG06A-hover.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="card">
-                <img src="/img/VMP1047AMW-RG06A-hover.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="card">
-                <img src="/img/VMP1047AMW-RG06A-hover.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="card">
-                <img src="/img/VMP1047AMW-RG06A-hover.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="card">
-                <img src="/img/VMP1047AMW-RG06A-hover.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">video</div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">video</div>
-        <div class="col-md-6">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="card">
-                <img src="/img/VMP1047AMW-RG06A-hover.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="card">
-                <img src="/img/VMP1047AMW-RG06A-hover.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="card">
-                <img src="/img/VMP1047AMW-RG06A-hover.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="card">
-                <img src="/img/VMP1047AMW-RG06A-hover.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    
     </div>
+
+
     <div class="khachhang text-center">
-      <h3>KHÁCH HÀNG</h3>
+      <h3>KHÁCH HÀNG THÂN THIÉT</h3>
       <p>Nói về Lộc Phúc Fine Jewelry</p>
-      <div class="row">
+      <div class="row m-5">
+        <?php foreach($loadkhachhang as $item): ?>
         <div class="col-md-4">
-          <img src="img/van.png" alt="" />
+          <img style="width: 175px; height: 175px; border-radius: 180px;" src="<?php echo $item['hinhanhkh'] ?>" alt="" />
         </div>
-        <div class="col-md-4">
-          <img src="img/kh-2.png" alt="" />
-        </div>
-        <div class="col-md-4">
-          <img src="img/kh-3.png" alt="" />
-        </div>
+     <?php endforeach ?>
         <p>
           Đã mua sắm trang sức tại Lộc Phúc rất nhiều lần, mình ưng ý nhất
           là dịch vụ đặt hàng Online, nhanh chóng, an toàn và vô cùng tiện

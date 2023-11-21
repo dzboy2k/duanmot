@@ -429,10 +429,8 @@ transition: all 0.4s ease-in-out;
 .card .product-img-sale:hover{
   transform: scale(1.2);
 }
-.card{
-    height: 420px !important;
 
-} 
+
  .card-dm{
     height: 320px !important;
     position: relative;
@@ -514,4 +512,11 @@ bottom: 120px;
     margin-top: -10px;
     width: 140px;
     height: 80px;
+}
+/* css bình luận  */
+.comment>form>button{
+    background-color: red;
+}
+.footer{
+    background-color: #514949;
 }
