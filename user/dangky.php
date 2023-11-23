@@ -15,7 +15,7 @@
                         <div class="mb-5">
                           <div class="text-center mb-4">
                             <a href="#!">
-                              <img src="img/logoJN.png" alt="" height="57" />
+                              <img src="img/logonew.png" alt="" height="57" />
                             </a>
                           </div>
                           <h4 class="text-center">Đăng Ký</h4>

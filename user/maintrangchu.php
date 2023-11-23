@@ -55,9 +55,9 @@
                                                                                   ?> VND </p>
                 <div class="d-flex">
                   <div class="buy-product">
-                    <a href="?act=muahang&id_spct=<?=$item['id_spct']?>" class="btn btn-primary mr-5" >Mua ngay</a>
+                    <a href="?act=muahang&id_spct=<?= $item['id_spct'] ?>" class="btn btn-primary mr-5">Mua ngay</a>
                   </div>
-                  <a href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&idsp=<?=$item['id_sp']?>" class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
+                  <a href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>" class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
                 </div>
               </div>
             </div>
@@ -188,9 +188,6 @@
 
 
               <a href="" class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
-              <!-- <div class="buy-product">
-                    <a href="#" class="btn btn-primary mr-5" >Thêm giỏ hàng</a>
-                  </div> -->
               <div class="card-btn">
                 <button><a href="?act=addgiohang&idspct=<?=$item['id_spct']?>&idsp=<?=$item['idsp']?>">Thêm giỏ hàng</a></button>
               </div>
@@ -205,22 +202,22 @@
     <div class="vong ">
       <h3 class="m-5 text-center">SẢN PHẨM DÀNH RIÊNG CHO BẠN</h3>
       <div class="row">
-            <div class="col-md-3">
-              <div class="card">
-                <img src="/img/VMP1047AMW-RG06A-hover.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and
-                    make up the bulk of the card's content.
-                  </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img src="/img/VMP1047AMW-RG06A-hover.jpg" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and
+                make up the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
-           
           </div>
-    
+        </div>
+
+      </div>
+
     </div>
 
 
@@ -228,11 +225,11 @@
       <h3>KHÁCH HÀNG THÂN THIẾT</h3>
       <p>Nói về Lộc Phúc Fine Jewelry</p>
       <div class="row m-5">
-        <?php foreach($loadkhachhang as $item): ?>
-        <div class="col-md-4">
-          <img style="width: 175px; height: 175px; border-radius: 180px;" src="<?php echo $item['hinhanhkh'] ?>" alt="" />
-        </div>
-     <?php endforeach ?>
+        <?php foreach ($loadkhachhang as $item) : ?>
+          <div class="col-md-4">
+            <img style="width: 175px; height: 175px; border-radius: 180px;" src="<?php echo $item['hinhanhkh'] ?>" alt="" />
+          </div>
+        <?php endforeach ?>
         <p>
           Đã mua sắm trang sức tại Lộc Phúc rất nhiều lần, mình ưng ý nhất
           là dịch vụ đặt hàng Online, nhanh chóng, an toàn và vô cùng tiện
@@ -244,48 +241,83 @@
         <p>MR DIEM</p>
       </div>
     </div>
-    <div class="new">
+    <div class="new text-center">
       <h3>TIN TỨC</h3>
       <p>ƯU ĐÃI SỰ KIỆN</p>
     </div>
     <div class="product-new">
       <div class="row">
-        <div class="col-md-4">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make
-                up the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div class="slider-new">
+          <div class="col-md-4">
+            <div class="card">
+              <img src="admin/upload_img/tin1.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <!-- <h5 class="card-title">Card title</h5> -->
+                <p class="card-text">
+                  ESSENZA - 10 Mẫu Vỏ Bông Tai Kim Cương Đẹp Không Thể Bỏ Lỡ
+                </p>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make
-                up the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+          <div class="col-md-4">
+            <div class="card">
+              <img src="admin/upload_img/tin2.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <!-- <h5 class="card-title">Card title</h5> -->
+                <p class="card-text">
+                  HER - Trang Sức Của Quý Cô Gợi Cảm Nhẹ Nhàng,giành riêng cho chi em phụ nữ
+                </p>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make
-                up the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+          <div class="col-md-4">
+            <div class="card">
+              <img src="admin/upload_img/tin3.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <!-- <h5 class="card-title">Card title</h5> -->
+                <p class="card-text">
+                  VIJF 2023 – Lộc Phúc Mang Đến Triển Lãm Hàng Loạt Bộ Sưu Tập Trang Sức Đặc Sắc
+                </p>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <img src="admin/upload_img/tin4.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <!-- <h5 class="card-title">Card title</h5> -->
+                <p class="card-text">
+                SUPER SALES - Ưu Đãi 30% Dòng FELIZ, CABALLERO Chỉ Một Lần Duy Nhất
+                </p>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <img src="admin/upload_img/tin5.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <!-- <h5 class="card-title">Card title</h5> -->
+                <p class="card-text">
+                  VIJF 2023 – Lộc Phúc Mang Đến Triển Lãm Hàng Loạt Bộ Sưu Tập Trang Sức Đặc Sắc
+                </p>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <img src="admin/upload_img/tin6.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <!-- <h5 class="card-title">Card title</h5> -->
+                <p class="card-text">
+                  VIJF 2023 – Lộc Phúc Mang Đến Triển Lãm Hàng Loạt Bộ Sưu Tập Trang Sức Đặc Sắc
+                </p>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+              </div>
             </div>
           </div>
         </div>
@@ -299,5 +331,12 @@
     slidesToScroll: 1,
     dots: true,
     //  Infinity: true,
+  });
+  $('.slider-new').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    dots: true,
+    adaptiveHeight: true,
+     Infinity: true,
   });
 </script>

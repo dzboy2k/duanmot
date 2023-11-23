@@ -1,6 +1,6 @@
 <footer>
-  <div class="footer">
-    <div class="container">
+  <div class="footer" style="background-color: #f7f7f7;">
+    <div class="container pt-5">
       <div class="row">
         <div class="col-md-3 col-sm-6">
           <img src="img/logonew.png" class="w-100" alt="" />

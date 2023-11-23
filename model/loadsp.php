@@ -38,4 +38,5 @@ function loadspcungloai($id_sp,$id_spct) {
     id_spct <> $id_spct";
     return pdo_query($sql);
 }
+
 ?>
