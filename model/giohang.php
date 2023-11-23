@@ -11,6 +11,10 @@ function getgiohang($idkh){
     return pdo_query($sql);
 
 }
+function demslgiohang($idkh){
+    $sql="SELECT COUNT(*) AS 'slgiohang' FROM `giohang` WHERE idkh=$idkh;";
+    return pdo_query_one($sql);
+}
 function deletegiohang($idgiohang){
     $sql="DELETE FROM `giohang` WHERE idgiohang=$idgiohang";
     pdo_execute($sql);

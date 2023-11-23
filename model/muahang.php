@@ -19,10 +19,10 @@ function adddh($diachinhan,$sodienthoai,$pttt,$idkh){
     VALUES ('$diachinhan','$sodienthoai','$pttt',$idkh)";
     pdo_execute($sql);
 }
-function addchitietdh($slchitiet,$giasp,$tongtien,$iddh,$idspct,$magiamgia){
+function addchitietdh($slchitiet,$giasp,$tongtien,$iddh,$idspct,$idchitietsize,$magiamgia){
     $sql="INSERT INTO `chitietdonhang`
-    ( `soluongchitiet`, `giasp`, `tongtien`, `iddh`, `idspct`,idmagiamgia) 
-    VALUES ($slchitiet,$giasp,$tongtien,$iddh,$idspct,$magiamgia)";
+    ( `soluongchitiet`, `giasp`, `tongtien`, `iddh`, `idspct`,idchitietsize,idmagiamgia) 
+    VALUES ($slchitiet,$giasp,$tongtien,$iddh,$idspct,$idchitietsize,$magiamgia)";
     pdo_execute($sql);
     
 }

@@ -1,6 +1,12 @@
 <?php
 $iddm = getiddm();
-// var_dump($iddm);
+// if (isset($_SESSION['id_kh'])) {
+// $slgiohang = demslgiohang($_SESSION['id_kh']);
+// echo $slgiohang['slgiohang'];
+// var_dump($slgiohang);
+// die;
+// }
+
 ?>
 <header>
 
@@ -15,8 +21,8 @@ $iddm = getiddm();
           </div>
         </div>
         <div class="col-md-9">
-          <form class="d-flex" role="search" method="POST">
-            <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search" name="search">
+          <form class="d-flex" method="post" action="?act=trangchu" role="search">
+            <input class="form-control me-1" name="ten" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-success text-bg-secondary" name="btnsearch" type="submit">Search</button>
           </form>
         </div>
@@ -29,7 +35,16 @@ $iddm = getiddm();
                 <button type="button" class="btn btn-primary position-relative">
                   <i class="ti-shopping-cart"></i>
                   <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                    99+
+
+                    <?php
+                    if (isset($_SESSION['id_kh'])) {
+                      $slgiohang = demslgiohang($_SESSION['id_kh']);
+                    ?>
+                    <?=$slgiohang['slgiohang']?>
+
+                    <?php  } else { ?>
+                      0
+                    <?php  } ?>
                     <span class="visually-hidden">unread messages</span>
                   </span>
                 </button>

@@ -7,26 +7,30 @@ function tongspchitiet(){
     $sql="SELECT COUNT(*) AS 'tongspct' FROM `sanphamct`";
     return pdo_query($sql);
 }
-function tongsldh(){
+// function tongsldh(){
    
-    $sql=" SELECT SUM(soluongchitiet) AS 'tongdh' FROM `chitietdonhang`";
-    return pdo_query($sql);
-    // SELECT COUNT(*) AS 'tongdh' FROM `donhang`
+//     $sql=" SELECT SUM(soluongchitiet) AS 'tongdh' FROM `chitietdonhang`";
+//     return pdo_query($sql);
+//     // SELECT COUNT(*) AS 'tongdh' FROM `donhang`
 
-}
+// }
+function tongsldh(){
+        $sql="SELECT COUNT(*) AS 'tongdh' FROM `donhang`;";
+        return pdo_query_one($sql);
+    }
 function thanhtien(){
     $sql=" SELECT SUM(tongtien) AS 'thanhtien' FROM `chitietdonhang`";
     return pdo_query($sql);
 }
 function sanphambanchay(){
-    $sql="SELECT * FROM `chitietdonhang` JOIN sanphamct ON sanphamct.id_spct=chitietdonhang.idspct JOIN san_pham ON san_pham.id_sp=sanphamct.idsp 
-    ORDER BY chitietdonhang.soluongchitiet DESC LIMIT 10;";
+    $sql="SELECT * FROM `chitietdonhang` JOIN sanphamct ON sanphamct.id_spct=chitietdonhang.idspct 
+    JOIN san_pham ON san_pham.id_sp=sanphamct.idsp GROUP BY sanphamct.id_spct ORDER BY chitietdonhang.soluongchitiet DESC LIMIT 10;";
     return pdo_query($sql);
 }
 function tongdh(){
-    $sql="SELECT khachhang.*,donhang.*,sanphamct.*,chitietdonhang.soluongchitiet AS 'sl',chitietdonhang.tongtien  
-    FROM `khachhang` JOIN donhang ON donhang.idkh=khachhang.id_kh 
-    JOIN chitietdonhang ON chitietdonhang.iddh=donhang.id_dh JOIN sanphamct ON sanphamct.id_spct=chitietdonhang.idspct;";
+    $sql="SELECT khachhang.*,donhang.*,sanphamct.*,chitietdonhang.soluongchitiet AS 'sl',chitietdonhang.tongtien,chitietsize.* FROM `khachhang` JOIN donhang ON donhang.idkh=khachhang.id_kh JOIN chitietdonhang ON chitietdonhang.iddh=donhang.id_dh 
+    JOIN sanphamct ON sanphamct.id_spct=chitietdonhang.idspct 
+    JOIN chitietsize ON chitietsize.id_chitietsize=chitietdonhang.idchitietsize;";
     // thanhtien();
     return pdo_query($sql);
     

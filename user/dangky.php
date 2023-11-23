@@ -92,6 +92,9 @@
                             <button name="btnsubmit" class="btn btn-dark btn-lg" type="submit">
                               Đăng ký
                             </button>
+                            <?php if (isset($dangky)) {
+                              echo "<span style='color:green'>'$dangky'</span>";
+                            } ?>
                           </div>
                         </div>
                       </div>

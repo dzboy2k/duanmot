@@ -30,7 +30,7 @@
             <div class="widget-small warning coloured-icon"><i class='icon fa-3x bx bxs-shopping-bag-alt'></i>
                 <div class="info">
                     <h4>Tổng đơn hàng</h4>
-                    <p><b><?= $tongsldh[0]['tongdh'] ?> đơn hàng</b></p>
+                    <p><b><?= $tongsldh['tongdh'] ?> đơn hàng</b></p>
                 </div>
             </div>
         </div>
@@ -77,7 +77,7 @@
                                 <tr>
                                     <td><?= $value['idspct'] ?></td>
                                     <td><?= $value['tenspchitiet'] ?></td>
-                                    <td><?= $value['giasp'] ?></td>
+                                    <td><?= number_format($value['giasp']) ?>VND</td>
                                     <td><?= $value['tensp'] ?></td>
                                 </tr>
                             <?php } ?>
@@ -100,6 +100,7 @@
                                 <th>ID đơn hàng</th>
                                 <th>Khách hàng</th>
                                 <th>Đơn hàng</th>
+                                <th>size</th>
                                 <th>Số lượng</th>
                                 <th>Tổng tiền</th>
                             </tr>
@@ -110,16 +111,17 @@
                                     <td><?= $value['id_dh'] ?></td>
                                     <td><?= $value['tenkh'] ?></td>
                                     <td><?= $value['tenspchitiet'] ?></td>
+                                    <td><?= $value['bankinh'] ?></td>
                                     <td><?= $value['sl'] ?></td>
-                                    <td><?= $value['tongtien'] ?>đ</td>
+                                    <td><?= number_format($value['tongtien']) ?>VND</td>
                                 </tr>
                             <?php } ?>
 
 
 
                             <tr>
-                                <th colspan="4">Tổng cộng:</th>
-                                <td><?php echo number_format($thanhtien[0]['thanhtien']) ?> đ</td>
+                                <th colspan="5">Tổng cộng:</th>
+                                <td><?php echo number_format($thanhtien[0]['thanhtien']) ?>VND</td>
                             </tr>
                         </tbody>
                     </table>

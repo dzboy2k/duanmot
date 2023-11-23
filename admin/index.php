@@ -17,10 +17,13 @@ if (!isset($_SESSION['user'])) {
    include('../model/qldh.php');
    include('../model/qlnv.php');
    include('../model/qlkh.php');
+   include('../model/binhluan.php');
 
    include('../model/gioitinh.php');
 
    include('../model/baocaodoanhthu.php');
+   include('../model/bangdieukhien.php');
+
    include('../model/login.php');
    // include('trangchu/main.php');
 
@@ -29,13 +32,12 @@ if (!isset($_SESSION['user'])) {
       switch ($act) {
          case 'bangdieukhien':
 
-
+            $tongsp=tongsp();
+            $tongkh=tongkh();
+            $tongsldh=tongsldh();
             include('trangchu/main.php');
             include('trangchu/footer.php');
-
             break;
-
-
          case 'quanlydanhmuc':
             $listdm = listdm();
 
@@ -45,9 +47,9 @@ if (!isset($_SESSION['user'])) {
          case 'adddm':
             // adddm();
             if (isset($_POST['btnsubmit'])) {
-               $upload_img="upload_img/".time().$_FILES['hinhanhdm']['name'];
-               move_uploaded_file($_FILES['hinhanhdm']['tmp_name'],$upload_img);
-               adddm($_POST['tendm'],$upload_img);
+               $upload_img = "upload_img/" . time() . $_FILES['hinhanhdm']['name'];
+               move_uploaded_file($_FILES['hinhanhdm']['tmp_name'], $upload_img);
+               adddm($_POST['tendm'], $upload_img);
                header('location:?act=quanlydanhmuc');
             }
             include('qldm/adddm.php');
@@ -59,11 +61,11 @@ if (!isset($_SESSION['user'])) {
             }
             if (isset($_POST['btnsubmit'])) {
 
-               $upload_img="upload_img/".time().$_FILES['hinhanhdm']['name'];
-               move_uploaded_file($_FILES['hinhanhdm']['tmp_name'],$upload_img);
-              
+               $upload_img = "upload_img/" . time() . $_FILES['hinhanhdm']['name'];
+               move_uploaded_file($_FILES['hinhanhdm']['tmp_name'], $upload_img);
 
-               updatedm($_GET['iddm'], $_POST['namedm'],$upload_img);
+
+               updatedm($_GET['iddm'], $_POST['namedm'], $upload_img);
                header('location:?act=quanlydanhmuc');
             }
             include('qldm/editdm.php');
@@ -78,7 +80,7 @@ if (!isset($_SESSION['user'])) {
          case 'quanlysanpham':
             $listsp = listsp();
 
-        
+
 
             include('qlsp/main.php');
             include('qlsp/modal.php');
@@ -95,7 +97,7 @@ if (!isset($_SESSION['user'])) {
                   $upload,
                   intval($_POST['luotxem']),
                   $_POST['dacbiet'],
-                  intval($_POST['danhmuc']), 
+                  intval($_POST['danhmuc']),
                   intval($_POST['gioitinh']),
                   intval($_POST['size'])
 
@@ -232,7 +234,7 @@ if (!isset($_SESSION['user'])) {
 
             break;
          case 'baocaodoanhthu':
-            if (!isset($_SESSION['ceo'])) {
+            // if (!isset($_SESSION['ceo'])) {
                $tongnv = tongnhanvien();
                $tongspct = tongspchitiet();
                $tongsldh = tongsldh();
@@ -244,7 +246,7 @@ if (!isset($_SESSION['user'])) {
 
                // var_dump($thongkesp);
                include('baocaodoanhthu/main.php');
-            }
+            // }
 
             break;
          case 'logout':
@@ -278,7 +280,7 @@ if (!isset($_SESSION['user'])) {
                $diachi = $_POST['diachi'];
                $vaitro = $_POST['vaitro'];
                $luong = $_POST['luong'];
-          
+
 
                addnv($hoten, $tendangnhap, $ngaysinh, $target_file, $email, $sdt, $diachi, $vaitro, floatval($luong));
                header('location: ?act=quanlynhanvien');
@@ -288,29 +290,28 @@ if (!isset($_SESSION['user'])) {
             include('qlnv/addnv.php');
             break;
          case 'modalnv':
-    
-            $nhanvien = getone_nv($_GET['id_nv']);
-           
-            
-            if (isset($_POST['btn'])) {
-           
-               if ($_FILES['hinhanhnv']['name']=='') {
-               $hoten = $_POST['hoten'];
-               $tendangnhap = $_POST['tendangnhap'];
-               $ngaysinh = $_POST['ngaysinh'];
-   
-               $email = $_POST['email'];
-               $sdt = $_POST['sdt'];
-               $diachi = $_POST['diachi'];
-               $vaitro = $_POST['vaitro'];
-               $luong = $_POST['luong'];
-               
-               $id_nv = $_POST['id_nv'];
-               modalnv($hoten, $tendangnhap, $ngaysinh, $nhanvien['hinhanhnv'], $email, $sdt, $diachi, $vaitro, $luong, $id_nv);
 
-               header('location: ?act=quanlynhanvien');
-                 
-               }else{
+            $nhanvien = getone_nv($_GET['id_nv']);
+
+
+            if (isset($_POST['btn'])) {
+
+               if ($_FILES['hinhanhnv']['name'] == '') {
+                  $hoten = $_POST['hoten'];
+                  $tendangnhap = $_POST['tendangnhap'];
+                  $ngaysinh = $_POST['ngaysinh'];
+
+                  $email = $_POST['email'];
+                  $sdt = $_POST['sdt'];
+                  $diachi = $_POST['diachi'];
+                  $vaitro = $_POST['vaitro'];
+                  $luong = $_POST['luong'];
+
+                  $id_nv = $_POST['id_nv'];
+                  modalnv($hoten, $tendangnhap, $ngaysinh, $nhanvien['hinhanhnv'], $email, $sdt, $diachi, $vaitro, $luong, $id_nv);
+
+                  header('location: ?act=quanlynhanvien');
+               } else {
                   unlink($nhanvien['hinhanhnv']);
                   $hoten = $_POST['hoten'];
                   $tendangnhap = $_POST['tendangnhap'];
@@ -325,13 +326,12 @@ if (!isset($_SESSION['user'])) {
                   $diachi = $_POST['diachi'];
                   $vaitro = $_POST['vaitro'];
                   $luong = $_POST['luong'];
-                  
+
                   $id_nv = $_POST['id_nv'];
-                  modalnv($hoten, $tendangnhap, $ngaysinh,$target_file , $email, $sdt, $diachi, $vaitro, $luong, $id_nv);
-   
+                  modalnv($hoten, $tendangnhap, $ngaysinh, $target_file, $email, $sdt, $diachi, $vaitro, $luong, $id_nv);
+
                   header('location: ?act=quanlynhanvien');
                }
-              
             }
             include('qlnv/modal.php');
             break;
@@ -340,7 +340,7 @@ if (!isset($_SESSION['user'])) {
                deletenv($_GET['id_nv']);
                header('location: ?act=quanlynhanvien');
             }
-            
+
             break;
          case 'quanlykhachhang':
             $listkh = listkh();
@@ -349,8 +349,19 @@ if (!isset($_SESSION['user'])) {
             break;
          case 'deletekh':
             if (isset($_GET['id_kh'])) {
-             deletekh($_GET['id_kh']);
+               deletekh($_GET['id_kh']);
                header('location: ?act=quanlykhachhang');
+            }
+            break;
+         case 'quanlybinhluan':
+            $listbl = listbltoadmin();
+            // var_dump($listbl);
+            include('qlbl/listbl.php');
+            break;
+         case 'deletebl':
+            if (isset($_GET['id_bl'])) {
+               deletebl($_GET['id_bl']);
+               header('location: ?act=quanlybinhluan');
             }
             break;
       }
