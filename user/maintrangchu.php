@@ -192,7 +192,7 @@
                     <a href="#" class="btn btn-primary mr-5" >Thêm giỏ hàng</a>
                   </div> -->
               <div class="card-btn">
-                <button><a href="">Thêm giỏ hàng</a></button>
+                <button><a href="?act=addgiohang&idspct=<?=$item['id_spct']?>&idsp=<?=$item['idsp']?>">Thêm giỏ hàng</a></button>
               </div>
             </div>
           </div>
@@ -225,7 +225,7 @@
 
 
     <div class="khachhang text-center">
-      <h3>KHÁCH HÀNG THÂN THIÉT</h3>
+      <h3>KHÁCH HÀNG THÂN THIẾT</h3>
       <p>Nói về Lộc Phúc Fine Jewelry</p>
       <div class="row m-5">
         <?php foreach($loadkhachhang as $item): ?>

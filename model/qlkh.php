@@ -6,7 +6,7 @@ function listkh() {
    return $result;
 }
 function load_kh() {
-    $sql ="SELECT * FROM khachhang limit 3";
+    $sql ="SELECT * FROM khachhang limit 3 OFFSET 2";
    $result = pdo_query($sql);
    return $result;
 }

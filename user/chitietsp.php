@@ -2,6 +2,7 @@
 $getsizetheosp = getsizetheosp($_GET['idsp']);
 // var_dump($getsizetheosp);
 ?>
+
 <body>
     <div class="detail-product-main">
 
@@ -31,77 +32,92 @@ $getsizetheosp = getsizetheosp($_GET['idsp']);
 
                 </div>
                 <div class="col-lg-7">
-                   <form action="?act=addgiohang&idspct=<?=$_GET['id_spct']?>" method="post">
-                   <div class="product-info">
-                        <div class="product-name display-6">
-                            <p><?php echo $chitietsp['tenspchitiet']; ?></p>
-                        </div>
-                        <div class="product-feedback mt-4">
-                            <div style="display:flex">
-                                <div class="icon-start">
-                                    <i class="ti-star"></i>
-                                    <i class="ti-star"></i>
-                                    <i class="ti-star"></i>
-                                    <i class="ti-star"></i>
-                                    <i class="ti-star"></i>
+                    <form action="?act=addgiohang&idspct=<?= $_GET['id_spct'] ?>" method="post">
+                        <div class="product-info">
+                            <div class="product-name display-6">
+                                <p><?php echo $chitietsp['tenspchitiet']; ?></p>
+                            </div>
+                            <div class="product-feedback mt-4">
+                                <div style="display:flex">
+                                    <div class="icon-start">
+                                        <i class="ti-star"></i>
+                                        <i class="ti-star"></i>
+                                        <i class="ti-star"></i>
+                                        <i class="ti-star"></i>
+                                        <i class="ti-star"></i>
+                                    </div>
+
+                                    <div class="product-review"><span class="product-rating">74</span> đánh giá</div>
                                 </div>
+                            </div>
+                            <div class="product-price  mt-4">
+                                <p><?php echo number_format($chitietsp['gia']); ?> VND</p>
+                            </div>
+                            <div class="pro-text  mt-4">
+                                <p>Mô tả:<?php echo $chitietsp['mota']; ?></p>
+                            </div>
+                            <div class="product-size d-flex my-4">
+                                <div class="mr-5 d-flex size">
+                                    <h6 class="option-title">Size:</h6>
+                                    <select class="nice-select" name="size">
+                                        <option>Chọn kích cỡ</option>
+                                        <?php foreach ($getsizetheosp as $key => $value) { ?>
+                                            <option value="<?= $value['id_chitietsize'] ?>"><?= $value['bankinh'] ?></option>
 
-                                <div class="product-review"><span class="product-rating">74</span> đánh giá</div>
-                            </div>
-                        </div>
-                        <div class="product-price  mt-4">
-                            <p><?php echo number_format($chitietsp['gia']); ?> VND</p>
-                        </div>
-                        <div class="pro-text  mt-4">
-                            <p>Mô tả:<?php echo $chitietsp['mota']; ?></p>
-                        </div>
-                        <div class="product-size d-flex my-4">
-                            <div class="mr-5 d-flex size">
-                                <h6 class="option-title">Size:</h6>
-                                <select class="nice-select" name="size">
-                                    <option>Chọn kích cỡ</option>
-                                    <?php foreach ($getsizetheosp as $key => $value) { ?>
-                                        <option value="<?= $value['id_chitietsize'] ?>"><?= $value['bankinh'] ?></option>
+                                        <?php } ?>
 
-                                   <?php } ?>
-
-                                </select>
+                                    </select>
+                                </div>
+                                <div class="action_link">
+                                    <a class="size-a" href="/huong-dan-do-size">Hướng dẫn do size <i class="fa fa-angle-right"></i></a>
+                                </div>
                             </div>
-                            <div class="action_link">
-                                <a class="size-a" href="/huong-dan-do-size">Hướng dẫn do size <i class="fa fa-angle-right"></i></a>
+                            <div class="quantity-cart-box  align-items-center ">
+                                <h6 class="option-title ">Số lượng:</h6>
+                                <input type="number" name="soluong" value="1" min="1">
+                                <div class="action_link mt-5">
+                                    <button class="btn btn-secondary " name="btngiohang" id="submit" type="submit">Thêm giỏ hàng</button>
+                                    <button class="btn btn-secondary " id="submit" type="submit">Mua ngay</button>
+                                </div>
                             </div>
-                        </div>
-                        <div class="quantity-cart-box  align-items-center ">
-                            <h6 class="option-title ">Số lượng:</h6>
-                            <input type="number" name="soluong" value="1" min="1">
-                            <div class="action_link mt-5">
-                                <button class="btn btn-secondary " name="btngiohang" id="submit" type="submit">Thêm giỏ hàng</button>
-                                <button class="btn btn-secondary " id="submit" type="submit">Mua ngay</button>
-                            </div>
-                        </div>
-                        <div class="comment mt-5 ">
-                            <form action="?act=chitietsp&id_spct=<?php echo $chitietsp['id_spct'] ?>&id_sp=<?php echo $_GET['id_sp'] ?>" method="POST">
-                           
-                                <input type="text" placeholder="Nhập bình luận" name="binhluan">
-                                <button type="submit" name="btnsubmit">Gửi bình luận</button>
-                            </form>
 
                         </div>
-                    </div>
-                   </form>
+                    </form>
                 </div>
 
             </div>
-            <table>
-                <?php foreach ($binhluan as $bl) : ?>
-                    <tr>
-                        <td class="p-5"><?php echo $bl['tenkh']; ?></td>
-                        <td class="p-5"> <img style="width: 75px; height: 75px;" src="admin/<?php echo $bl['hinhanhchitiet'] ?>" alt=""></td>
-                        <td class="p-5"><?php echo $bl['noidung']; ?></td>
-                    </tr>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="comment mt-5 ">
+                        <form action="?act=chitietsp&id_spct=<?php echo $chitietsp['id_spct'] ?>&idsp=<?php echo $_GET['idsp'] ?>" method="POST">
+                            <textarea name="binhluan" id="" cols="50" rows="5"></textarea>
+                            <button type="submit" class="btn btn-success" name="btnsubmit">Gửi bình luận</button>
+                        </form>
 
-                <?php endforeach ?>
-            </table>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <table>
+                        <tr>
+                            <th>Tên khách hàng</th>
+                            <th>Ảnh</th>
+                            <th>Nội dung bình luận</th>
+                            
+                        </tr>
+                        <?php foreach ($binhluan as $bl) : ?>
+                            <tr>
+                                <td class="p-5"><?php echo $bl['tenkh']; ?></td>
+                                <td class="p-5"> <img style="width: 75px; height: 75px;" src="admin/<?php echo $bl['hinhanhchitiet'] ?>" alt=""></td>
+                                <td class="p-5"><?php echo $bl['noidung']; ?></td>
+                            </tr>
+
+                        <?php endforeach ?>
+                    </table>
+                </div>
+            </div>
+
+
+
 
         </div>
     </div>
@@ -111,9 +127,9 @@ $getsizetheosp = getsizetheosp($_GET['idsp']);
             <h3 class="m-5"> SẢN PHẨM CÙNG LOẠI</h3>
         </div>
         <div class="container">
-           
-                <div class="row">
-                  <?php foreach ($loadspcungloai as $item) : ?>
+
+            <div class="row">
+                <?php foreach ($loadspcungloai as $item) : ?>
                     <div class="col-md-3  col-sm-4 col-6">
                         <div class="card">
                             <img src="admin/<?php echo $item['hinhanhchitiet']  ?>" class="card-img-top" alt="...">
@@ -131,9 +147,9 @@ $getsizetheosp = getsizetheosp($_GET['idsp']);
                             </div>
                         </div>
                     </div>
-                    <?php endforeach ?>
-                </div>
-           
+                <?php endforeach ?>
+            </div>
+
         </div>
     </div>
 

@@ -3,6 +3,7 @@ function dangky($tenkh,$email,$sodienthoai,$diachi,$matkhau,$anh){
     $sql="INSERT INTO `khachhang`( `tenkh`, `email`, `sodienthoai`, `diachi`, `matkhau`, `hinhanhkh`) 
     VALUES ('$tenkh','$email','$sodienthoai','$diachi','$matkhau','$anh')";
     pdo_execute($sql);
+    return "đăng ký thành công";
 }
 function dangnhap($email,$pass){
     $sql="SELECT * FROM `khachhang` WHERE khachhang.email like '$email' AND khachhang.matkhau like '$pass'";
