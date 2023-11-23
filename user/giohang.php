@@ -1,10 +1,8 @@
 <?php 
  $getgiohang=getgiohang($_SESSION['id_kh']);
-//  var_dump($getgiohang);
-
 ?>
 <body>
-    <div class="cart-main ">
+    <div class="cart-main mt-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -16,7 +14,6 @@
                                     <th class="pro-name">Tên sản phẩm</th>
                                     <th class="pro-quantity">Số lượng</th>
                                     <th class="pro-price">size</th>
-
                                     <th class="pro-price">Giá</th>
                                     <th class="pro-delete">Thao tác</th>
                                 </tr>

@@ -12,6 +12,8 @@ include('model/giohang.php');
 include('model/binhluan.php');
 include('model/qlkh.php');
 
+
+
 include('user/trangchu/head.php');
 include('user/trangchu/menu.php');
 if (isset($_GET['act'])) {
@@ -25,10 +27,10 @@ if (isset($_GET['act'])) {
             $loaddm = loaddm();
             $loadsptheoluotxem = loadsptheoluotxem();
             $loadkhachhang = load_kh();
-           
-          
-
+               
+       
             include('user/maintrangchu.php');
+        
             break;
         case 'dangky':
             if (isset($_POST['btnsubmit'])) {
@@ -145,17 +147,18 @@ if (isset($_GET['act'])) {
        
             $loadspcungloai = loadspcungloai($_GET['id_sp'],$_GET['id_spct']);
             $binhluan = binhluan($_GET['id_spct']);
-           if(isset($_POST['btnsubmit'])) {
+           if(isset($_POST['btnbl'])) {
             $idspct = $_GET['id_spct'];
             $id_kh =  $_SESSION['id_kh'];
           
             guibinhluan($id_kh,$idspct,$_POST['binhluan']);
+            echo '<meta http-equiv="refresh" content="0;url=?act=chitietsp&id_spct='.$_GET['id_spct'].'&id_sp='.$_GET['id_sp'].'">';
             
            }
             include('user/chitietsp.php');  
             break;
-
-            case 'guibinluan' :
+     
+          
      
             // dũng
 
@@ -203,7 +206,6 @@ if (isset($_GET['act'])) {
             break;
         case 'cart':
             if (isset($_SESSION['id_kh'])) {
-
                 include('user/giohang.php');
             } else {
                 echo '<meta http-equiv="refresh" content="0;url=?act=dangnhap">';

@@ -398,26 +398,26 @@ li>a {
 
 /* loadsptheodm */
 main{
-    margin-top: 60px;
+    margin-top: 200px;
 }
 /*  */
 .cart-main{
-    margin-top: 160px;
+    margin-top: 200px;
 }
 .check-main{
-    margin-top: 160px;
+    margin-top: 200px;
 }
 .quenmk{
-    margin-top: 160px;
+    margin-top: 200px;
 }
 .new-product-main{
-    margin-top: 140px;
+    margin-top: 200px;
 }
 .detail-product-main{
-    margin-top: 160px;
+    margin-top: 200px;
 }
-.edittk{
-    margin-top: 150px;
+.edit-tk{
+    margin-top: 200px;
 }
 .card-img{
     overflow: hidden;
@@ -514,8 +514,12 @@ bottom: 120px;
 }
 /* css bình luận  */
 .comment>form>button{
+    border: none;
     background-color: red;
 }
+.comment>form>button:focus{
+    outline: none;
+}
 .footer{
-    background-color: #514949;
+    background-color: #f7f7f7;
 }
