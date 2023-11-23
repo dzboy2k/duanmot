@@ -15,9 +15,9 @@ $iddm = getiddm();
           </div>
         </div>
         <div class="col-md-9">
-          <form class="d-flex" role="search">
-            <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-success text-bg-secondary" type="submit">Search</button>
+          <form class="d-flex" role="search" method="POST">
+            <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search" name="search">
+            <button class="btn btn-success text-bg-secondary" name="btnsearch" type="submit">Search</button>
           </form>
         </div>
 
@@ -25,7 +25,7 @@ $iddm = getiddm();
           <div class="row ">
 
             <div class="col-md-6">
-              <a href="?act=cart">
+              <a href="?act=giohang">
                 <button type="button" class="btn btn-primary position-relative">
                   <i class="ti-shopping-cart"></i>
                   <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">

@@ -17,7 +17,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
  
   <!-- Font awesome -->
-  <link rel="stylesheet" href="fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.min.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.min.css" type="text/css" /> -->
   <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script> <!-- --LẤY ICON -->
   <script src="https://kit.fontawesome.com/7c0465b461.js" crossorigin="anonymous"></script>
   <!-- Latest compiled JavaScript -->

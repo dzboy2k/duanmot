@@ -1,6 +1,6 @@
 <main>
   <!-- Login 8 - Bootstrap Brain Component -->
-  <section class="bg-light p-3 p-md-4 p-xl-5">
+  <section class="bg-light p-5 p-md-5 p-xl-5">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-12 col-xxl-11">
@@ -20,7 +20,7 @@
                         <div class="mb-5">
                           <div class="text-center mb-4">
                             <a href="#!">
-                              <img src="img/logoJN.png" alt="" height="57" />
+                              <img src="img/logonew.png" alt="" height="57" />
                             </a>
                           </div>
                           <h4 class="text-center">Đăng nhập</h4>
