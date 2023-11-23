@@ -1,3 +1,7 @@
+
+<?php  
+  $getgiamgia=getmagiamgia();   
+?>
 <body>
 
     <div class="check-main">
@@ -9,53 +13,53 @@
                     </div>
                 </div>
             </div>
-            <form action="">
+            <form action="?act=muahang&id_spct=<?= $getmuahang['id_spct'] ?>" method="post">
+
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-7">
                         <h5 class="checkout-title">Thông tin người mua</h5>
+
                         <div class="single-input-item">
-                            <input class="form-control p-3" type="text" id="name" name="UserName"
-                                placeholder="Họ và tên của bạn" required="">
+                            <input class="form-control p-3" value="<?= $getkh['tenkh'] ?>" type="text" id="name" name="UserName" placeholder="Họ và tên của bạn">
 
                         </div>
                         <div class="row">
                             <div class="col-md-6">
+
                                 <div class="single-input-item">
-                                    <input class="form-control mt-5 w-100 p-3" type="email" id="email" name="Email"
-                                        placeholder="Email của bạn" required="">
+                                    <input class="form-control mt-5 w-100 p-3" value="<?= $getkh['email'] ?>" type="email" id="email" name="email" placeholder="Email của bạn">
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <input class="form-control mt-5 w-100 p-3" type="phone" id="phone" name="PhoneNumber"
-                                    placeholder="Số điện thoại của bạn" required="">
+                                <input class="form-control mt-5 w-100 p-3" type="phone" value="<?= $getkh['sodienthoai'] ?>" id="phone" name="sodienthoai" placeholder="Số điện thoại của bạn">
                             </div>
                         </div>
 
 
                         <h5 class="mt-5 checkout-title">Địa chỉ nhận hàng</h5>
                         <div class="single-input-item">
-                            <input class="form-control p-3" type="text" id="name" name="UserName"
-                                placeholder="Địa chỉ nhận hàng" required="">
+                            <input class="form-control p-3" type="text" id="name" name="diachinhan" placeholder="Địa chỉ nhận hàng">
 
                         </div>
 
                         <h5 class="mt-5 checkout-title">Chọn hình thức thanh toán</h5>
                         <div class="option-checkout">
                             <div class="option-iem d-flex">
-                                <input type="radio" name="" id="">
+                                <input type="radio" name="option" id="" value="Thanh toán tiền mặt khi nhận hàng">
                                 <label class="m-3">Thanh toán tiền mặt khi nhận hàng</label>
                             </div>
                             <div class="option-iem">
-                                <input type="radio" name="" id="">
+                                <input type="radio" name="option" id="" value="Thanh toán tiền mặt tại cửa hàng">
                                 <label class="m-3">Thanh toán tiền mặt tại cửa hàng</label>
                             </div>
                             <div class="option-iem">
-                                <input type="radio" name="" id="">
+                                <input type="radio" name="option" value="Chuyển khoản" id="">
                                 <label class="m-3">Chuyển khoản</label>
                             </div>
                         </div>
+
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-5">
                         <h5 class="mt-5 checkout-title">Thông tin đơn hàng</h5>
                         <div class="cart-table table-responsive">
                             <table class="table table-bordered">
@@ -68,13 +72,16 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th><img style="width: 120px; height: 100px;"
-                                                src="/img/DBC0014BRW.WR20A-hover.jpg" alt=""></th>
-                                        <th>2</th>
-                                        <th>120.000.00</th>
+                                        <th><img style="width: 120px; height: 100px;" src="admin/<?= $getmuahang['hinhanhchitiet'] ?>" alt=""></th>
+                                        <th>
+                                            <input type="number" min="1" value="<?= $_SESSION['slspct'] ?>" name="soluongspct">
+                                            <button type="submit" class="btn btn-secondary mt-3" name="btnsubmitsl">Cập nhật số lượng</button>
+                                        </th>
+                                        <th ><input name="gia" type="text" value="<?= $getmuahang['gia'] ?>">VND</th>
+
                                     </tr>
 
-                                  
+
 
                                 </tbody>
 
@@ -82,7 +89,11 @@
                                     <th colspan="2">
                                         <div class="title-sale">
                                             Nhập mã ưu đãi <br>
-                                            <input type="text">
+                                         <select name="magiamgia" id="">
+                                            <?php foreach ($getgiamgia as $key => $giamgia) { ?>
+                                               <option value="<?=$giamgia['idgiamgia']?>"><?=$giamgia['magiamgia']?></option>
+                                             <?php } ?>
+                                         </select>
                                         </div>
                                     </th>
                                     <th>
@@ -90,31 +101,34 @@
                                             <button class="btn btn-secondary">Áp dụng</button>
                                         </div>
                                     </th>
-                                    
+
                                 </tr>
                                 <tr>
                                     <th>Thành tiền</th>
-                                    <th colspan="2">120.000.000</th>
+                                    <th colspan="2">
+                                        <input type="text" name="thanhtien" value="<?=$getmuahang['gia'] * $_SESSION['slspct'] ?>">VND
+                                    </th>
                                 </tr>
 
                             </table>
                             <div class="single-input-item">
-                                <textarea name="Note" id="ordernote" cols="57" rows="6" placeholder="Quý khách có thể để lại lời nhắn cho Lộc Phúc Fine Jewelry tại đây!"></textarea>
+                                <textarea name="Note" id="ordernote" cols="63" rows="6" placeholder="Quý khách có thể để lại lời nhắn cho Lộc Phúc Fine Jewelry tại đây!"></textarea>
                             </div>
                             <div class="summary-footer-area">
                                 <div class="custom-control custom-checkbox mb-20 d-flex">
-                                    <input type="checkbox" class="custom-control-input m-3" id="terms" required="">
+                                    <input type="checkbox" class="custom-control-input m-3" id="terms">
                                     <label class="custom-control-label" for="terms">Tôi đồng ý với các <a href="#">điều khoản và điều kiện</a> giao dịch của Lộc Phúc Fine Jewelry</label>
                                 </div>
-                                <button type="button" id="dat-mua-notlogin" class="btn btn-secondary btn-dathang">Đặt Mua</button>
+                                <button type="submit" name="btnsubmitdm" id="dat-mua-notlogin" class="btn btn-secondary btn-dathang">Đặt Mua</button>
                             </div>
 
 
                         </div>
                     </div>
                 </div>
-                <!-- <button type="submit">Đặt mua</button> -->
             </form>
+
+
         </div>
 
     </div>

@@ -12,14 +12,9 @@
           <div class="row element-button">
             <div class="col-sm-2">
 
-              <!-- <a class="btn btn-add btn-sm" href="?act=addluongnv" title="Thêm"><i class="fas fa-plus"></i>
-                    Tạo mới</a> -->
             </div>
 
-            <!-- <div class="col-sm-2">
-                  <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i
-                      class="fas fa-trash-alt"></i> Xóa tất cả </a>
-                </div> -->
+          
           </div>
           <table class="table table-hover table-bordered" id="sampleTable">
             <thead>
@@ -27,6 +22,7 @@
                 <th width="10"><input type="checkbox" id="all"></th>
                 <th>Id khách hàng</th>
                 <th>Tên khách hàng</th>
+                <th>Ảnh khách hàng</th>
                 <th>Email</th>
                 <th>Số điện thoại</th>
                 <th>Địa chỉ</th>
@@ -38,17 +34,17 @@
             <?php foreach ($listkh as $item) : ?>
               <tbody>
                 <tr>
-
                   <th></th>
                   <th><?php echo $item['id_kh'] ?></th>
                   <th><?php echo $item['tenkh'] ?></th>
+                  <th><img style="width: 100px;" src="../<?php echo $item['hinhanhkh'] ?>" alt=""></th>
                   <th><?php echo $item['email'] ?></th>
                   <th><?php echo $item['sodienthoai'] ?></th>
                   <th><?php echo $item['diachi'] ?></th>
                   <th><?= date('d-m-Y',strtotime($item['ngaysinh'])) ?></th>
 
                   <th><?php echo $item['tentk'] ?></th>
-                  <td><a class="delete" href="?act=deletekh&id_kh=<?php echo $item['id_kh'] ?>"><button class="btn btn-primary" name="btn" type="button"><i class="fas fa-trash-alt"></i></button></a></td>
+                  <td><a class="delete" id=<?php echo $item['id_kh'] ?>><button class="btn btn-primary" name="btn" type="button"><i class="fas fa-trash-alt"></i></button></a></td>
                 </tr>
               </tbody>
             <?php endforeach ?>
@@ -65,7 +61,7 @@
   console.log(btnDelete);
   btnDelete.forEach(function(item) {
     item.addEventListener('click', function() {
-      let x = item.getAttribute('id_kh');
+      let x = item.getAttribute('id');
       let check = confirm("Bạn có muốn xóa khách hàng này?");
       if (check) {
         let href = item.setAttribute('href', '?act=deletekh&id_kh=' + x);

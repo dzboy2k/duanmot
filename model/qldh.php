@@ -19,4 +19,5 @@ function xoadonhang($id_dh)
     ON donhang.id_dh = chitietdonhang.iddh WHERE id_dh=" . $id_dh;
     return pdo_execute($sql);
 }
+
 ?>
