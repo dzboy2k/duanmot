@@ -78,7 +78,7 @@ $getgiamgia = getmagiamgia();
 
                     </div>
                     <div class="col-lg-6">
-                        <h5 class="mt-5 checkout-title">Thông tin đơn hàng</h5>
+                        <h5 class=" checkout-title">Thông tin đơn hàng</h5>
                         <div class="cart-table table-responsive">
                             <table class="table table-bordered">
                                 <thead>

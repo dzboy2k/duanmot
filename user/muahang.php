@@ -31,7 +31,7 @@ $getgiamgia = getmagiamgia();
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control mt-5 w-100 p-3" type="phone" value="<?= $getkh['sodienthoai'] ?>" id="phone" name="sodienthoai" placeholder="Số điện thoại của bạn">
+                                    <input class="form-control w-100 p-3" type="phone" value="<?= $getkh['sodienthoai'] ?>" id="phone" name="sodienthoai" placeholder="Số điện thoại của bạn">
                                 </div>
                             </div>
                         <?php  } else { ?>

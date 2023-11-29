@@ -132,25 +132,25 @@
     <div class="row">
       <div class="slider-img d-flex">
         <div class="col-md-2 user">
-          <img src="img/anhng1.jpg" alt="" />
+          <img src="img/DEA0330AEW-WG01A-model-hover.jfif" alt="" />
+        </div>
+        <div class="col-md-2 user">
+          <img src="img/DFH0218AEW-WG01A-model-hover.jfif" alt="" />
+        </div>
+        <div class="col-md-2 user">
+          <img src="img/DFH0109BRW-WG01A-model-hover.jfif" alt="" />
+        </div>
+        <div class="col-md-2 user">
+          <img src="img/ESSENZA_MB.jpg" alt="" />
         </div>
         <div class="col-md-2 user">
           <img src="img/anhng1.jpg" alt="" />
         </div>
         <div class="col-md-2 user">
-          <img src="img/anhng1.jpg" alt="" />
+          <img src="img/DRF0190ARW-RB01A-model-hover.jfif" alt="" />
         </div>
         <div class="col-md-2 user">
-          <img src="img/anhng1.jpg" alt="" />
-        </div>
-        <div class="col-md-2 user">
-          <img src="img/anhng1.jpg" alt="" />
-        </div>
-        <div class="col-md-2 user">
-          <img src="img/anhng1.jpg" alt="" />
-        </div>
-        <div class="col-md-2 user">
-          <img src="img/anhng1.jpg" alt="" />
+          <img src="img/form dk.jpg" alt="" />
         </div>
         <div class="col-md-2 user">
           <img src="img/anhng1.jpg" alt="" />
@@ -331,12 +331,16 @@
     slidesToScroll: 1,
     dots: true,
     //  Infinity: true,
+     arrows: true,
+     autoplay: true,
+     speed:1000,
   });
   $('.slider-new').slick({
     slidesToShow: 3,
     slidesToScroll: 1,
     dots: true,
-    adaptiveHeight: true,
+     adaptiveHeight: true,
      Infinity: true,
+  
   });
 </script>
