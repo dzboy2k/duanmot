@@ -331,12 +331,16 @@
     slidesToScroll: 1,
     dots: true,
     //  Infinity: true,
+     arrows: true,
+     autoplay: true,
+     speed:1000,
   });
   $('.slider-new').slick({
     slidesToShow: 3,
     slidesToScroll: 1,
     dots: true,
-    adaptiveHeight: true,
+     adaptiveHeight: true,
      Infinity: true,
+  
   });
 </script>

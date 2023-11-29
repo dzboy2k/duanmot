@@ -91,8 +91,8 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
             <div class="comment mt-5 ">
                 <form action="?act=chitietsp&id_spct=<?php echo $chitietsp['id_spct'] ?>&id_sp=<?php echo $_GET['id_sp'] ?>" method="POST">
 
-                    <input type="text" placeholder="Nhập bình luận" style="border: none;" name="binhluan">
-                    <button type="submit" name="btnbl" style="background-color: #fff; border: none;">Gửi bình
+                    <input type="text" class="input__field input__field--top__down" placeholder="Nhập bình luận" style="border: none;" name="binhluan">
+                    <button type="submit" name="btnbl">Gửi bình
                         luận</button>
                 </form>
 

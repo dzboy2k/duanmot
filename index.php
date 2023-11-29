@@ -383,6 +383,10 @@ if (isset($_GET['act'])) {
             include('user/muahangformcart.php');
 
             break;
+
+        case 'tientrinh':
+            include('user/tientrinh.php');
+            break;
         case 'tintuc':
             include('user/tintuc.php');
 
