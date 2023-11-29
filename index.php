@@ -293,6 +293,7 @@ if (isset($_GET['act'])) {
                             $size[0]['id_chitietsize'],
                             intval($_POST['magiamgia'])
                         );
+                        echo "<script>alert('Mua thành công')</script>";
                     }
                 } else {
                     $_SESSION['slspct'] = 1;
@@ -318,6 +319,7 @@ if (isset($_GET['act'])) {
 
                             intval($_POST['magiamgia'])
                         );
+                        echo "<script>alert('Mua thành công')</script>";
                     }
                 }
             }
@@ -356,6 +358,10 @@ if (isset($_GET['act'])) {
             }
             include('user/muahangformcart.php');
 
+            break;
+
+        case 'tientrinh':
+            include('user/tientrinh.php');
             break;
         case 'tintuc':
             include('user/tintuc.php');

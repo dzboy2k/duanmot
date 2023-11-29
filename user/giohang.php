@@ -2,7 +2,7 @@
  $getgiohang=getgiohang($_SESSION['id_kh']);
 ?>
 <body>
-    <div class="cart-main mt-5">
+    <div class="cart-main ">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
