@@ -13,7 +13,7 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
                     <div class="product-img w-100">
                         <img class="w-100" src="admin/<?php echo $chitietsp['hinhanhchitiet']; ?>" alt="">
                     </div>
-                    <div class="slick-slider mt-5 d-flex">
+                    <!-- <div class="slick-slider mt-5 d-flex">
 
                         <div class="btn-img">
                             <img src="/img/DBC0014BRW.WR20A-thumbnail.jpg" alt="">
@@ -28,11 +28,11 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
                             <img src="/img/DBC0014BRW.WR20A-thumbnail.jpg" alt="">
                         </div>
 
-                    </div>
+                    </div> -->
 
                 </div>
                 <div class="col-lg-7">
-                    <form action="?act=addgiohang&idspct=<?= $_GET['id_spct'] ?>" method="post">
+                    <form method="post" action="?act=addgiohang&idspct=<?=$_GET['id_spct']?>&idsp=<?=$_GET['id_sp']?>" >
                         <div class="product-info">
                             <div class="product-name display-6">
                                 <p><?php echo $chitietsp['tenspchitiet']; ?></p>
@@ -60,27 +60,26 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
                                 <div class="mr-5 d-flex size">
                                     <h6 class="option-title">Size:</h6>
                                     <select class="nice-select" name="size">
-                                        <option>Chọn kích cỡ</option>
+
                                         <?php foreach ($getsizetheosp as $key => $value) { ?>
-                                        <option value="<?= $value['id_chitietsize'] ?>"><?= $value['bankinh'] ?>
-                                        </option>
+                                            <option value="<?= $value['id_chitietsize'] ?>"><?= $value['bankinh'] ?>
+                                            </option>
 
                                         <?php } ?>
 
                                     </select>
                                 </div>
                                 <div class="action_link">
-                                    <a class="size-a" href="/huong-dan-do-size">Hướng dẫn do size <i
-                                            class="fa fa-angle-right"></i></a>
+                                    <a class="size-a" href="/huong-dan-do-size">Hướng dẫn do size <i class="fa fa-angle-right"></i></a>
                                 </div>
                             </div>
                             <div class="quantity-cart-box  align-items-center ">
                                 <h6 class="option-title ">Số lượng:</h6>
                                 <input type="number" name="soluong" value="1" min="1">
                                 <div class="action_link mt-5">
-                                    <button class="btn btn-secondary " name="btngiohang" id="submit" type="submit">Thêm
+                                    <button class="btn btn-secondary" name="btngiohang" > Thêm
                                         giỏ hàng</button>
-                                    <button class="btn btn-secondary " id="submit" type="submit">Mua ngay</button>
+                                    <button name="btnmuangay" class="btn btn-secondary"> Mua ngay</button>
                                 </div>
                             </div>
 
@@ -90,9 +89,7 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
 
             </div>
             <div class="comment mt-5 ">
-                <form
-                    action="?act=chitietsp&id_spct=<?php echo $chitietsp['id_spct'] ?>&id_sp=<?php echo $_GET['id_sp'] ?>"
-                    method="POST">
+                <form action="?act=chitietsp&id_spct=<?php echo $chitietsp['id_spct'] ?>&id_sp=<?php echo $_GET['id_sp'] ?>" method="POST">
 
                     <input type="text" class="input__field input__field--top__down" placeholder="Nhập bình luận" style="border: none;" name="binhluan">
                     <button type="submit" name="btnbl">Gửi bình
@@ -103,12 +100,11 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
             <table>
                 <?php foreach ($binhluan as $bl) : ?>
 
-                <div class="contain-commen pt-5">
-                    <div class="pt-2"><?php echo $bl['tenkh']; ?></div>
-                    <div class="pt-2"> <img style="width: 75px; height: 75px;"
-                            src="admin/<?php echo $bl['hinhanhchitiet'] ?>" alt=""></div>
-                    <div class="pt-2"><?php echo $bl['noidung']; ?></div>
-                </div>
+                    <div class="contain-commen pt-5">
+                        <div class="pt-2"><?php echo $bl['tenkh']; ?></div>
+                        <div class="pt-2"> <img style="width: 75px; height: 75px;" src="admin/<?php echo $bl['hinhanhchitiet'] ?>" alt=""></div>
+                        <div class="pt-2"><?php echo $bl['noidung']; ?></div>
+                    </div>
 
 
                 <?php endforeach ?>
@@ -125,23 +121,23 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
 
             <div class="row">
                 <?php foreach ($loadspcungloai as $item) : ?>
-                <div class="col-md-3  col-sm-4 col-6">
-                    <div class="card">
-                        <img src="admin/<?php echo $item['hinhanhchitiet']  ?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $item['tenspchitiet'];  ?></h5>
-                            <p class="price-product" style="color: #C69967; font-size: 16px;"><?php
+                    <div class="col-md-3  col-sm-4 col-6">
+                        <div class="card">
+                            <img src="admin/<?php echo $item['hinhanhchitiet']  ?>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $item['tenspchitiet'];  ?></h5>
+                                <p class="price-product" style="color: #C69967; font-size: 16px;"><?php
                                                                                                     echo number_format($item['gia']);
                                                                                                     ?> VNĐ </p>
 
 
-                            <a href="" class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
-                            <div class="card-btn">
-                                <button><a href="">Thêm giỏ hàng</a></button>
+                                <a href="" class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
+                                <div class="card-btn">
+                                    <button><a href="">Thêm giỏ hàng</a></button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 <?php endforeach ?>
             </div>
 

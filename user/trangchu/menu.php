@@ -39,8 +39,9 @@ $iddm = getiddm();
                     <?php
                     if (isset($_SESSION['id_kh'])) {
                       $slgiohang = demslgiohang($_SESSION['id_kh']);
+                      echo  $slgiohang['slgiohang'];
+
                     ?>
-                      <?= $slgiohang['slgiohang'] ?>
 
                     <?php  } else { ?>
                       0
@@ -62,8 +63,8 @@ $iddm = getiddm();
                     <?= $_SESSION['emailkh']  ?>
                   </button>
                   <div class="account">
-                    <a href="?act=dangxuat">đăng xuất</a>
-
+                    <a href="?act=dangxuat">đăng xuất</a> <br>
+                    <a href="?act=suatk">Quản lý tài khoản</a>
                   </div>
                 </a>
 
@@ -180,10 +181,7 @@ $iddm = getiddm();
                 </ul>
               </li>
               <li><a href="#">BẠC</a></li>
-              <?php if (isset($_SESSION['emailkh'])) { ?>
-                <li><a href="?act=suatk">Quản lý tài khoản</a></li>
-
-              <?php } ?>
+              
               <li><a href="?act=tintuc">TIN TỨC</a></li>
               <li><a href="?act=lienhe">LIÊN HỆ</a></li>
             </ul>
