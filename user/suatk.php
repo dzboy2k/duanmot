@@ -133,7 +133,7 @@
                     <h6 class="mb-0">Ngày sinh</h6>
                   </div>
                   <div class="col-sm-9 text-secondary">
-                    <input readonly name="ngaysinh" type="text" class="form-control" value="<?= date('d-m-Y', strtotime($gettk['ngaysinh'])) ?>" />
+                    <input name="ngaysinh" type="date" class="form-control" value="<?= date('d-m-Y', strtotime($gettk['ngaysinh'])) ?>" />
                   </div>
                 </div>
                 <div class="row">

@@ -53,11 +53,11 @@
                                                                                   $phantram = $item['dacbiet'];
                                                                                   echo number_format($item['gia'] - ($price * $phantram) / 100)
                                                                                   ?> VND </p>
-                <div class="d-flex">
+                <div class="d-flex justify-content-between">
                   <div class="buy-product">
-                    <a href="?act=muahang&id_spct=<?= $item['id_spct'] ?>" class="btn btn-primary mr-5">Mua ngay</a>
+                    <a href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>"  class="btn btn-primary">Mua ngay</a>
                   </div>
-                  <a href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>" class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
+                  <a class="mt-2" href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>" ><i style="color: #CC8811;">Xem chi tiết -></i></a>
                 </div>
               </div>
             </div>
@@ -129,28 +129,28 @@
   </div>
   <section class="container">
 
-    <div class="row">
+  <div class="row">
       <div class="slider-img d-flex">
         <div class="col-md-2 user">
-          <img src="img/anhng1.jpg" alt="" />
+          <img src="img/DEA0330AEW-WG01A-model-hover.jfif" alt="" />
+        </div>
+        <div class="col-md-2 user">
+          <img src="img/DFH0218AEW-WG01A-model-hover.jfif" alt="" />
+        </div>
+        <div class="col-md-2 user">
+          <img src="img/DFH0109BRW-WG01A-model-hover.jfif" alt="" />
+        </div>
+        <div class="col-md-2 user">
+          <img src="img/ESSENZA_MB.jpg" alt="" />
         </div>
         <div class="col-md-2 user">
           <img src="img/anhng1.jpg" alt="" />
         </div>
         <div class="col-md-2 user">
-          <img src="img/anhng1.jpg" alt="" />
+          <img src="img/DRF0190ARW-RB01A-model-hover.jfif" alt="" />
         </div>
         <div class="col-md-2 user">
-          <img src="img/anhng1.jpg" alt="" />
-        </div>
-        <div class="col-md-2 user">
-          <img src="img/anhng1.jpg" alt="" />
-        </div>
-        <div class="col-md-2 user">
-          <img src="img/anhng1.jpg" alt="" />
-        </div>
-        <div class="col-md-2 user">
-          <img src="img/anhng1.jpg" alt="" />
+          <img src="img/form dk.jpg" alt="" />
         </div>
         <div class="col-md-2 user">
           <img src="img/anhng1.jpg" alt="" />
@@ -187,9 +187,9 @@
                                                                                 ?> VNĐ </p>
 
 
-              <a href="" class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
+              <a href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>"  class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
               <div class="card-btn">
-                <button><a href="?act=addgiohang&idspct=<?=$item['id_spct']?>&idsp=<?=$item['idsp']?>">Thêm giỏ hàng</a></button>
+                <button><a href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>">Thêm giỏ hàng</a></button>
               </div>
             </div>
           </div>

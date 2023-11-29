@@ -31,7 +31,7 @@ $iddm = getiddm();
           <div class="row ">
 
             <div class="col-md-6">
-              <a href="?act=giohang">
+              <a href="?act=cart">
                 <button type="button" class="btn btn-primary position-relative">
                   <i class="ti-shopping-cart"></i>
                   <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -39,8 +39,9 @@ $iddm = getiddm();
                     <?php
                     if (isset($_SESSION['id_kh'])) {
                       $slgiohang = demslgiohang($_SESSION['id_kh']);
+                      echo  $slgiohang['slgiohang'];
+
                     ?>
-                    <?=$slgiohang['slgiohang']?>
 
                     <?php  } else { ?>
                       0
@@ -58,8 +59,8 @@ $iddm = getiddm();
                     <?= $_SESSION['emailkh']  ?>
                   </button>
                   <div class="account">
-                    <a href="?act=dangxuat">đăng xuất</a>
-
+                    <a href="?act=dangxuat">đăng xuất</a> <br>
+                    <a href="?act=suatk">Quản lý tài khoản</a>
                   </div>
                 </a>
 
@@ -176,10 +177,7 @@ $iddm = getiddm();
                 </ul>
               </li>
               <li><a href="#">BẠC</a></li>
-              <?php if (isset($_SESSION['emailkh'])) { ?>
-                <li><a href="?act=suatk">Quản lý tài khoản</a></li>
-
-              <?php } ?>
+              
               <li><a href="?act=tintuc">TIN TỨC</a></li>
               <li><a href="?act=lienhe">LIÊN HỆ</a></li>
             </ul>

@@ -13,13 +13,14 @@
                     <table class="table table-hover table-bordered" id="sampleTable">
                         <thead>
                             <tr>
-                                <th width="10"><input type="checkbox" id="all"></th>
+                                
                                 <th>ID đơn hàng</th>
                                 <th>Sản Phẩm</th>
                                 <th>Khách hàng</th>
                                 <th>Địa chỉ</th>
                                 <th>Số điện thoại</th>
                                 <th>Số lượng</th>
+                                <th>size</th>
                                 <th>Đơn giá</th>
                                 <th>Tổng tiền</th>
                                 <th>Tình trạng</th>
@@ -35,7 +36,7 @@
 
                                     echo '
 
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                          <tr>         
 
                    <td> ' . $id_dh . ' </td>
                     <td>' . $tensp . '</td>
@@ -43,6 +44,8 @@
                    <td>' . $diachinhan . '</td>
                    <td>' . $sodienthoai . '</td>
                    <td>' . $soluongchitiet . '</td>
+                   <td>' . $idchitietsize . '</td>
+
                    <td>' . $giasp . '</td>
                    <td>' . $tongtien . '</td>
                    <td><span class="badge bg-success">Hoàn thành</span></td>

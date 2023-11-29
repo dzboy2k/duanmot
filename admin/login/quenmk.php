@@ -1,4 +1,7 @@
-<?php session_start() ?>
+<?php session_start()
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,17 +46,17 @@
                             <i class='bx bx-mail-send'></i>
                         </span>
                     </div>
-                    <?php
-                    if (isset($_SESSION['mknv'])) {
-                        echo "<span style='color:green'>Mật khẩu của bạn là:nv1234</span>";
-                    } if (isset($_SESSION['mkceo'])) {
-                        echo "<span style='color:green'>Mật khẩu của bạn là:ceo1234</span>";
-                    }
-                    ?>
+
                     <div>
                         <input type="submit" name="btnsubmit" value="Lấy mật khẩu" />
                     </div>
-
+                    
+                      <?php
+                    if (isset($_SESSION['mknv'])) {
+                        echo "<span style='color:green'>Mật khẩu của bạn là:".$_SESSION['mknv'] ."</span>";
+                    }
+                    
+                    ?>
                     <div class="text-center p-t-12">
                         <a class="txt2" href="login.php">
                             Trở về đăng nhập
@@ -71,31 +74,42 @@
 <?php
 include('../../model/pdo.php');
 include('../../model/login.php');
-$login = login();
 // var_dump($login);
 if (isset($_POST['btnsubmit'])) {
-    // echo $_POST['email'];
-    foreach ($login as $value) {
-        if ($_POST['email'] === $value['emailnv']) {
-            $idnv = $value['id_nv'];
-            // echo "<span style='color:green'>Mật khẩu của bạn là:nv1234</span>";
 
-            $_SESSION['mknv'] = 'nv1234';
-            updatemk($idnv, $_SESSION['mknv']);
-            header('location:quenmk.php');
-            break;
-            // echo 1;
-        } if ($_POST['email'] === $value['email']) {
-            $idceo = $value['id_ceo'];
-            // echo "<span style='color:green'>Mật khẩu của bạn là:ceo1234</span>";
-
-            $_SESSION['mkceo'] = 'ceo1234';
-            updatemkceo($idceo, $_SESSION['mkceo']);
-            header('location:quenmk.php');
-            break;
-            // echo 1;
-        }
+    $login = login($_POST['email']);
+    // var_dump($login);
+    if ($login) {
+        $_SESSION['mknv'] = $login['matkhau'];
+        // header('location:quenmk.php');
+    } else {
+        $messtk = '<span style="color:red" >Email bạn nhập vào không đúng </span>';
+       
+         echo $messtk;
     }
+
+    // // echo $_POST['email'];
+    // foreach ($login as $value) {
+    //     if ($_POST['email'] === $value['emailnv']) {
+    //         $idnv = $value['id_nv'];
+    //         // echo "<span style='color:green'>Mật khẩu của bạn là:nv1234</span>";
+
+    //         $_SESSION['mknv'] = 'nv1234';
+    //         updatemk($idnv, $_SESSION['mknv']);
+    //         header('location:quenmk.php');
+    //         break;
+    //         // echo 1;
+    //     } if ($_POST['email'] === $value['email']) {
+    //         $idceo = $value['id_ceo'];
+    //         // echo "<span style='color:green'>Mật khẩu của bạn là:ceo1234</span>";
+
+    //         $_SESSION['mkceo'] = 'ceo1234';
+    //         updatemkceo($idceo, $_SESSION['mkceo']);
+    //         header('location:quenmk.php');
+    //         break;
+    //         // echo 1;
+    //     }
+    // }
 }
 
 

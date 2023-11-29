@@ -40,7 +40,7 @@ if (isset($_GET['act'])) {
 
 
             include('user/maintrangchu.php');
-        
+
             break;
         case 'dangky':
             if (isset($_POST['btnsubmit'])) {
@@ -68,6 +68,8 @@ if (isset($_GET['act'])) {
                     $_SESSION['id_kh'] = $dangnhap['id_kh'];
                     // header('location:?act=trangchu');
                     echo '<meta http-equiv="refresh" content="0;url=?act=trangchu">';
+                }else{
+                    $saitk='<span style="color:red">sai tài khoản hoặc mật khẩu</span>';
                 }
             }
             include('user/dangnhap.php');
@@ -95,10 +97,11 @@ if (isset($_GET['act'])) {
                     $_POST['diachi'],
                     $_POST['matkhau'],
                     $_POST['tentk'],
-                    $upload
+                    $upload,
+                    $_POST['ngaysinh']
                 );
                 // header('location:?act=suatk');
-                echo '<meta http-equiv="refresh" content="0;url=?act=suatk&data=accounts">';
+                echo '<meta http-equiv="refresh" content="0;url=?act=suatk">';
             }
             include('user/suatk.php');
             break;
@@ -135,7 +138,7 @@ if (isset($_GET['act'])) {
             $listgioitinh = getgt();
             if (isset($_GET['idpage'])) {
                 $loadsptheodm = loadsptheodm($_GET['iddm'], $_GET['idpage']);
-                var_dump($loadsptheodm);
+                // var_dump($loadsptheodm);
             } else {
                 $loadsptheodm = loadsptheodm($_GET['iddm'], 1);
             }
@@ -155,27 +158,30 @@ if (isset($_GET['act'])) {
             $chitietsp = chitietsp($_GET['id_spct']);
             $loadspcungloai = loadspcungloai($_GET['id_sp'], $_GET['id_spct']);
             $binhluan = binhluan($_GET['id_spct']);
-           if(isset($_POST['btnbl'])) {
-            $idspct = $_GET['id_spct'];
-            $id_kh =  $_SESSION['id_kh'];
-          
-            guibinhluan($id_kh,$idspct,$_POST['binhluan']);
-            echo '<meta http-equiv="refresh" content="0;url=?act=chitietsp&id_spct='.$_GET['id_spct'].'&id_sp='.$_GET['id_sp'].'">';
-            
-           }
-            include('user/chitietsp.php');  
+            if (isset($_POST['btnbl'])) {
+                $idspct = $_GET['id_spct'];
+                $id_kh =  $_SESSION['id_kh'];
+
+                guibinhluan($id_kh, $idspct, $_POST['binhluan']);
+                echo '<meta http-equiv="refresh" content="0;url=?act=chitietsp&id_spct=' . $_GET['id_spct'] . '&id_sp=' . $_GET['id_sp'] . '">';
+            }
+            include('user/chitietsp.php');
             break;
-     
-          
-     
+      
+
+
             // dũng
 
         case 'addgiohang':
             // && isset($_SESSION['id_kh'])
             if (isset($_SESSION['id_kh'])) {
+                $idspct = $_GET['idspct'];
+                $idsp = $_GET['idsp'];
                 $chitietsp = chitietsp($_GET['idspct']);
-
+                // var_dump($chitietsp);
+                // die;
                 $check = 0;
+
                 if (isset($_POST['btngiohang'])) {
                     $allgiohang = allgiohang($_SESSION['id_kh']);
 
@@ -186,11 +192,13 @@ if (isset($_GET['act'])) {
                         ) {
                             $check = 1;
                             $slgiohang = intval($_POST['soluong']) + $giohang['slgiohang'];
-                            updateslgiohang($slgiohang, $giohang['idgiohang']);
+                            $tongtien = $slgiohang * $giohang['giasp'];
+                            updateslgiohang($slgiohang, $giohang['idgiohang'], $tongtien, intval($_POST['size']));
                         }
                     }
 
                     if ($check == 0) {
+
                         $giohang = giohang(
                             $chitietsp['tenspchitiet'],
                             $chitietsp['hinhanhchitiet'],
@@ -203,58 +211,64 @@ if (isset($_GET['act'])) {
 
                         );
                         // $slgiohang = demslgiohang($_SESSION['id_kh']);
-
                     }
+
+                    // echo '<meta http-equiv="refresh" content="0;url=?act=chitietsp&id_spct=' . $idspct . '&id_sp=' . $idsp . '">';
+
+                    include('user/giohang.php');
 
 
                     // var_dump($giohang);
-                }
-                // sẽ không lấy đc size và số lượng và gán mặc định là 1.
-                else {
-                    $allgiohang = allgiohang($_SESSION['id_kh']);
-
-                    foreach ($allgiohang as $key => $giohang) {
-                        // if ($giohang['idchitietsizesp']==1) {
-                        //     echo "adfdf";
-                        //     die;
-                        // }
-                        // // echo $giohang['idchitietsizesp'];
-                        // // die;
-                        if (
-                            $chitietsp['tenspchitiet'] === $giohang['tensp'] && $giohang['idchitietsizesp'] == 4
-                            && $_SESSION['id_kh'] == $giohang['idkh']
-                        ) {
-                            $check = 1;
-                            $slgiohang = $giohang['slgiohang'] + 1;
-                            updateslgiohang($slgiohang, $giohang['idgiohang']);
-                        }
-                    }
-
-                    if ($check == 0) {
-                        $size = getsizetheosp($chitietsp['idsp']);
-
-                        $giohang = giohang(
-                            $chitietsp['tenspchitiet'],
-                            $chitietsp['hinhanhchitiet'],
-                            $chitietsp['gia'],
-                            1,
-                            $size[0]['id_chitietsize'],
-                            intval($_GET['idspct']),
-                            $_SESSION['id_kh'],
-                            floatval(($chitietsp['gia'] * 1))
-
-                        );
-                    }
                 }
             } else {
 
                 echo '<meta http-equiv="refresh" content="0;url=?act=dangnhap">';
             }
-            include('user/giohang.php');
 
             break;
+
         case 'cart':
+
+
+
             if (isset($_SESSION['id_kh'])) {
+
+                $getgiohang = getgiohang($_SESSION['id_kh']);
+                //    var_dump($getgiohang);
+                //    die;
+                if (isset($_POST['btncapnhatsl'])) {
+
+
+                    // $checkbox = $_POST['checkbox'];
+                    // $sl=$_POST['slgiohang'];
+                    // echo $sl;
+                    $getonegiohang = getongiohang($_POST['checkbox'],);
+                    $getonegiohang['slgiohang'] = $_POST['slgiohang'];
+
+                    echo $getonegiohang['slgiohang'];
+                    //   echo $_POST['slgiohang'];
+                    // foreach ($_POST['slgiohang'] as $key => $value) {
+                    //                       echo $value['slgiohang'];
+
+                    // }
+
+                    // echo $_POST['checkbox'];
+                    //    var_dump( getongiohang($_POST['checkbox']));
+                    //     //     var_dump($_POST['checkbox']);
+                    // // die;
+                    // foreach ($getgiohang as $key => $giohang) {
+                    //     // echo $_POST['checkbox'];
+                    //     if ($giohang['idgiohang']==intval($_POST['checkbox'])) {
+                    //         $getonegiohang=getongiohang($_POST['checkbox']);
+                    //         // $getonegiohang['slgiohang']=;
+                    //     //    $slgiohang=$_POST['slgiohang'];
+                    //     //    echo  $slgiohang;
+                    //     }else{
+                    //         echo 2;
+                    //     }
+
+                    // }
+                }
                 include('user/giohang.php');
             } else {
                 echo '<meta http-equiv="refresh" content="0;url=?act=dangnhap">';
@@ -268,88 +282,100 @@ if (isset($_GET['act'])) {
                 echo '<meta http-equiv="refresh" content="0;url=?act=cart">';
             }
             break;
+        case 'editcart':
+            if (isset($_GET['idgiohang'])) {
+
+                $getonegiohang = getongiohang($_GET['idgiohang']);
+                $chitietsize = chitietsize($getonegiohang['idspct']);
+                // var_dump($chitietsize);
+            }
+            if (isset($_POST['btncapnhatsl'])) {
+                $tongtien = intval($_POST['slgiohang']) * intval($_POST['giasp']);
+                updateslgiohang(intval($_POST['slgiohang']), intval($_GET['idgiohang']), $tongtien, intval($_POST['size']));
+                echo '<meta http-equiv="refresh" content="0;url=?act=cart">';
+            }
+            include('user/capnhatsl.php');
+            break;
         case 'muahang':
-            if (isset($_GET['id_spct'])) {
-                $getmuahang = getmuahangtheospct($_GET['id_spct']);
-                $size = getsizetheosp($getmuahang['idsp']);
-                // var_dump($size);
-                // die;
-                if (isset($_SESSION['id_kh'])) {
-                    $getkh = qltk($_SESSION['id_kh']);
-                    // var_dump($getkh);
-                    $_SESSION['slspct'] = 1;
-                    if (isset($_POST['btnsubmitsl'])) {
-                        $_SESSION['slspct'] = $_POST['soluongspct'];
-                    }
-                    if (isset($_POST['btnsubmitdm'])) {
+            // if (isset($_POST['slgiohang'])) {
+            // echo $_POST['slgiohang'];
+            //     var_dump(getongiohang($_GET['idgiohang']));
+            // die;
+            // }
+
+            if (isset($_SESSION['id_kh'])) {
+                $getkh = qltk($_SESSION['id_kh']);
+                $allgiohang = allgiohang($_SESSION['id_kh']);
+                $thanhtien = tongtiencart($_SESSION['id_kh']);
+                if (isset($_POST['btnsubmitdm'])) {
+                    if (
+                        empty($_POST['username']) || empty($_POST['email'])
+                        || empty($_POST['sodienthoai']) || empty($_POST['diachinhan']) || empty($_POST['option'])
+                    ) {
+                        $thongbao = "<span style='color:red'>Bạn phải điền đầy đủ thông tin</span>";
+                    } else {
                         adddh($_POST['diachinhan'], $_POST['sodienthoai'], $_POST['option'], $_SESSION['id_kh']);
                         $getdh = getdh($_SESSION['id_kh']);
-                        addchitietdh(
-                            intval($_POST['soluongspct']),
-                            floatval($_POST['gia']),
-                            floatval($_POST['thanhtien']),
-                            $getdh['id_dh'],
-                            intval($_GET['id_spct']),
-                            $size[0]['id_chitietsize'],
-                            intval($_POST['magiamgia'])
-                        );
-                    }
-                } else {
-                    $_SESSION['slspct'] = 1;
-                    if (isset($_POST['btnsubmitsl'])) {
-                        $_SESSION['slspct'] = $_POST['soluongspct'];
-                    }
-                    if (isset($_POST['btnsubmitdm'])) {
-                        addkhkhimuahang($_POST['username'], $_POST['email'], $_POST['sodienthoai']);
-                        // die;
-                        $getmaxidkh = getkhmax();
-                        $_SESSION['id_khkhongdangky'] = $getmaxidkh['id_kh'];
-                        // var_dump($getmaxidkh);
-                        // die;
-                        adddh($_POST['diachinhan'], $_POST['sodienthoai'], $_POST['option'], $_SESSION['id_khkhongdangky']);
-                        $getdh = getdh($_SESSION['id_khkhongdangky']);
-                        addchitietdh(
-                            intval($_POST['soluongspct']),
-                            floatval($_POST['gia']),
-                            floatval($_POST['thanhtien']),
-                            $getdh['id_dh'],
-                            intval($_GET['id_spct']),
-                            $size[0]['id_chitietsize'],
+                        var_dump($getdh['id_dh']);
+                        foreach ($allgiohang as $key => $giohang) {
 
-                            intval($_POST['magiamgia'])
-                        );
+                            addchitietdh(
+                                $giohang['slgiohang'],
+                                $giohang['giasp'],
+                                $giohang['tongtien'],
+                                $getdh['iddh'],
+                                $giohang['idspct'],
+                                $giohang['idchitietsizesp'],
+                                intval($_POST['magiamgia'])
+                            );
+                            deletegiohang($giohang['idgiohang']);
+                        }
                     }
                 }
+                // if (isset($_POST['btnsubmitsl'])) {
+                //     $_SESSION['slspct'] = $_POST['soluongspct'];
+                // }
+            } else {
+                echo '<meta http-equiv="refresh" content="0;url=?act=dangnhap">';
             }
+
 
             include('user/muahang.php');
 
             break;
-        case 'muahangformcart':
+        case 'muangay':
             if (isset($_SESSION['id_kh'])) {
+                $chitietsp = chitietsp($_GET['idspct']);
+                var_dump($chitietsp);
                 $getkh = qltk($_SESSION['id_kh']);
                 $allgiohang = allgiohang($_SESSION['id_kh']);
                 $thanhtien = tongtiencart($_SESSION['id_kh']);
                 // var_dump(thanhtien($_SESSION['id_kh']));
                 if (isset($_POST['btnsubmitdm'])) {
-                    adddh($_POST['diachinhan'], $_POST['sodienthoai'], $_POST['option'], $_SESSION['id_kh']);
-                    $getdh = getdh($_SESSION['id_kh']);
-                    // var_dump($getdh);
-                    // die;
-                    foreach ($allgiohang as $key => $giohang) {
-                        addchitietdh(
-                            $giohang['slgiohang'],
-                            $giohang['giasp'],
-                            $giohang['tongtien'],
-                            $getdh['id_dh'],
-                            $giohang['idspct'],
-                            $giohang['idchitietsizesp'],
-                            intval($_POST['magiamgia'])
-                        );
-                        deletegiohang($giohang['idgiohang']);
-                        echo "<script>alert('Mua thành công')</script>";
-                    }
+                    if (
+                        empty($_POST['username']) || empty($_POST['email'])
+                        || empty($_POST['sodienthoai']) || empty($_POST['diachinhan']) || empty($_POST['option'])
+                    ) {
+                        $thongbao = "<span style='color:red'>Bạn phải điền đầy đủ thông tin</span>";
+                    } else {
 
+                        // adddh($_POST['diachinhan'], $_POST['sodienthoai'], $_POST['option'], $_SESSION['id_kh']);
+                        // $getdh = getdh($_SESSION['id_kh']);
+                        // var_dump($getdh['id_dh']);
+                        // foreach ($allgiohang as $key => $giohang) {
+
+                        //     addchitietdh(
+                        //         $giohang['slgiohang'],
+                        //         $giohang['giasp'],
+                        //         $giohang['tongtien'],
+                        //         $getdh['iddh'],
+                        //         $giohang['idspct'],
+                        //         $giohang['idchitietsizesp'],
+                        //         intval($_POST['magiamgia'])
+                        //     );
+                        //     deletegiohang($giohang['idgiohang']);
+                        // }
+                    }
 
                     // die;
                 }
@@ -373,4 +399,6 @@ if (isset($_GET['act'])) {
 
     include('user/maintrangchu.php');
 }
+
+
 include('user/trangchu/footer.php');

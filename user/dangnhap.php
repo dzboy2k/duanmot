@@ -76,6 +76,11 @@
                             <button name="btnsubmit" class="btn btn-dark btn-lg" type="submit">
                               Đăng nhập
                             </button>
+                            <?php
+                            if (isset($saitk)) {
+                              echo $saitk;
+                            }
+                            ?>
                           </div>
                         </div>
                       </div>

@@ -13,50 +13,39 @@ $getgiamgia = getmagiamgia();
                     </div>
                 </div>
             </div>
-            <form action="?act=muahangformcart" method="post">
+            <form action="?act=muangay" method="post">
 
                 <div class="row">
                     <div class="col-lg-6">
                         <h5 class="checkout-title">Thông tin người mua</h5>
-                        <?php if (isset($_SESSION['id_kh'])) { ?>
-                            <div class="single-input-item">
-                                <input class="form-control p-3" value="<?= $getkh['tenkh'] ?>" type="text" id="name" name="username" placeholder="Họ và tên của bạn">
 
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
+                        <div class="single-input-item">
+                            <input class="form-control p-3" value="<?= $getkh['tenkh'] ?>" type="text" id="name"
+                                name="username" placeholder="Họ và tên của bạn">
 
-                                    <div class="single-input-item">
-                                        <input class="form-control mt-5 w-100 p-3" value="<?= $getkh['email'] ?>" type="email" id="email" name="email" placeholder="Email của bạn">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <input class="form-control mt-5 w-100 p-3" type="phone" value="<?= $getkh['sodienthoai'] ?>" id="phone" name="sodienthoai" placeholder="Số điện thoại của bạn">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div class="single-input-item">
+                                    <input class="form-control mt-5 w-100 p-3" value="<?= $getkh['email'] ?>"
+                                        type="email" id="email" name="email" placeholder="Email của bạn">
                                 </div>
                             </div>
-                        <?php  } else { ?>
-                            <div class="single-input-item">
-                                <input class="form-control p-3" type="text" id="name" name="username" placeholder="Họ và tên của bạn">
-
+                            <div class="col-md-6">
+                                <input class="form-control mt-5 w-100 p-3" type="phone"
+                                    value="<?= $getkh['sodienthoai'] ?>" id="phone" name="sodienthoai"
+                                    placeholder="Số điện thoại của bạn">
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
+                        </div>
 
-                                    <div class="single-input-item">
-                                        <input class="form-control mt-5 w-100 p-3" type="email" id="email" name="email" placeholder="Email của bạn">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <input class="form-control mt-5 w-100 p-3" type="phone" id="phone" name="sodienthoai" placeholder="Số điện thoại của bạn">
-                                </div>
-                            </div>
-                        <?php } ?>
 
 
 
                         <h5 class="mt-5 checkout-title">Địa chỉ nhận hàng</h5>
                         <div class="single-input-item">
-                            <input class="form-control p-3" type="text" id="name" name="diachinhan" placeholder="Địa chỉ nhận hàng">
+                            <input class="form-control p-3" type="text" id="name" name="diachinhan"
+                                placeholder="Địa chỉ nhận hàng">
 
                         </div>
 
@@ -75,7 +64,9 @@ $getgiamgia = getmagiamgia();
                                 <label class="m-3">Chuyển khoản</label>
                             </div>
                         </div>
-
+                        <?php if (isset($thongbao)) {
+                                echo $thongbao;
+                        } ?>
                     </div>
                     <div class="col-lg-6">
                         <h5 class="mt-5 checkout-title">Thông tin đơn hàng</h5>
@@ -89,19 +80,13 @@ $getgiamgia = getmagiamgia();
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                                    foreach ($allgiohang as $key => $giohang) { ?>
-                                      <tr>
-                                        <th><img style="width: 120px; height: 100px;" src="admin/<?= $giohang['hinhanhspct'] ?>" alt=""><br>
-                                        <?= $giohang['tensp'] ?></th>
-                                        <th>
-                                            <?= $giohang['slgiohang']?>
-                                        </th>
-                                        <th><?= number_format($giohang['giasp']) ?>VND</th>
 
+                                    <tr>
+                                        <th><?=$chitietsp['tenspchitiet']?></th>
+                                        <th><?=$chitietsp['tenspchitiet']?></th>
+                                        <th><?=$chitietsp['gia']?></th>
                                     </tr>
-                                    <?php }
-                                    ?>
+
 
 
 
@@ -113,7 +98,8 @@ $getgiamgia = getmagiamgia();
                                             Nhập mã ưu đãi <br>
                                             <select name="magiamgia" id="">
                                                 <?php foreach ($getgiamgia as $key => $giamgia) { ?>
-                                                    <option value="<?= $giamgia['idgiamgia'] ?>"><?= $giamgia['magiamgia'] ?></option>
+                                                <option value="<?= $giamgia['idgiamgia'] ?>">
+                                                    <?= $giamgia['magiamgia'] ?></option>
                                                 <?php } ?>
                                             </select>
                                         </div>
@@ -128,20 +114,23 @@ $getgiamgia = getmagiamgia();
                                 <tr>
                                     <th>Thành tiền</th>
                                     <th colspan="2">
-                                        <?=number_format($thanhtien['tongtien'])?>VND
+                                        <?= number_format($thanhtien['tongtien']) ?>VND
                                     </th>
                                 </tr>
 
                             </table>
                             <div class="single-input-item">
-                                <textarea name="Note" id="ordernote" cols="63" rows="6" placeholder="Quý khách có thể để lại lời nhắn cho Lộc Phúc Fine Jewelry tại đây!"></textarea>
+                                <textarea name="Note" id="ordernote" cols="63" rows="6"
+                                    placeholder="Quý khách có thể để lại lời nhắn cho Lộc Phúc Fine Jewelry tại đây!"></textarea>
                             </div>
                             <div class="summary-footer-area">
                                 <div class="custom-control custom-checkbox mb-20 d-flex">
                                     <input type="checkbox" class="custom-control-input m-3" id="terms">
-                                    <label class="custom-control-label" for="terms">Tôi đồng ý với các <a href="#">điều khoản và điều kiện</a> giao dịch của Lộc Phúc Fine Jewelry</label>
+                                    <label class="custom-control-label" for="terms">Tôi đồng ý với các <a href="#">điều
+                                            khoản và điều kiện</a> giao dịch của Lộc Phúc Fine Jewelry</label>
                                 </div>
-                                <button type="submit" name="btnsubmitdm" id="dat-mua-notlogin" class="btn btn-secondary btn-dathang">Đặt Mua</button>
+                                <button type="submit" name="btnsubmitdm" id="dat-mua-notlogin"
+                                    class="btn btn-secondary btn-dathang">Đặt Mua</button>
                             </div>
 
 

@@ -4,7 +4,7 @@ $sql="SELECT * FROM `sanphamct` WHERE id_spct=$idspct";
 return pdo_query_one($sql);
 }
 function getdh($id_kh){
-    $sql="SELECT * FROM `donhang` WHERE idkh=$id_kh";
+    $sql="SELECT MAX(donhang.id_dh) AS 'iddh',donhang.* FROM `donhang` WHERE idkh=$id_kh";
     return pdo_query_one($sql);
 }
 function getmagiamgia(){
