@@ -19,9 +19,12 @@ function guibinhluan($idkh, $id_spct, $binhluan)
 VALUES($idkh,$id_spct,'$binhluan');
 ";
     pdo_execute($sql);
-   
 }
 
+function updatebl($noidung,$id_bl){
+    $sql = "UPDATE binhluan SET noidung = '$noidung' WHERE id_bl = $id_bl";
+    pdo_execute($sql);
+}
 // bên admin
 function listbltoadmin()
 {

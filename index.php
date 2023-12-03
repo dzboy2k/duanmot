@@ -66,6 +66,9 @@ if (isset($_GET['act'])) {
                 if ($dangnhap) {
                     $_SESSION['emailkh'] = $dangnhap['email'];
                     $_SESSION['id_kh'] = $dangnhap['id_kh'];
+                    $_SESSION['hinhanhkh'] = $dangnhap['hinhanhkh'];
+                    var_dump($_SESSION['hinhanhkh']);
+                    // die;
                     // header('location:?act=trangchu');
                     echo '<meta http-equiv="refresh" content="0;url=?act=trangchu">';
                 }else{
@@ -165,10 +168,21 @@ if (isset($_GET['act'])) {
                 guibinhluan($id_kh, $idspct, $_POST['binhluan']);
                 echo '<meta http-equiv="refresh" content="0;url=?act=chitietsp&id_spct=' . $_GET['id_spct'] . '&id_sp=' . $_GET['id_sp'] . '">';
             }
+           
             include('user/chitietsp.php');
             break;
-      
-
+      case 'updatebl':
+        updatebl($_GET['noidung'],$_GET['id_bl']);
+        echo $_GET['noidung'];
+        break;
+        case 'deletebl':
+            if(isset($_GET['id_bl'])) {
+              echo $_GET['id_bl'];
+               deletebl($_GET['id_bl']);
+                //echo '<meta http-equiv="refresh" content="0;url=?act=chitietsp&id_spct=' . $_GET['id_spct'] . '&id_sp=' . $_GET['id_sp'] . '">';
+               
+                }
+            break;
 
             // dũng
 
