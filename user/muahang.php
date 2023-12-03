@@ -144,7 +144,7 @@ $getgiamgia = getmagiamgia();
                                     <label class="custom-control-label" for="terms">Tôi đồng ý với các <a href="#">điều
                                             khoản và điều kiện</a> giao dịch của Lộc Phúc Fine Jewelry</label>
                                 </div>
-                                <button type="submit" name="btnsubmitdm" id="dat-mua-notlogin"
+                                <button type="submit" name="payUrl" id="dat-mua-notlogin"
                                     class="btn btn-secondary btn-dathang">Đặt Mua</button>
                             </div>
 

@@ -1,7 +1,3 @@
-<?php
-$getgiohang = getgiohang($_SESSION['id_kh']);
-?>
-
 <body>
     <div class="cart-main">
         <div class="container">
@@ -26,15 +22,14 @@ $getgiohang = getgiohang($_SESSION['id_kh']);
 
                                 <?php foreach ($getgiohang as $key => $giohang) { ?>
                                     <tr>
-
                                         <th><img style="width: 120px; height: 100px;" src="admin/<?= $giohang['hinhanhspct'] ?>" alt=""></th>
                                         <th><?= $giohang['tensp'] ?></th>
-                                        <th><?= $giohang['slgiohang'] ?>
+                                        <th><input type="number" class="btncapnhatsl" giasp=<?= $giohang['giasp'] ?> idgiohang=<?= $giohang['idgiohang'] ?> value="<?= $giohang['slgiohang'] ?>">
                                         </th>
+                                       
                                         <th><?= $giohang['bankinh'] ?></th>
                                         <th><?= number_format($giohang['giasp']) ?>VND</th>
                                         <th>
-                                            <a href="?act=editcart&idgiohang=<?= $giohang['idgiohang'] ?>"><i class="fas fa-edit"></i></a>
                                             <a href="?act=deletegiohang&idgiohang=<?= $giohang['idgiohang'] ?>"><i class="fas fa-trash-alt" style="color: red;"></i></a><br>
                                         </th>
 
@@ -63,7 +58,24 @@ $getgiohang = getgiohang($_SESSION['id_kh']);
         </div>
     </div>
 </body>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
-    // let sl=document.querySelectorAll('#btncapnhatsl');
+    let sl = document.querySelectorAll(".btncapnhatsl");
+    sl.forEach(function(item) {
+        item.addEventListener('change', function() {
+            let id = item.getAttribute('idgiohang');
+            let giasp = item.getAttribute('giasp');
+
+            $.ajax({
+                type: "GET",
+                url: "?act=editcart",
+                data: "idgiohang=" + id + "&sl=" + item.value + "&giasp=" + giasp,
+                success: function(repon) {
+                    // console.log(repon);
+                }
+            })
+        })
+    })
+
+  
 </script>

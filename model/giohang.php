@@ -30,9 +30,20 @@ function tongtiencart($idkh){
    $sql="SELECT SUM(tongtien) as 'tongtien' FROM `giohang` WHERE idkh=$idkh;";
    return pdo_query_one($sql);
 }
-function updateslgiohang($sl,$idgiohang,$tongtien,$size){
+function checkslgiohangvoispct($idspct){
 
-    $sql="UPDATE `giohang` SET `slgiohang`=$sl,tongtien=$tongtien,idchitietsizesp=$size
+    $sql="SELECT * FROM `giohang` JOIN sanphamct ON sanphamct.id_spct=giohang.idspct 
+    WHERE giohang.slgiohang>sanphamct.soluong  and giohang.idspct=$idspct;";
+   $kq=pdo_query($sql);
+   if ($kq) {
+    echo "<span style='color:red'>Số lượng đã vượt quá số lượng tồn kho</span>";
+   }
+
+}
+// ajax
+function updateslgiohang($sl,$idgiohang,$tongtien){
+
+    $sql="UPDATE `giohang` SET `slgiohang`=$sl,tongtien=$tongtien
      WHERE idgiohang=$idgiohang";
     pdo_execute($sql);
 

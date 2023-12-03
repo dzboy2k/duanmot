@@ -13,7 +13,7 @@
                     <table class="table table-hover table-bordered" id="sampleTable">
                         <thead>
                             <tr>
-                                
+
                                 <th>ID đơn hàng</th>
                                 <th>Sản Phẩm</th>
                                 <th>Khách hàng</th>
@@ -31,7 +31,10 @@
                         <tbody>
                             <tr>
                                 <?php foreach ($listdh as $donhang) {
+                                    // var_dump($donhang);
                                     extract($donhang);
+                                    $editdonhang = "index.php?act=editdonhang&id_dh=" . $id_dh;
+
                                     $xoadonhang = "index.php?act=xoadonhang&id_dh=" . $id_dh;
 
                                     echo '
@@ -39,7 +42,7 @@
                           <tr>         
 
                    <td> ' . $id_dh . ' </td>
-                    <td>' . $tensp . '</td>
+                    <td>' . $tenspchitiet . '</td>
                    <td>' . $tenkh . '</td>
                    <td>' . $diachinhan . '</td>
                    <td>' . $sodienthoai . '</td>
@@ -48,9 +51,13 @@
 
                    <td>' . $giasp . '</td>
                    <td>' . $tongtien . '</td>
-                   <td><span class="badge bg-success">Hoàn thành</span></td>
+                   <td><span class="badge bg-success">' . $tentientrinh . '</span></td>
                    <td>' . $phuongthuctt . '</td>
-                   <td><a href="' . $xoadonhang . '" > <button class="btn btn-primary trash" type="button" title="Xóa"><i
+                   <td>
+                  <a href="' . $editdonhang . '" > <button class="btn btn-primary trash" type="button" title="sửa">
+                  <i class="fas fa-edit"></i> </button>
+                  </a>
+                  <a href="' . $xoadonhang . '" > <button class="btn btn-primary trash" type="button" title="Xóa"><i
                       class="fas fa-trash-alt"></i> </button>
                   </a>
                 </td>              

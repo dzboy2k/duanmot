@@ -38,6 +38,18 @@
   </div>
 </footer>
 <script src="bootstrap-5.3.0-dist/js/bootstrap.bundle.min.js"></script>
+<!-- <script>
+  $('#dat-mua-notlogin').on('click', function () {
+    
+    $.post("vnpay_php/vnpay_create_payment.php", data,
+      function (data, textStatus, jqXHR) {
+        
+      },
+      "dataType"
+    );
+    window.location.href = 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html';
+  });
+</script> -->
 </body>
 
 </html>

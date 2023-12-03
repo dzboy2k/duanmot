@@ -1,12 +1,12 @@
 <?php
 function loadallDH()
 {
-    $sql = "SELECT donhang.*, chitietdonhang.*, khachhang.*,sanphamct.*,san_pham.*
-    FROM donhang JOIN khachhang ON donhang.idkh = khachhang.id_kh 
+    $sql = "SELECT donhang.*, chitietdonhang.*, khachhang.*,sanphamct.*,san_pham.*,tientrinh.* FROM donhang 
+    JOIN khachhang ON donhang.idkh = khachhang.id_kh 
     JOIN chitietdonhang ON donhang.id_dh = chitietdonhang.iddh 
-    JOIN sanphamct ON chitietdonhang.idspct =  sanphamct.id_spct
-    JOIN san_pham ON sanphamct.idsp = san_pham.id_sp 
-    WHERE 1 ";
+    JOIN sanphamct ON chitietdonhang.idspct = sanphamct.id_spct 
+    JOIN san_pham ON sanphamct.idsp = san_pham.id_sp
+     JOIN tientrinh ON tientrinh.idtientrinh=donhang.idtientrinh;";
 
     $listdh = pdo_query($sql);
     // $tongTien = $giasp * $soluongchitiet;

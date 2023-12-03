@@ -18,6 +18,7 @@ if (!isset($_SESSION['user'])) {
    include('../model/qlnv.php');
    include('../model/qlkh.php');
    include('../model/binhluan.php');
+   include('../model/quanlydonhang.php');
 
    include('../model/gioitinh.php');
 
@@ -224,6 +225,17 @@ if (!isset($_SESSION['user'])) {
             }
             $listdh = loadallDH();
             include('qldh/main.php');
+            break;
+         case 'editdonhang':
+            $tientrinh=tientrinh();
+            $getonedonhang=getonedonhang($_GET['id_dh']);
+            var_dump($getonedonhang);
+            if (isset($_POST['btnsubmit'])) {
+              updatedonhang(intval($_POST['iddh']),intval($_POST['tientrinh']));
+              header('location:?act=quanlydonhang');
+            }
+
+            include('qldh/modal.php');
             break;
          case 'quanlynoibo':
             include('qlnoibo/main.php');
