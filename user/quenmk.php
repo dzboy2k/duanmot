@@ -46,8 +46,8 @@
                             <div class="col-12">
                                 <hr class="mt-5 mb-4 border-secondary-subtle" />
                                 <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-center">Chưa có tài khoản?
-                                    <a href="dangky.html" class="link-secondary text-decoration-none">Đăng ký</a>
-                                    <a href="dangnhap.html" class="link-secondary text-decoration-none">Đăng nhập</a>
+                                    <a href="?act=dangky" class="link-secondary text-decoration-none">Đăng ký</a>
+                                    <a href="?act=dangnhap" class="link-secondary text-decoration-none">Đăng nhập</a>
                                 </div>
                             </div>
                         </div>

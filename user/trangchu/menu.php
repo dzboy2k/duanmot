@@ -33,7 +33,7 @@ $iddm = getiddm();
             <div class="col-md-6 btn-shop">
               <a href="">
                 <button type="button" class="btn btn-primary position-relative">
-                  <i class="ti-shopping-cart"></i>
+                  <i class="ti-shopping-cart" style="color: #fff;"></i>
                   <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
 
                     <?php
@@ -62,9 +62,9 @@ $iddm = getiddm();
             <?php if (isset($_SESSION['emailkh'])) { ?>
               <div class="col-md-6 btn-user">
                 <a href="">
-                  <button type="button" class="btn btn-primary position-relative">
-                    <?= $_SESSION['emailkh']  ?>
-                  </button>
+                  <!-- <button type="button" class="btn btn-primary position-relative"> -->
+                 <img style="height: 50px; border-radius: 50%; margin-top: -8px;" class="ml-4" src="<?=$_SESSION['hinhanhkh'] ?>" alt="">
+                  <!-- </button> -->
                   <div class="account">
                     <a href="?act=dangxuat">đăng xuất</a> <br>
                     <a href="?act=suatk">Quản lý tài khoản</a>

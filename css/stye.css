@@ -306,6 +306,9 @@ li>a {
 .slick-slide img {
     width: 80%;
 }
+.slider-new img{
+    width: 100%;
+}
 
 /* ///// */
 .cardto {
@@ -567,3 +570,24 @@ input:focus{
 .btn>button{
     border: none;
 }
+
+/* css sửa xóa bình luận */
+.contain-comment input{
+    border: none;
+}
+.update-comment{
+    display: none;
+}
+.update-bl{
+    display: flex;
+    /* justify-content: space-between; */
+}
+.btn-update:hover .update-comment{
+  display: block;
+}
+.update-comment>button{
+    /* display: block; */
+    border: none;
+    margin: 10px 0px;
+    background-color: #fff;
+  }

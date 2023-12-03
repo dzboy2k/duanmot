@@ -92,7 +92,6 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
             </div>
             <div class="comment mt-5 ">
                 <form action="?act=chitietsp&id_spct=<?php echo $chitietsp['id_spct'] ?>&id_sp=<?php echo $_GET['id_sp'] ?>" method="POST">
-
                     <input type="text" class="input__field input__field--top__down" placeholder="Nhập bình luận" style="border: none;" name="binhluan">
                     <button type="submit" name="btnbl">Gửi bình
                         luận</button>
@@ -102,13 +101,24 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
             <table>
                 <?php foreach ($binhluan as $bl) : ?>
 
-                    <div class="contain-commen pt-5">
-                        <div class="pt-2"><?php echo $bl['tenkh']; ?></div>
-                        <div class="pt-2"> <img style="width: 75px; height: 75px;" src="admin/<?php echo $bl['hinhanhchitiet'] ?>" alt=""></div>
-                        <div class="pt-2"><?php echo $bl['noidung']; ?></div>
+                    <div class="update-bl">
+                        <div class="contain-comment mt-5">
+                            <div class="pt-2"><?php echo $bl['tenkh']; ?></div>
+                            <div class="pt-2"> <img style="width: 75px; height: 75px;" src="admin/<?php echo $bl['hinhanhchitiet'] ?>" alt=""></div>
+                            <div class="pt-2"><input type="text" class="noidung" value="<?php echo $bl['noidung']; ?>"></div>
+                        </div>
+                        <div class="btn-update mt-5">
+                            <div class="btn-menu">
+                                <i class="ti-more-alt"></i>
+                            </div>
+                            <?php if ($bl['id_kh'] == $_SESSION['id_kh']) { ?>
+                                <div class="update-comment">
+                                    <button class="upbl" idbl="<?= $bl['id_bl']  ?>" >Sửa bình luận</button> <br>
+                                    <button onclick="delbl(<?= $bl['id_bl']  ?>)">Xóa bình luận</button>
+                                </div>
+                            <?php } ?>
+                        </div>
                     </div>
-
-
                 <?php endforeach ?>
             </table>
 
