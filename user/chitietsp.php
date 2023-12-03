@@ -32,7 +32,7 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
 
                 </div>
                 <div class="col-lg-7">
-                    <form method="post" action="?act=addgiohang&idspct=<?= $_GET['id_spct'] ?>&idsp=<?= $_GET['id_sp'] ?>">
+                    
                         <div class="product-info">
                             <div class="product-name display-6">
                                 <p><?php echo $chitietsp['tenspchitiet']; ?></p>
@@ -75,16 +75,18 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
                             </div>
                             <div class="quantity-cart-box  align-items-center ">
                                 <h6 class="option-title ">Số lượng:</h6>
-                                <input type="number" name="soluong" value="1" min="1">
+                                <input type="number" class="sl" name="soluong" value="1" min="1">
                                 <div class="action_link mt-5">
-                                    <button class="btn btn-secondary" name="btngiohang"> Thêm
+                                    <button class="btn btn-secondary" onclick="addtocart('<?= $chitietsp['tenspchitiet'] ?>',
+                                    '<?= $chitietsp['hinhanhchitiet'] ?>',<?= $chitietsp['gia'] ?>,
+                                    <?= $_GET['id_spct'] ?>,<?= $_SESSION['id_kh'] ?>)" class="btngiohang"> Thêm
                                         giỏ hàng</button>
                                     <button name="btnmuangay" class="btn btn-secondary"> Mua ngay</button>
                                 </div>
                             </div>
 
                         </div>
-                    </form>
+                  
                 </div>
 
             </div>
@@ -141,7 +143,7 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
                                                                                                     ?> VNĐ </p>
 
 
-                                <a href="" class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
+                                <a href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>" class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
                                 <div class="card-btn">
                                     <button><a href="">Thêm giỏ hàng</a></button>
                                 </div>
@@ -156,41 +158,35 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
 
 
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
-    function delbl(idbl) {
-        $.ajax({
-            type: 'GET',
-            url: '?act=deletebl',
-            data: 'id_bl=' + idbl,
-            success: function(respon) {
-                console.log(respon);
-            }
-        })
-    }
+    function addtocart(tensp, anh, gia, idspct, idkh) {
+        let size = Number(document.querySelector('.nice-select').value);
+        let sl = Number(document.querySelector('.sl').value);
+        let tongtien = sl * gia;
 
-    function updatebl(idbl,i) {
+        // console.log(tensp,anh,gia,idspct,idkh,size,sl,tongtien);
+        // let btngiohang=document.querySelector('.btngiohang');
         $.ajax({
-            type: 'GET',
-            url: '?act=updatebl',
-            data: 'id_bl=' + idbl + '&noidung=' + i,
-            success: function(respon) {
-                console.log(respon);
+            type: "GET",
+            url: "?act=addgiohang",
+            data: {
+                tensp: tensp,
+                anh: anh,
+                gia: gia,
+                soluong: sl,
+                size: size,
+                tongtien: tongtien,
+                idspct: idspct,
+                idkh: idkh,
+
+            },
+            success: function(repon) {
+                // console.log(repon);
+                alert("bạn đã thêm sản phẩm vào giỏ hàng");
             }
         })
+
+
     }
-    function noidung() {
-        document.querySelectorAll(".noidung").forEach(function(item){
-            item.addEventListener("input", function(){
-                let i =  item.value;
-                document.querySelectorAll(".upbl").forEach(function(a){
-                    a.addEventListener("click", function(){
-                        let idbl = a.getAttribute("idbl");
-                        updatebl(idbl,i);
-                    })
-                });
-            })
-        })
-    }
-    noidung();
+ 
 </script>

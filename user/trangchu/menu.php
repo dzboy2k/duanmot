@@ -38,8 +38,11 @@ $iddm = getiddm();
 
                     <?php
                     if (isset($_SESSION['id_kh'])) {
+  //  echo $_SESSION['allgiohang'];
+
                       $slgiohang = demslgiohang($_SESSION['id_kh']);
                       echo  $slgiohang['slgiohang'];
+                      // echo"<script>window.location.href='?act=trangchu'</script>"
 
                     ?>
 
