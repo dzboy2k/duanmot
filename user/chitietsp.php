@@ -13,114 +13,109 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
                     <div class="product-img w-100">
                         <img class="w-100" src="admin/<?php echo $chitietsp['hinhanhchitiet']; ?>" alt="">
                     </div>
-                    <!-- <div class="slick-slider mt-5 d-flex">
-
-                        <div class="btn-img">
-                            <img src="/img/DBC0014BRW.WR20A-thumbnail.jpg" alt="">
-                        </div>
-                        <div class="btn-img ">
-                            <img src="/img/DBC0014BRW.WR20A-thumbnail.jpg" alt="">
-                        </div>
-                        <div class="btn-img ">
-                            <img src="/img/DBC0014BRW.WR20A-thumbnail.jpg" alt="">
-                        </div>
-                        <div class="btn-img ">
-                            <img src="/img/DBC0014BRW.WR20A-thumbnail.jpg" alt="">
-                        </div>
-
-                    </div> -->
-
+                    
                 </div>
                 <div class="col-lg-7">
-                    
-                        <div class="product-info">
-                            <div class="product-name display-6">
-                                <p><?php echo $chitietsp['tenspchitiet']; ?></p>
-                            </div>
-                            <div class="product-feedback mt-4">
-                                <div style="display:flex">
-                                    <div class="icon-start">
-                                        <i class="ti-star"></i>
-                                        <i class="ti-star"></i>
-                                        <i class="ti-star"></i>
-                                        <i class="ti-star"></i>
-                                        <i class="ti-star"></i>
-                                    </div>
 
-                                    <div class="product-review"><span class="product-rating">74</span> đánh giá</div>
+                    <div class="product-info">
+                        <div class="product-name display-6">
+                            <p><?php echo $chitietsp['tenspchitiet']; ?></p>
+                        </div>
+                        <div class="product-feedback mt-4">
+                            <div style="display:flex">
+                                <div class="icon-start">
+                                    <i class="ti-star"></i>
+                                    <i class="ti-star"></i>
+                                    <i class="ti-star"></i>
+                                    <i class="ti-star"></i>
+                                    <i class="ti-star"></i>
                                 </div>
-                            </div>
-                            <div class="product-price  mt-4">
-                                <p><?php echo number_format($chitietsp['gia']); ?> VND</p>
-                            </div>
-                            <div class="pro-text  mt-4">
-                                <p>Mô tả:<?php echo $chitietsp['mota']; ?></p>
-                            </div>
-                            <div class="product-size d-flex my-4">
-                                <div class="mr-5 d-flex size">
-                                    <h6 class="option-title">Size:</h6>
-                                    <select class="nice-select" name="size">
 
-                                        <?php foreach ($getsizetheosp as $key => $value) { ?>
-                                            <option value="<?= $value['id_chitietsize'] ?>"><?= $value['bankinh'] ?>
-                                            </option>
-
-                                        <?php } ?>
-
-                                    </select>
-                                </div>
-                                <div class="action_link">
-                                    <a class="size-a" href="/huong-dan-do-size">Hướng dẫn do size <i class="fa fa-angle-right"></i></a>
-                                </div>
+                                <div class="product-review"><span class="product-rating">74</span> đánh giá</div>
                             </div>
-                            <div class="quantity-cart-box  align-items-center ">
-                                <h6 class="option-title ">Số lượng:</h6>
-                                <input type="number" class="sl" name="soluong" value="1" min="1">
-                                <div class="action_link mt-5">
-                                    <button class="btn btn-secondary" onclick="addtocart('<?= $chitietsp['tenspchitiet'] ?>',
+                        </div>
+                        <div class="product-price  mt-4">
+                            <p><?php echo number_format($chitietsp['gia']); ?> VND</p>
+                        </div>
+                        <div class="pro-text  mt-4">
+                            <p>Mô tả:<?php echo $chitietsp['mota']; ?></p>
+                        </div>
+                        <div class="product-size d-flex my-4">
+                            <div class="mr-5 d-flex size">
+                                <h6 class="option-title">Size:</h6>
+                                <select class="nice-select" name="size">
+
+                                    <?php foreach ($getsizetheosp as $key => $value) { ?>
+                                        <option value="<?= $value['id_chitietsize'] ?>"><?= $value['bankinh'] ?>
+                                        </option>
+
+                                    <?php } ?>
+
+                                </select>
+                            </div>
+                            <div class="action_link">
+                                <a class="size-a" href="/huong-dan-do-size">Hướng dẫn do size <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="quantity-cart-box  align-items-center ">
+                            <h6 class="option-title ">Số lượng:</h6>
+                            <input type="number" class="sl" name="soluong" value="1" min="1">
+                            <div class="action_link mt-5">
+                                <button class="btn btn-secondary" onclick="addtocart('<?= $chitietsp['tenspchitiet'] ?>',
                                     '<?= $chitietsp['hinhanhchitiet'] ?>',<?= $chitietsp['gia'] ?>,
                                     <?= $_GET['id_spct'] ?>,<?= $_SESSION['id_kh'] ?>)" class="btngiohang"> Thêm
-                                        giỏ hàng</button>
-                                    <button name="btnmuangay" class="btn btn-secondary"> Mua ngay</button>
-                                </div>
+                                    giỏ hàng</button>
+                                <button name="btnmuangay" class="btn btn-secondary"> Mua ngay</button>
                             </div>
-
                         </div>
-                  
+
+                    </div>
+
                 </div>
 
             </div>
-            <div class="comment mt-5 ">
-                <form action="?act=chitietsp&id_spct=<?php echo $chitietsp['id_spct'] ?>&id_sp=<?php echo $_GET['id_sp'] ?>" method="POST">
-                    <input type="text" class="input__field input__field--top__down" placeholder="Nhập bình luận" style="border: none;" name="binhluan">
-                    <button type="submit" name="btnbl">Gửi bình
-                        luận</button>
-                </form>
-
-            </div>
-            <table>
-                <?php foreach ($binhluan as $bl) : ?>
-
-                    <div class="update-bl">
-                        <div class="contain-comment mt-5">
-                            <div class="pt-2"><?php echo $bl['tenkh']; ?></div>
-                            <div class="pt-2"> <img style="width: 75px; height: 75px;" src="admin/<?php echo $bl['hinhanhchitiet'] ?>" alt=""></div>
-                            <div class="pt-2"><input type="text" class="noidung" value="<?php echo $bl['noidung']; ?>"></div>
-                        </div>
-                        <div class="btn-update mt-5">
-                            <div class="btn-menu">
-                                <i class="ti-more-alt"></i>
+          
+          
+            <div class="container-fluid mt-5">
+                <div class="d-flex justify-content-center row">
+                    <div class="col-md-12">
+                        <div class="d-flex flex-column comment-section">
+                            <div class="p-2">
+                                <form action="?act=chitietsp&id_spct=<?php echo $chitietsp['id_spct'] ?>&id_sp=<?php echo $_GET['id_sp'] ?>" method="POST">
+                                
+                                <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="<?php echo $_SESSION['hinhanhkh'] ?>" width="40">
+                                <textarea class="form-control ml-1 shadow-none textarea" style="height: 100px;" name="binhluan" placeholder="Nhập bình luận"></textarea></div>
+                                <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="submit" name="btnbl">Gửi bình luận</button>
+                                <button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">Hủy</button></div>
+                                </form>
                             </div>
-                            <?php if ($bl['id_kh'] == $_SESSION['id_kh']) { ?>
-                                <div class="update-comment">
-                                    <button class="upbl" idbl="<?= $bl['id_bl']  ?>" >Sửa bình luận</button> <br>
-                                    <button onclick="delbl(<?= $bl['id_bl']  ?>)">Xóa bình luận</button>
+
+                            <?php foreach ($binhluan as $bl) : ?>
+                                <div class="bg-white p-2">
+                                    <div class="d-flex flex-row user-info"><img class="rounded-circle" src="<?php echo $bl['hinhanhkh'] ?>" width="40">
+                                        <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name"><?php echo $bl['tenkh'] ?></span>
+                                            <span class="text-black-50"><?php echo  $bl['thoigian'] ?></span>
+                                        </div>
+                                    </div>
+                                    <div class="mt-2 contain-comment">
+                                        <input type="text" class="noidung" value="<?php echo $bl['noidung']; ?>">
+                                    </div>
                                 </div>
-                            <?php } ?>
+
+                                <div class="bg-white">
+                                    <div class="d-flex flex-row fs-12">
+                                        <?php if(($_SESSION['id_kh']) == $bl['id_kh']) { ?>
+                                        <div class="like p-2 cursor upbl" idbl="<?= $bl['id_bl']  ?>"><i class="fa fa-commenting-o"></i><span class="ml-1">Sửa</span></div>
+                                        <div class="like p-2 cursor" onclick="delbl(<?= $bl['id_bl']  ?>)"> <i class="fa fa-trash-o"></i><span class="ml-1">Xóa</span></div>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                                <hr>
+                            <?php endforeach ?>
                         </div>
                     </div>
-                <?php endforeach ?>
-            </table>
+                </div>
+            </div>
 
         </div>
     </div>
@@ -185,8 +180,42 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
                 alert("bạn đã thêm sản phẩm vào giỏ hàng");
             }
         })
-
-
     }
- 
+
+    function delbl(idbl) {
+        $.ajax({
+            type: 'GET',
+            url: '?act=deletebl',
+            data: 'id_bl=' + idbl,
+            success: function(respon) {
+                console.log(respon);
+            }
+        })
+    }
+
+    function updatebl(idbl, i) {
+        $.ajax({
+            type: 'GET',
+            url: '?act=updatebl',
+            data: 'id_bl=' + idbl + '&noidung=' + i,
+            success: function(respon) {
+                console.log(respon);
+            }
+        })
+    }
+
+    function noidung() {
+        document.querySelectorAll(".noidung").forEach(function(item) {
+            item.addEventListener("input", function() {
+                let i = item.value;
+                document.querySelectorAll(".upbl").forEach(function(a) {
+                    a.addEventListener("click", function() {
+                        let idbl = a.getAttribute("idbl");
+                        updatebl(idbl, i);
+                    })
+                });
+            })
+        })
+    }
+    noidung();
 </script>
