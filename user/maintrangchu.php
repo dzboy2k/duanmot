@@ -199,26 +199,7 @@
     </div>
 
 
-    <div class="vong ">
-      <h3 class="m-5 text-center">SẢN PHẨM DÀNH RIÊNG CHO BẠN</h3>
-      <div class="row">
-        <div class="col-md-3">
-          <div class="card">
-            <img src="/img/VMP1047AMW-RG06A-hover.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and
-                make up the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
+   
 
 
     <div class="khachhang text-center">
@@ -230,15 +211,12 @@
             <img style="width: 175px; height: 175px; border-radius: 180px;" src="<?php echo $item['hinhanhkh'] ?>" alt="" />
           </div>
         <?php endforeach ?>
-        <p>
+        <p class="mt-4">
           Đã mua sắm trang sức tại Lộc Phúc rất nhiều lần, mình ưng ý nhất
           là dịch vụ đặt hàng Online, nhanh chóng, an toàn và vô cùng tiện
           lợi nha.
         </p>
-        <div class="icon">
-          <i class="ti-star"></i><i class="ti-star"></i><i class="ti-star"></i><i class="ti-star"></i><i class="ti-star"></i>
-        </div>
-        <p>MR DIEM</p>
+        
       </div>
     </div>
     <div class="new text-center">
@@ -343,4 +321,7 @@
      Infinity: true,
   
   });
+
+
+
 </script>

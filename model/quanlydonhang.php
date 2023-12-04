@@ -1,10 +1,11 @@
 <?php 
 function quanlydonhang($idkh){
-    $sql="SELECT donhang.*, chitietdonhang.*, khachhang.*,sanphamct.*,san_pham.*,tientrinh.* FROM donhang 
+    $sql="SELECT donhang.*, chitietdonhang.*, khachhang.*,sanphamct.*,san_pham.*,tientrinh.*,chitietsize.* FROM donhang 
     JOIN khachhang ON donhang.idkh = khachhang.id_kh 
     JOIN chitietdonhang ON donhang.id_dh = chitietdonhang.iddh 
     JOIN sanphamct ON chitietdonhang.idspct = sanphamct.id_spct 
     JOIN san_pham ON sanphamct.idsp = san_pham.id_sp
+    JOIN chitietsize ON chitietdonhang.idchitietsize = chitietsize.id_chitietsize
      JOIN tientrinh ON tientrinh.idtientrinh=donhang.idtientrinh where donhang.idkh=$idkh";
     return pdo_query($sql);
 }
