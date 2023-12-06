@@ -165,7 +165,7 @@ if (isset($_GET['act'])) {
                 $idspct = $_GET['id_spct'];
                 $id_kh =  $_SESSION['id_kh'];
 
-                guibinhluan($id_kh, $idspct, $_POST['binhluan']);
+                guibinhluan($id_kh, date("d-m-Y"),$idspct, $_POST['binhluan']);
                 echo '<meta http-equiv="refresh" content="0;url=?act=chitietsp&id_spct=' . $_GET['id_spct'] . '&id_sp=' . $_GET['id_sp'] . '">';
             }
            
