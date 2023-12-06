@@ -24,6 +24,7 @@
                                 <th>Đơn giá</th>
                                 <th>Tổng tiền</th>
                                 <th>Tình trạng</th>
+                                
                                 <th>Phương thức thanh toán</th>
                                 <th>Tính năng</th>
                             </tr>

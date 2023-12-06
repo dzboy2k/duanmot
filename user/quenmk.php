@@ -35,8 +35,10 @@
                                 </div>
                                 <?php if (isset($_POST['btnsubmit'])) {
                                         $quenmk=quenmk($_POST['email']);
+                                        // var_dump($quenmk);
                                         if ($quenmk) {
-                                          echo '<span style="color:red">Mật khẩu của bạn là:'.$quenmk["matkhau"].'</span>';
+                                            sendMail($quenmk['email'],'Nguyễn công trang',$quenmk["matkhau"]);
+                                          echo '<span style="color:red">Mật khẩu đã được gửi đến email của bạn</span>';
                                         }else{
                                             echo "<span  style='color:red'>email bạn nhập không đúng</span>";
                                         }

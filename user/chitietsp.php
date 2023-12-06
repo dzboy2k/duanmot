@@ -97,7 +97,7 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
                                 <div class="bg-white p-2">
                                     <div class="d-flex flex-row user-info"><img class="rounded-circle" src="<?php echo $bl['hinhanhkh'] ?>" width="40">
                                         <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name"><?php echo $bl['tenkh'] ?></span>
-                                            <span class="text-black-50"><?php echo  date("d-m-Y", strtotime($bl['thoigian'])) ?></span>
+                                            <span class="text-black-50"><?php echo  date("d-m-Y",strtotime($bl['thoigian'])) ?></span>
                                         </div>
                                     </div>
                                     <div class="mt-2 contain-comment">
@@ -129,7 +129,7 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
         </div>
     </div>
     <div class="instruct-size">
-        <h4>Hướng dẫn đo size</h4>
+        <h4 >Hướng dẫn đo size</h4>
         <i class="ti-close closeSize"></i>
         <img src="img/size.jpg" alt="">
     </div>
@@ -252,12 +252,13 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
     let size = document.querySelector('.instruct-size');
     let closeSize = document.querySelector('.closeSize');
     //  console.log(btnSize);
-    btnSize.onclick = function showSize() {
+    btnSize.onclick = function showSize(){
         size.classList.add('openSize');
     }
-
+   
     // console.log(closeSize);
     closeSize.onclick = function deleteSize() {
         size.classList.remove('openSize');
     }
+
 </script>

@@ -1,12 +1,5 @@
 <?php
 $iddm = getiddm();
-// if (isset($_SESSION['id_kh'])) {
-// $slgiohang = demslgiohang($_SESSION['id_kh']);
-// echo $slgiohang['slgiohang'];
-// var_dump($slgiohang);
-// die;
-// }
-
 ?>
 <header>
 
