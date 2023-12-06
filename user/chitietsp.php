@@ -60,24 +60,24 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
                         <div class="quantity-cart-box  align-items-center ">
                             <h6 class="option-title ">Số lượng:</h6>
                             <input type="number" class="sl" name="soluong" value="1" min="1">
-                            <div class="action_link mt-5">
-                                <button class="btn btn-secondary add-cart" onclick="addtocart('<?= $chitietsp['tenspchitiet'] ?>',
+                            <div class="action_link mt-5 add-cart">
+                                <button class="btn btn-secondary" onclick="addtocart('<?= $chitietsp['tenspchitiet'] ?>',
                                     '<?= $chitietsp['hinhanhchitiet'] ?>',<?= $chitietsp['gia'] ?>,
-                                    <?= $_GET['id_spct'] ?>,<?= $_SESSION['id_kh'] ?>)" class="btngiohang "> Thêm
+                                    <?= $_GET['id_spct'] ?>,<?= $_SESSION['id_kh'] ?>,<?= $_GET['id_sp'] ?>)" class="btngiohang"> Thêm
                                     giỏ hàng</button>
                                 <button name="btnmuangay" class="btn btn-secondary"> Mua ngay</button>
                             </div>
                         </div>
-
                     </div>
 
                 </div>
 
             </div>
 
+        </div>
 
 
-            <div class="container-fluid mt-5">
+        <div class="container mt-5">
                 <div class="d-flex justify-content-center row">
                     <div class="col-md-12">
                         <div class="d-flex flex-column comment-section">
@@ -120,7 +120,7 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
                 </div>
             </div>
 
-        </div>
+    </div>
     </div>
     <div class="mockup-cart">
         <div class="icon-success">
@@ -129,7 +129,7 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
         </div>
     </div>
     <div class="instruct-size">
-        <h4 >Hướng dẫn đo size</h4>
+        <h4>Hướng dẫn đo size</h4>
         <i class="ti-close closeSize"></i>
         <img src="img/size.jpg" alt="">
     </div>
@@ -153,7 +153,7 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
 
                                 <a href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>" class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
                                 <div class="card-btn">
-                                    <button class="add-cart"><a href="">Thêm giỏ hàng</a></button>
+                                    <button><a href="">Thêm giỏ hàng</a></button>
                                 </div>
                             </div>
                         </div>
@@ -167,7 +167,7 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
 
 </body>
 <script>
-    function addtocart(tensp, anh, gia, idspct, idkh) {
+    function addtocart(tensp, anh, gia, idspct, idkh, idsp) {
         let size = Number(document.querySelector('.nice-select').value);
         let sl = Number(document.querySelector('.sl').value);
         let tongtien = sl * gia;
@@ -191,6 +191,7 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
             success: function(repon) {
                 // console.log(repon);
                 // alert("bạn đã thêm sản phẩm vào giỏ hàng");
+                window.location.href = "?act=chitietsp&id_spct=" + idspct + "&id_sp=" + idsp;
             }
         })
     }
@@ -248,17 +249,21 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
 
 
 
+
+
+
+
+
     let btnSize = document.querySelector('.btnsize');
     let size = document.querySelector('.instruct-size');
     let closeSize = document.querySelector('.closeSize');
     //  console.log(btnSize);
-    btnSize.onclick = function showSize(){
+    btnSize.onclick = function showSize() {
         size.classList.add('openSize');
     }
-   
+
     // console.log(closeSize);
     closeSize.onclick = function deleteSize() {
         size.classList.remove('openSize');
     }
-
 </script>
