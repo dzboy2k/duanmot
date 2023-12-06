@@ -13,7 +13,7 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
                     <div class="product-img w-100">
                         <img class="w-100" src="admin/<?php echo $chitietsp['hinhanhchitiet']; ?>" alt="">
                     </div>
-                    
+
                 </div>
                 <div class="col-lg-7">
 
@@ -53,17 +53,17 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
 
                                 </select>
                             </div>
-                            <div class="action_link">
-                                <a class="size-a" href="/huong-dan-do-size">Hướng dẫn do size <i class="fa fa-angle-right"></i></a>
+                            <div class="action_link action_link_size">
+                                <button class="btnsize">Hướng dẫn do size <i class="fa fa-angle-right"></i></button>
                             </div>
                         </div>
                         <div class="quantity-cart-box  align-items-center ">
                             <h6 class="option-title ">Số lượng:</h6>
                             <input type="number" class="sl" name="soluong" value="1" min="1">
                             <div class="action_link mt-5">
-                                <button class="btn btn-secondary" onclick="addtocart('<?= $chitietsp['tenspchitiet'] ?>',
+                                <button class="btn btn-secondary add-cart" onclick="addtocart('<?= $chitietsp['tenspchitiet'] ?>',
                                     '<?= $chitietsp['hinhanhchitiet'] ?>',<?= $chitietsp['gia'] ?>,
-                                    <?= $_GET['id_spct'] ?>,<?= $_SESSION['id_kh'] ?>)" class="btngiohang"> Thêm
+                                    <?= $_GET['id_spct'] ?>,<?= $_SESSION['id_kh'] ?>)" class="btngiohang "> Thêm
                                     giỏ hàng</button>
                                 <button name="btnmuangay" class="btn btn-secondary"> Mua ngay</button>
                             </div>
@@ -74,19 +74,22 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
                 </div>
 
             </div>
-          
-          
+
+
+
             <div class="container-fluid mt-5">
                 <div class="d-flex justify-content-center row">
                     <div class="col-md-12">
                         <div class="d-flex flex-column comment-section">
                             <div class="p-2">
                                 <form action="?act=chitietsp&id_spct=<?php echo $chitietsp['id_spct'] ?>&id_sp=<?php echo $_GET['id_sp'] ?>" method="POST">
-                                
-                                <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="<?php echo $_SESSION['hinhanhkh'] ?>" width="40">
-                                <textarea class="form-control ml-1 shadow-none textarea" style="height: 100px;" name="binhluan" placeholder="Nhập bình luận"></textarea></div>
-                                <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="submit" name="btnbl">Gửi bình luận</button>
-                                <button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">Hủy</button></div>
+
+                                    <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="<?php echo $_SESSION['hinhanhkh'] ?>" width="40">
+                                        <textarea class="form-control ml-1 shadow-none textarea" style="height: 100px;" name="binhluan" placeholder="Nhập bình luận"></textarea>
+                                    </div>
+                                    <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="submit" name="btnbl">Gửi bình luận</button>
+                                        <button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">Hủy</button>
+                                    </div>
                                 </form>
                             </div>
 
@@ -94,7 +97,7 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
                                 <div class="bg-white p-2">
                                     <div class="d-flex flex-row user-info"><img class="rounded-circle" src="<?php echo $bl['hinhanhkh'] ?>" width="40">
                                         <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name"><?php echo $bl['tenkh'] ?></span>
-                                            <span class="text-black-50"><?php echo  $bl['thoigian'] ?></span>
+                                            <span class="text-black-50"><?php echo  date("d-m-Y", strtotime($bl['thoigian'])) ?></span>
                                         </div>
                                     </div>
                                     <div class="mt-2 contain-comment">
@@ -102,11 +105,11 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
                                     </div>
                                 </div>
 
-                                <div class="bg-white">
+                                <div class="bg-white btn-binhluan">
                                     <div class="d-flex flex-row fs-12">
-                                        <?php if(($_SESSION['id_kh']) == $bl['id_kh']) { ?>
-                                        <div class="like p-2 cursor upbl" idbl="<?= $bl['id_bl']  ?>"><i class="fa fa-commenting-o"></i><span class="ml-1">Sửa</span></div>
-                                        <div class="like p-2 cursor" onclick="delbl(<?= $bl['id_bl']  ?>)"> <i class="fa fa-trash-o"></i><span class="ml-1">Xóa</span></div>
+                                        <?php if (($_SESSION['id_kh']) == $bl['id_kh']) { ?>
+                                            <div class="like p-2 cursor upbl" idbl="<?= $bl['id_bl']  ?>"><i class="fa fa-commenting-o"></i><span class="ml-1"><button>Sửa</button></span></div>
+                                            <div class="like p-2 cursor" onclick="delbl(<?= $bl['id_bl']  ?>)"> <i class="fa fa-trash-o"></i><span class="ml-1"><button>Xóa</button></span></div>
                                         <?php } ?>
                                     </div>
                                 </div>
@@ -119,7 +122,17 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
 
         </div>
     </div>
-
+    <div class="mockup-cart">
+        <div class="icon-success">
+            <i class="ti-arrow-circle-down"></i>
+            <p>Thêm vào giỏ hàng thành công</p>
+        </div>
+    </div>
+    <div class="instruct-size">
+        <h4>Hướng dẫn đo size</h4>
+        <i class="ti-close closeSize"></i>
+        <img src="img/size.jpg" alt="">
+    </div>
     <div class="related-product mt-5">
         <div class="related-product-title text-center">
             <h3 class="m-5"> SẢN PHẨM CÙNG LOẠI</h3>
@@ -140,7 +153,7 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
 
                                 <a href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>" class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
                                 <div class="card-btn">
-                                    <button><a href="">Thêm giỏ hàng</a></button>
+                                    <button class="add-cart"><a href="">Thêm giỏ hàng</a></button>
                                 </div>
                             </div>
                         </div>
@@ -177,7 +190,7 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
             },
             success: function(repon) {
                 // console.log(repon);
-                alert("bạn đã thêm sản phẩm vào giỏ hàng");
+                // alert("bạn đã thêm sản phẩm vào giỏ hàng");
             }
         })
     }
@@ -218,4 +231,33 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
         })
     }
     noidung();
+</script>
+<script>
+    let btnCart = document.querySelector('.add-cart');
+    let cart = document.querySelector('.mockup-cart');
+    // console.log(btnCart);
+    btnCart.onclick = function showmockupcart() {
+        cart.classList.add('open1');
+        let item = setTimeout(deletemockupcart, 2000);
+
+    }
+
+    function deletemockupcart() {
+        cart.classList.remove('open1');
+    }
+
+
+
+    let btnSize = document.querySelector('.btnsize');
+    let size = document.querySelector('.instruct-size');
+    let closeSize = document.querySelector('.closeSize');
+    //  console.log(btnSize);
+    btnSize.onclick = function showSize() {
+        size.classList.add('openSize');
+    }
+
+    // console.log(closeSize);
+    closeSize.onclick = function deleteSize() {
+        size.classList.remove('openSize');
+    }
 </script>

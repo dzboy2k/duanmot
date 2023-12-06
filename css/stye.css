@@ -75,6 +75,7 @@ header {
     display: block;
 }
 /* css shop */
+
 .shop{
     position: fixed;
     top: 0;
@@ -86,27 +87,26 @@ header {
     border: 1px solid;
     box-shadow: 5px 5px 8px 5px #888888;
     z-index: 1011;
+    animation: move 0.2s ease-in-out;
 }
-.shop .icon-close{
+@keyframes move {
+    from{
+        transform: translateX(400px);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+.shop>.icon-close{
   position: absolute;
   left: 0;
   top: 0;
   padding: 10px;
+  color: #000;
 }
 .open{
     display: block;
 }
-
-
-
-
-
-
-
-
-
-
-
 .shop 
 .cart,.order{
   background-color: #f3f3f3;
@@ -601,6 +601,10 @@ input:focus{
 .footer{
     background-color: #f7f7f7;
 }
+.btn-binhluan button{
+    border: none;
+    background-color: #fff;
+}
 
 /* đơn hàng */
 .b{
@@ -646,4 +650,76 @@ input:focus{
     border: none;
     margin: 10px 0px;
     background-color: #fff;
+  }
+
+  /* css mockup-cart */
+
+  .mockup-cart{
+    background-color: #fff;
+    width: 300px;
+    height: 120px;
+    position: fixed;
+    top: 45%;
+    left: 40%;
+    box-shadow: 2px 2px 6px 2px #888888;
+    display: none;
+  }
+  .mockup-cart.open1{
+    display: block;
+  }
+
+
+  .icon-success i{
+    display: flex;
+    margin-top: 30px;
+    justify-content: center;
+    font-size: 32px;
+    color: green;
+  }
+  .icon-success>p{
+    text-align: center;
+  }
+  .instruct-size{
+    background-color: #fff;
+    width: 700px;
+    height: 580px;
+    position: fixed;
+    top: 5%;
+    left: 32%;
+    box-shadow: 2px 2px 6px 2px #888888;
+    z-index: 1012;
+    display: none;
+    animation: size 0.3s ease-in-out;
+  }
+  @keyframes size{
+    from{
+  transform: translateY(-200px);
+    }
+    to{
+        transform: translateY(0);
+    }
+  }
+  .instruct-size.openSize{
+    display: block;
+  }
+  .instruct-size>i{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+    .instruct-size>h4{
+     margin: 20px 0px 0px 45px;
+    }
+  .instruct-size>img{
+    width: 600px;
+    height: 440px;
+    margin: 50px 0px 0px 50px;
+  }
+  .action_link_size>.btnsize{
+    border: none;
+    background-color: #fff;
+  }
+  .action_link_size>button:hover{
+   font-size: 16px;
+   transition: ease-in-out 0.2s;
   }
