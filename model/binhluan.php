@@ -13,12 +13,12 @@ function binhluan($id)
 //   $sql = "SELECT * FROM khachhang WHERE id_kh = $id_kh";
 //   return pdo_query($sql);
 // }
-function guibinhluan($idkh,$date, $id_spct, $binhluan)
+function guibinhluan($idkh, $id_spct, $binhluan)
 {
-    // $date = date('d-m-Y');
+    $date = date('Y-m-d');
     // echo  $date;
     $sql = "INSERT INTO binhluan(idkh,thoigian,idspct,noidung)
-     VALUES($idkh,$date,$id_spct,'$binhluan');
+     VALUES($idkh,'$date',$id_spct,'$binhluan');
 ";
     pdo_execute($sql);
 }

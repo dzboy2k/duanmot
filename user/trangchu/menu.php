@@ -24,33 +24,33 @@ $iddm = getiddm();
           <div class="row ">
 
             <div class="col-md-6 btn-shop">
-              <a href="">
-                <button class="btn btn-primary position-relative">
-                  <i class="ti-shopping-cart" style="color: #fff;"></i>
-                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
 
-                    <?php
-                    if (isset($_SESSION['id_kh'])) {
-                      $slgiohang = demslgiohang($_SESSION['id_kh']);
-                      echo  $slgiohang['slgiohang'];
-                    ?>
+              <button class="btn btn-primary position-relative">
+                <i class="ti-shopping-cart" style="color: #fff;"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
 
-                    <?php  } else { ?>
-                      0
-                    <?php  } ?>
-                    <span class="visually-hidden">unread messages</span>
-                  </span>
-                  <div class="shop">
-                    <div class="icon-close">
-                      <i class="ti-close"></i>
-                    </div>
-                    <div class="cart mt-5"><a href="?act=cart">Xem giỏ hàng</a></div>
-                    <div class="order mt-2"><a href="?act=tientrinh">Xem đơn mua</a></div>
-                    <div class="nav-overlay">
-                    </div>
+                  <?php
+                  if (isset($_SESSION['id_kh'])) {
+                    $slgiohang = demslgiohang($_SESSION['id_kh']);
+                    echo  $slgiohang['slgiohang'];
+                  ?>
+
+                  <?php  } else { ?>
+                    0
+                  <?php  } ?>
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+                <div class="shop">
+                  <div class="icon-close closeShop">
+                    <i class="ti-close"></i>
                   </div>
-                </button>
-              </a>
+                  <div class="cart mt-5"><a href="?act=cart">Xem giỏ hàng</a></div>
+                  <div class="order mt-2"><a href="?act=tientrinh">Xem đơn mua</a></div>
+                  <div class="nav-overlay">
+                  </div>
+                </div>
+              </button>
+
             </div>
 
             <?php if (isset($_SESSION['emailkh'])) { ?>
@@ -193,18 +193,18 @@ $iddm = getiddm();
 <script>
   var tiShop = document.querySelector('.btn-shop');
   var shop = document.querySelector('.shop');
-  var close1 = document.querySelector('.ti-close');
+  var closeShop = document.getElementsByClassName('closeShop');
+   console.log(closeShop);
   var overlay = document.querySelector(".nav-overlay");
 
-  function showShop() {
-    shop.classList.add("open");
-    overlay.classList.add("open");
+   tiShop.onclick = function showShop() {
+    shop.classList.toggle("open");
+    overlay.classList.toggle("open");
   }
 
-  function deleteShop() {
+  closeShop.onclick = function deleteShop() {
     shop.classList.remove("open");
     overlay.classList.remove("open");
   }
-  tiShop.addEventListener("click", showShop);
-  close1.addEventListener("click", deleteShop);
+ 
 </script>
