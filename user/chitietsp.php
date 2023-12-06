@@ -79,7 +79,7 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
                                 <div class="action_link mt-5">
                                     <button class="btn btn-secondary" onclick="addtocart('<?= $chitietsp['tenspchitiet'] ?>',
                                     '<?= $chitietsp['hinhanhchitiet'] ?>',<?= $chitietsp['gia'] ?>,
-                                    <?= $_GET['id_spct'] ?>,<?= $_SESSION['id_kh'] ?>)" class="btngiohang"> Thêm
+                                    <?= $_GET['id_spct'] ?>,<?= $_SESSION['id_kh'] ?>,<?= $_GET['id_sp'] ?>)" class="btngiohang"> Thêm
                                         giỏ hàng</button>
                                     <button name="btnmuangay" class="btn btn-secondary"> Mua ngay</button>
                                 </div>
@@ -159,7 +159,7 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
 
 </body>
 <script>
-    function addtocart(tensp, anh, gia, idspct, idkh) {
+    function addtocart(tensp, anh, gia, idspct, idkh,idsp) {
         let size = Number(document.querySelector('.nice-select').value);
         let sl = Number(document.querySelector('.sl').value);
         let tongtien = sl * gia;
@@ -183,6 +183,7 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
             success: function(repon) {
                 // console.log(repon);
                 alert("bạn đã thêm sản phẩm vào giỏ hàng");
+                window.location.href="?act=chitietsp&id_spct="+idspct+ "&id_sp="+idsp;
             }
         })
 

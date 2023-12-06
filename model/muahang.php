@@ -14,9 +14,9 @@ function getmagiamgia(){
 function thanhtien(){
 
 }
-function adddh($diachinhan,$sodienthoai,$pttt,$idkh,$idtientrinh){
-    $sql="INSERT INTO `donhang`( `diachinhan`, `sodienthoai`, `phuongthuctt`, `idkh`,idtientrinh) 
-    VALUES ('$diachinhan','$sodienthoai','$pttt',$idkh,$idtientrinh)";
+function adddh($diachinhan,$ngaydathang,$sodienthoai,$pttt,$idkh,$idtientrinh){
+    $sql="INSERT INTO `donhang`( `diachinhan`,ngaydathang, `sodienthoai`, `phuongthuctt`, `idkh`,idtientrinh) 
+    VALUES ('$diachinhan','$ngaydathang','$sodienthoai','$pttt',$idkh,$idtientrinh)";
     pdo_execute($sql);
 }
 function addchitietdh($slchitiet,$giasp,$tongtien,$iddh,$idspct,$idchitietsize,$magiamgia){

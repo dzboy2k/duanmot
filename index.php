@@ -1,5 +1,7 @@
 <?php
 session_start();
+include('mail/PHPMailer-master/sendmail.php');
+// include('momo/atm_momo.php');
 
 include('model/pdo.php');
 include('model/dangkyanddnusser.php');
@@ -185,6 +187,9 @@ if (isset($_GET['act'])) {
             // dũng
 
         case 'addgiohang':
+            // $slgiohang = demslgiohang($_SESSION['id_kh']);
+
+            // var_dump($slgiohang);
             // echo $_GET['idspct'];
             // die;
             // && isset($_SESSION['id_kh'])
@@ -286,13 +291,15 @@ if (isset($_GET['act'])) {
                         $thongbao = "<span style='color:red'>Bạn phải điền đầy đủ thông tin</span>";
                     } else {
                         // $_SESSION['tongtien'] = $thanhtien['tongtien'];
+                        // var_dump($_SESSION['tongtien']);
+                        // die;
 
 
-                        adddh($_POST['diachinhan'], $_POST['sodienthoai'], $_POST['option'], $_SESSION['id_kh'], 1);
+                        adddh($_POST['diachinhan'],date('Y-m-d'), $_POST['sodienthoai'], $_POST['option'], $_SESSION['id_kh'], 1);
                         $getdh = getdh($_SESSION['id_kh']);
                         // var_dump($getdh['id_dh']);
-                        // $_SESSION['madonhang'] = $getdh['iddh'];
-                        // $_SESSION['tongtien'] = $thanhtien['tongtien'];
+                        $_SESSION['madonhang'] = $getdh['iddh'];
+                        $_SESSION['tongtien'] = $thanhtien['tongtien'];
                         foreach ($allgiohang as $key => $giohang) {
 
                             addchitietdh(
@@ -306,9 +313,9 @@ if (isset($_GET['act'])) {
                             );
                             deletegiohang($giohang['idgiohang']);
                         }
-                        echo '<meta http-equiv="refresh" content="0;url=momo/atm_momo.php">';
-                        // iddonhang='.$_SESSION['madonhang'].'&tongtien='.$_SESSION['tongtien'].'&
-                        // momo/atm_momo.php&data='.$_SESSION['madonhang'].'
+                        echo '<meta http-equiv="refresh" content="0;url=momo/atm_momo.php?tongtien='.$_SESSION['tongtien'].'&madonhang='.$_SESSION['madonhang'].'">';
+
+                        
                     }
                 }
             } else {

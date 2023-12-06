@@ -32,10 +32,12 @@ if (!isset($_SESSION['user'])) {
       $act = $_GET['act'];
       switch ($act) {
          case 'bangdieukhien':
-
-            $tongsp=tongsp();
-            $tongkh=tongkh();
-            $tongsldh=tongsldh();
+            $khachhangmoi = khachhangmoi();
+     
+            $tinhtrangdonhang=tinhtrangdonhang();
+            $tongsp = tongsp();
+            $tongkh = tongkh();
+            $tongsldh = tongsldh();
             include('trangchu/main.php');
             include('trangchu/footer.php');
             break;
@@ -227,12 +229,12 @@ if (!isset($_SESSION['user'])) {
             include('qldh/main.php');
             break;
          case 'editdonhang':
-            $tientrinh=tientrinh();
-            $getonedonhang=getonedonhang($_GET['id_dh']);
+            $tientrinh = tientrinh();
+            $getonedonhang = getonedonhang($_GET['id_dh']);
             var_dump($getonedonhang);
             if (isset($_POST['btnsubmit'])) {
-              updatedonhang(intval($_POST['iddh']),intval($_POST['tientrinh']));
-              header('location:?act=quanlydonhang');
+               updatedonhang(intval($_POST['iddh']), intval($_POST['tientrinh']));
+               header('location:?act=quanlydonhang');
             }
 
             include('qldh/modal.php');
@@ -247,17 +249,17 @@ if (!isset($_SESSION['user'])) {
             break;
          case 'baocaodoanhthu':
             // if (!isset($_SESSION['ceo'])) {
-               $tongnv = tongnhanvien();
-               $tongspct = tongspchitiet();
-               $tongsldh = tongsldh();
-               $thanhtien = thanhtien();
-               $spbanchay = sanphambanchay();
-               $tongdh = tongdh();
-               $thongkesp = thongkesp();
-               $thongkedoanhthu = thongkedoanhthu();
+            $tongnv = tongnhanvien();
+            $tongspct = tongspchitiet();
+            $tongsldh = tongsldh();
+            $thanhtien = thanhtien();
+            $spbanchay = sanphambanchay();
+            $tongdh = tongdh();
+            $thongkesp = thongkesp();
+            $thongkedoanhthu = thongkedoanhthu();
 
-               // var_dump($thongkesp);
-               include('baocaodoanhthu/main.php');
+            // var_dump($thongkesp);
+            include('baocaodoanhthu/main.php');
             // }
 
             break;
