@@ -25,4 +25,5 @@ function tongtientientrinh($idkh){
     $sql="SELECT SUM(tongtien) AS 'tongtientientrinh' FROM `chitietdonhang` JOIN donhang ON donhang.id_dh=chitietdonhang.iddh WHERE donhang.idkh=$idkh;";
     return pdo_query_one($sql);
 }
+
 ?>

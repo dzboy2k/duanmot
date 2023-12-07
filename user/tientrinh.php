@@ -37,13 +37,13 @@
                     <div class="list-group-item p-3 bg-white">
                         <div class="row no-gutters">
                           
-                          
+                          <?php if(isset($_SESSION['id_kh'])) { ?>
                             <?php foreach ($quanlydonhang as $item) : ?>
                                 <div class="row no-gutters mt-3">
-                                    <div class="col-3 col-md-1">
+                                    <div class="col-4 col-md-2">
                                         <img class="img-fluid pr-3" style="height: 115px; width: 180px;" src="admin/<?php echo $item['hinhanhchitiet'] ?>" alt="">
                                     </div>
-                                    <div class="col-9 col-md-8 pr-0 pr-md-3">
+                                    <div class="col-9 col-md-7 pr-0 pr-md-3">
                                         <h6 class="text-charcoal mb-2 mb-md-1">
                                             <a href="" class="text-charcoal"><?php echo $item['tenspchitiet'] ?></a>
                                         </h6>
@@ -67,6 +67,7 @@
                                 </div>
 
                             <?php endforeach ?>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
