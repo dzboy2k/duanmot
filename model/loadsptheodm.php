@@ -14,7 +14,7 @@ function loadsptheodm($iddm,$idpage) {
         ON danh_muc.id_dm=san_pham.id_dm 
         join sanphamct 
         ON sanphamct.idsp=san_pham.id_sp
-        WHERE danh_muc.id_dm = $iddm LIMIT 3 OFFSET 0";
+        WHERE danh_muc.id_dm = $iddm LIMIT 8 OFFSET 0";
         return pdo_query($sql);
     }
     if ($idpage==2) {
@@ -23,18 +23,10 @@ function loadsptheodm($iddm,$idpage) {
         ON danh_muc.id_dm=san_pham.id_dm 
         join sanphamct 
         ON sanphamct.idsp=san_pham.id_sp
-        WHERE danh_muc.id_dm = $iddm LIMIT 3 OFFSET 3";
+        WHERE danh_muc.id_dm = $iddm LIMIT 8 OFFSET 9";
         return pdo_query($sql);
     }
-    if ($idpage==3) {
-        $sql = "SELECT * FROM san_pham 
-        join danh_muc 
-        ON danh_muc.id_dm=san_pham.id_dm 
-        join sanphamct 
-        ON sanphamct.idsp=san_pham.id_sp
-        WHERE danh_muc.id_dm = $iddm LIMIT 3 OFFSET 6";
-        return pdo_query($sql);
-    }
+   
 }
 
 function getiddm() {
