@@ -24,7 +24,7 @@
                                     <tr>
                                         <th><img style="width: 120px; height: 100px;" src="admin/<?= $giohang['hinhanhspct'] ?>" alt=""></th>
                                         <th><?= $giohang['tensp'] ?></th>
-                                        <th><input type="number" class="btncapnhatsl" giasp=<?= $giohang['giasp'] ?> idgiohang=<?= $giohang['idgiohang'] ?> value="<?= $giohang['slgiohang'] ?>">
+                                        <th><input type="number" min="1" class="btncapnhatsl" giasp=<?= $giohang['giasp'] ?> idgiohang=<?= $giohang['idgiohang'] ?> value="<?= $giohang['slgiohang'] ?>">
                                         </th>
                                        
                                         <th><?= $giohang['bankinh'] ?></th>

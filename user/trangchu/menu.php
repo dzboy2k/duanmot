@@ -194,7 +194,7 @@ $iddm = getiddm();
   var tiShop = document.querySelector('.btn-shop');
   var shop = document.querySelector('.shop');
   var closeShop = document.getElementsByClassName('closeShop');
-   console.log(closeShop);
+  //  console.log(closeShop);
   var overlay = document.querySelector(".nav-overlay");
 
    tiShop.onclick = function showShop() {

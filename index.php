@@ -36,9 +36,6 @@ if (isset($_GET['act'])) {
                 $loaddm = search($_POST['ten']);
                 $loadsptheoluotxem = search($_POST['ten']);
             }
-
-
-
             include('user/maintrangchu.php');
 
             break;
