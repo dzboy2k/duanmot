@@ -37,7 +37,8 @@
     </div>
     <div class="product">
       <div class="row">
-        <?php foreach ($loadspsale as $item) : ?>
+        <?php foreach ($loadspsale as $item) : 
+         ?>
           <div class="col-md-3 col-sm-4 col-6">
             <div class="card">
               <div class="card-img">
@@ -53,11 +54,11 @@
                                                                                   $phantram = $item['dacbiet'];
                                                                                   echo number_format($item['gia'] - ($price * $phantram) / 100)
                                                                                   ?> VND </p>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between ">
                   <div class="buy-product">
-                    <a href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>"  class="btn btn-primary">Mua ngay</a>
+                    <a href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>&luotxem=<?=$item['luotxem']?>"  class="btn btn-primary">Mua ngay</a>
                   </div>
-                  <a class="mt-2" href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>" ><i style="color: #CC8811;">Xem chi tiết -></i></a>
+                  <a class="mt-2 luotxem" style="cursor: pointer;" link="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>&soluong=<?= $item['soluong'] ?>" luotxem="<?=$item['luotxemspct']?>"   ><i style="color: #CC8811;">Xem chi tiết -></i></a>
                 </div>
               </div>
             </div>
@@ -187,7 +188,7 @@
                                                                                 ?> VNĐ </p>
 
 
-              <a href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>"  class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
+              <a style="cursor: pointer;" link="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>&soluong=<?= $item['soluong'] ?>" luotxem="<?= $item['luotxemspct'] ?>" class="mt-2 luotxem"><i style="color: #CC8811;">Xem chi tiết -></i></a>
               <div class="card-btn">
                 <button><a href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>">Thêm giỏ hàng</a></button>
               </div>
@@ -324,4 +325,17 @@
 
 
 
+</script>
+<script>
+  let listluotxem=document.querySelectorAll('.luotxem');
+  listluotxem.forEach(function(item){
+    // console.log(item.getAttribute('luotxem'));
+    item.addEventListener('click',function(){
+ let luotxem=Number(item.getAttribute('luotxem'))+1;
+ let link=item.getAttribute('link')+"&luotxem="+luotxem;
+ item.setAttribute('href',link);
+
+    })
+  })
+ 
 </script>

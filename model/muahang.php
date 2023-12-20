@@ -14,15 +14,15 @@ function getmagiamgia(){
 function thanhtien(){
 
 }
-function adddh($diachinhan,$ngaydathang,$sodienthoai,$pttt,$idkh,$idtientrinh){
-    $sql="INSERT INTO `donhang`( `diachinhan`,ngaydathang, `sodienthoai`, `phuongthuctt`, `idkh`,idtientrinh) 
-    VALUES ('$diachinhan','$ngaydathang','$sodienthoai','$pttt',$idkh,$idtientrinh)";
+function adddh($diachinhan,$ngaydathang,$sodienthoai,$pttt,$idkh,$idtientrinh,$idgiamgia){
+    $sql="INSERT INTO `donhang`( `diachinhan`,ngaydathang, `sodienthoai`, `phuongthuctt`, `idkh`,idtientrinh,idmagiamgia) 
+    VALUES ('$diachinhan','$ngaydathang','$sodienthoai','$pttt',$idkh,$idtientrinh,$idgiamgia)";
     pdo_execute($sql);
 }
-function addchitietdh($slchitiet,$giasp,$tongtien,$iddh,$idspct,$idchitietsize,$magiamgia){
+function addchitietdh($slchitiet,$giasp,$tongtien,$iddh,$idspct,$idchitietsize){
     $sql="INSERT INTO `chitietdonhang`
-    ( `soluongchitiet`, `giasp`, `tongtien`, `iddh`, `idspct`,idchitietsize,idmagiamgia) 
-    VALUES ($slchitiet,$giasp,$tongtien,$iddh,$idspct,$idchitietsize,$magiamgia)";
+    ( `soluongchitiet`, `giasp`, `tongtien`, `iddh`, `idspct`,idchitietsize) 
+    VALUES ($slchitiet,$giasp,$tongtien,$iddh,$idspct,$idchitietsize)";
     pdo_execute($sql);
     
 }

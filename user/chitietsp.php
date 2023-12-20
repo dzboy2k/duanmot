@@ -21,7 +21,7 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
                         <div class="product-name display-6">
                             <p><?php echo $chitietsp['tenspchitiet']; ?></p>
                         </div>
-                        <div class="product-feedback mt-4">
+                        <div class="product-feedback my-4">
                             <div style="display:flex">
                                 <div class="icon-start">
                                     <i class="ti-star"></i>
@@ -32,8 +32,11 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
                                 </div>
 
                                 <div class="product-review"><span class="product-rating">74</span> đánh giá</div>
+
                             </div>
                         </div>
+                        <div class="product-review"><span class="product-rating">Lượt xem:</span><?= $chitietsp['luotxemspct'] ?></div>
+
                         <div class="product-price  mt-4">
                             <p><?php echo number_format($chitietsp['gia']); ?> VND</p>
                         </div>
@@ -59,20 +62,19 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
                         </div>
                         <div class="quantity-cart-box  align-items-center ">
                             <h6 class="option-title ">Số lượng:</h6>
-                            <input type="number" class="sl" name="soluong" value="1" min="1">
+                            <input type="number" class="sl" name="soluong" value="1" min="1" max="<?= $_GET['soluong'] ?>">
 
                             <?php if (isset($_SESSION['id_kh'])) { ?>
                                 <div class="action_link mt-5 add-cart">
                                     <button class="btn btn-secondary" onclick="addtocart('<?= $chitietsp['tenspchitiet'] ?>',
                                     '<?= $chitietsp['hinhanhchitiet'] ?>',<?= $chitietsp['gia'] ?>,
-                                    <?= $_GET['id_spct'] ?>,<?= $_SESSION['id_kh'] ?>,<?= $_GET['id_sp'] ?>)" class="btngiohang"> Thêm
+                                    <?= $_GET['id_spct'] ?>,<?= $_SESSION['id_kh'] ?>,<?= $_GET['id_sp'] ?>,<?= $_GET['soluong'] ?>,<?= $_GET['luotxem'] ?>)" class="btngiohang"> Thêm
                                         giỏ hàng</button>
-                                    <button name="btnmuangay" class="btn btn-secondary"> Mua ngay</button>
+
                                 </div>
                             <?php } else { ?>
                                 <div class="action_link mt-5">
                                     <button class="btn btn-secondary" class="btngiohang" onclick="alert('Bạn phải đăng nhập')"> Thêm giỏ hàng</button>
-                                    <button name="btnmuangay" class="btn btn-secondary"> Mua ngay</button>
                                 </div>
                             <?php } ?>
 
@@ -92,7 +94,7 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
                     <div class="d-flex flex-column comment-section">
                         <div class="p-2">
                             <?php if (isset($_SESSION['id_kh'])) { ?>
-                                <form action="?act=chitietsp&id_spct=<?php echo $chitietsp['id_spct'] ?>&id_sp=<?php echo $_GET['id_sp'] ?>" method="POST">
+                                <form action="?act=chitietsp&id_spct=<?php echo $chitietsp['id_spct'] ?>&id_sp=<?php echo $_GET['id_sp'] ?>&soluong=<?=$chitietsp['soluong']?>&luotxem=<?=$chitietsp['luotxem']?>" method="POST">
 
                                     <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="<?php echo $_SESSION['hinhanhkh'] ?>" width="40">
                                         <textarea class="form-control ml-1 shadow-none textarea boxbl" style="height: 100px;" name="binhluan" placeholder="Nhập bình luận"></textarea>
@@ -103,7 +105,7 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
                                 </form>
                             <?php } else { ?>
 
-                              <p>  Bạn cần <a href="?act=dangnhap" style="border-bottom: 1px solid black;">đăng nhập</a> để thực hiện chức năng bình luận!</p>
+                                <p> Bạn cần <a href="?act=dangnhap" style="border-bottom: 1px solid black;">đăng nhập</a> để thực hiện chức năng bình luận!</p>
                             <?php } ?>
                         </div>
 
@@ -123,9 +125,13 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
 
                             <div class="bg-white btn-binhluan">
                                 <div class="d-flex flex-row fs-12">
-                                    <?php if (isset($_SESSION['id_kh']) == $bl['id_kh']) { ?>
-                                        <div class="like p-2 cursor upbl" idbl="<?= $bl['id_bl']  ?>"><i class="fa fa-commenting-o"></i><span class="ml-1"><button>Sửa</button></span></div>
-                                        <div class="like p-2 cursor" onclick="delbl(<?= $bl['id_bl']  ?>)"> <i class="fa fa-trash-o"></i><span class="ml-1"><button>Xóa</button></span></div>
+                                    <?php if (isset($_SESSION['id_kh'])) { ?>
+
+
+                                        <?php if ($_SESSION['id_kh'] == $bl['id_kh']) { ?>
+                                            <div class="like p-2 cursor upbl" idbl="<?= $bl['id_bl']  ?>"><i class="fa fa-commenting-o"></i><span class="ml-1"><button>Sửa</button></span></div>
+                                            <div class="like p-2 cursor" onclick="delbl(<?= $bl['id_bl']  ?>)"> <i class="fa fa-trash-o"></i><span class="ml-1"><button>Xóa</button></span></div>
+                                        <?php } ?>
                                     <?php } ?>
                                 </div>
                             </div>
@@ -167,7 +173,7 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
                                                                                                     ?> VNĐ </p>
 
 
-                                <a href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>" class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
+                                <a style="cursor: pointer;" link="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>&soluong=<?= $item['soluong'] ?>" luotxem="<?= $item['luotxemspct'] ?>" class="mt-2 luotxem"><i style="color: #CC8811;">Xem chi tiết -></i></a>
                                 <div class="card-btn">
                                     <button><a href="">Thêm giỏ hàng</a></button>
                                 </div>
@@ -183,33 +189,66 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
 
 </body>
 <script>
-    function addtocart(tensp, anh, gia, idspct, idkh, idsp) {
+    //chỉnh sửa số lượng
+
+    let sl = document.querySelector('.sl');
+
+    sl.addEventListener('input', function() {
+        // console.log(sl.value);
+        if (sl.value < 1) {
+            alert('Số lượng không được nhỏ hơn một');
+            sl.value = 1;
+        }
+        if (Number(sl.getAttribute('max')) < sl.value) {
+            alert('Số lượng đã vượt quá số lượng tồn kho');
+            sl.value = sl.getAttribute('max');
+        }
+    })
+    // mockup hiển thị alert thêm sản phẩm thành công vào giỏ hàng
+    let btnCart = document.querySelector('.add-cart');
+    let cart = document.querySelector('.mockup-cart');
+    // console.log(btnCart);
+    btnCart.onclick = function showmockupcart() {
+        cart.classList.add('open1');
+        let item = setTimeout(deletemockupcart, 4000);
+
+    }
+
+    function deletemockupcart() {
+        cart.classList.remove('open1');
+    }
+    // end
+    function addtocart(tensp, anh, gia, idspct, idkh, idsp, soluongsanpham, lx) {
         let size = Number(document.querySelector('.nice-select').value);
         let sl = Number(document.querySelector('.sl').value);
         let tongtien = sl * gia;
 
-        // console.log(tensp,anh,gia,idspct,idkh,size,sl,tongtien);
-        // let btngiohang=document.querySelector('.btngiohang');
-        $.ajax({
-            type: "GET",
-            url: "?act=addgiohang",
-            data: {
-                tensp: tensp,
-                anh: anh,
-                gia: gia,
-                soluong: sl,
-                size: size,
-                tongtien: tongtien,
-                idspct: idspct,
-                idkh: idkh,
+        if (soluongsanpham < 0) {
+            alert('sản phẩm đã hết hàng');
+        } else {
+            $.ajax({
+                type: "GET",
+                url: "?act=addgiohang",
+                data: {
+                    tensp: tensp,
+                    anh: anh,
+                    gia: gia,
+                    soluong: sl,
+                    size: size,
+                    tongtien: tongtien,
+                    idspct: idspct,
+                    idkh: idkh,
+                    idsp: idsp,
+                },
+                success: function(repon) {
+                    // console.log(repon);
+                    // alert("bạn đã thêm sản phẩm vào giỏ hàng");
+                    window.location.href = "?act=chitietsp&id_spct=" + idspct + "&id_sp=" + idsp + "&soluong=" + soluongsanpham + "&luotxem=" + lx;
+                }
+            })
+        }
 
-            },
-            success: function(repon) {
-                // console.log(repon);
-                // alert("bạn đã thêm sản phẩm vào giỏ hàng");
-                window.location.href = "?act=chitietsp&id_spct=" + idspct + "&id_sp=" + idsp;
-            }
-        })
+
     }
 
     function delbl(idbl) {
@@ -250,34 +289,16 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
     noidung();
 </script>
 <script>
-    let btnCart = document.querySelector('.add-cart');
-    let cart = document.querySelector('.mockup-cart');
-    // console.log(btnCart);
-     btnCart.onclick = function showmockupcart() {
-        cart.classList.add('open1');
-        let item = setTimeout(deletemockupcart, 2000);
-
-    }
-
-    function deletemockupcart() {
-        cart.classList.remove('open1');
-    }
-
-
-
-
-
-
     let btnSize = document.querySelector('.btnsize');
-    console.log(btnSize);
+    // console.log(btnSize);
     let size = document.querySelector('.instruct-size');
     let closeSize = document.querySelector('.closeSize');
-    
+
     btnSize.onclick = function showSize() {
         size.classList.add('openSize');
     }
 
-    console.log(closeSize); 
+    // console.log(closeSize); 
     closeSize.onclick = function deleteSize() {
         size.classList.remove('openSize');
     }
@@ -290,4 +311,17 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
     btnCancel.onclick = function() {
         boxBl.value = "";
     }
+</script>
+<!-- tăng số lượng lượt xem -->
+<script>
+    let listluotxem = document.querySelectorAll('.luotxem');
+    listluotxem.forEach(function(item) {
+        // console.log(item.getAttribute('luotxem'));
+        item.addEventListener('click', function() {
+            let luotxem = Number(item.getAttribute('luotxem')) + 1;
+            let link = item.getAttribute('link') + "&luotxem=" + luotxem;
+            item.setAttribute('href', link);
+
+        })
+    })
 </script>
