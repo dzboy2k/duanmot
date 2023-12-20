@@ -38,5 +38,9 @@ function loadspcungloai($id_sp,$id_spct) {
     id_spct <> $id_spct";
     return pdo_query($sql);
 }
+function capnhatluotxem($idspct,$luotxem){
+    $sql="UPDATE `sanphamct` SET `luotxemspct`=$luotxem WHERE id_spct=$idspct";
+    pdo_execute($sql);
+}
 
 ?>

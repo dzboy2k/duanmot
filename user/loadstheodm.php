@@ -35,7 +35,7 @@
                                                                                                         echo number_format($item['gia']);
                                                                                                         ?> VNĐ </p>
 
-                                    <a href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>" class="mt-2"><i style="color: #CC8811;">Xem chi tiết -></i></a>
+<a style="cursor: pointer;" link="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>&soluong=<?= $item['soluong'] ?>" luotxem="<?= $item['luotxemspct'] ?>" class="mt-2 luotxem"   ><i style="color: #CC8811;">Xem chi tiết -></i></a>
 
                                     <div class="card-btn">
                                         <button><a href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>">Thêm giỏ hàng</a></button>
@@ -51,19 +51,27 @@
                 </div>
                
             </div>
-            <div>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center">
-                        
-                        <li class="page-item"><a class="page-link" href="?act=<?=$_GET['act']?>&iddm=<?=$_GET['iddm']?>&idpage=1">1</a></li>
-                        <li class="page-item"><a class="page-link" href="?act=<?=$_GET['act']?>&iddm=<?=$_GET['iddm']?>&idpage=2">2</a></li>
-                       
-                    </ul>
-                </nav>
-            </div>
-            <hr>
+            
         </div>
 
     </main>
 
 </body>
+<script>
+  let listluotxem=document.querySelectorAll('.luotxem');
+  listluotxem.forEach(function(item){
+    // console.log(item.getAttribute('luotxem'));
+    item.addEventListener('click',function(){
+ let luotxem=Number(item.getAttribute('luotxem'))+1;
+ let link=item.getAttribute('link')+"&luotxem="+luotxem;
+ item.setAttribute('href',link);
+
+
+ console.log(link);
+ 
+      // console.log(item.getAttribute('luotxem'));
+
+    })
+  })
+ 
+</script>
