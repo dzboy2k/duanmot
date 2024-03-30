@@ -94,7 +94,7 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
                     <div class="d-flex flex-column comment-section">
                         <div class="p-2">
                             <?php if (isset($_SESSION['id_kh'])) { ?>
-                                <form action="?act=chitietsp&id_spct=<?php echo $chitietsp['id_spct'] ?>&id_sp=<?php echo $_GET['id_sp'] ?>&soluong=<?=$chitietsp['soluong']?>&luotxem=<?=$chitietsp['luotxem']?>" method="POST">
+                                <form action="?act=chitietsp&id_spct=<?php echo $chitietsp['id_spct'] ?>&id_sp=<?php echo $_GET['id_sp'] ?>&soluong=<?= $chitietsp['soluong'] ?>&luotxem=<?= $chitietsp['luotxem'] ?>" method="POST">
 
                                     <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="<?php echo $_SESSION['hinhanhkh'] ?>" width="40">
                                         <textarea class="form-control ml-1 shadow-none textarea boxbl" style="height: 100px;" name="binhluan" placeholder="Nhập bình luận"></textarea>
@@ -198,21 +198,27 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
         if (sl.value < 1) {
             alert('Số lượng không được nhỏ hơn một');
             sl.value = 1;
+        } else {
+            if (Number(sl.getAttribute('max')) < sl.value) {
+                alert('Số lượng đã vượt quá số lượng tồn kho');
+                sl.value = sl.getAttribute('max');
+                if (sl.value==0) {
+                    sl.value=1;   
+                }
+            }
         }
-        if (Number(sl.getAttribute('max')) < sl.value) {
-            alert('Số lượng đã vượt quá số lượng tồn kho');
-            sl.value = sl.getAttribute('max');
-        }
+
     })
     // mockup hiển thị alert thêm sản phẩm thành công vào giỏ hàng
-    let btnCart = document.querySelector('.add-cart');
-    let cart = document.querySelector('.mockup-cart');
-    // console.log(btnCart);
-    btnCart.onclick = function showmockupcart() {
-        cart.classList.add('open1');
-        let item = setTimeout(deletemockupcart, 4000);
+    // let btnCart = document.querySelector('.add-cart');
+    // let cart = document.querySelector('.mockup-cart');
+    // // console.log(btnCart);
+    // btnCart.onclick = function showmockupcart() {
+    //     cart.classList.add('open1');
+    //     let item = setTimeout(deletemockupcart, 4000);
 
-    }
+    // }
+    var cart = document.querySelector('.mockup-cart');
 
     function deletemockupcart() {
         cart.classList.remove('open1');
@@ -223,9 +229,17 @@ $getsizetheosp = getsizetheosp($_GET['id_sp']);
         let sl = Number(document.querySelector('.sl').value);
         let tongtien = sl * gia;
 
-        if (soluongsanpham < 0) {
+        if (soluongsanpham <= 0) {
             alert('sản phẩm đã hết hàng');
         } else {
+            // mockup hiển thị alert thêm sản phẩm thành công vào giỏ hàng
+            let btnCart = document.querySelector('.add-cart');
+            // console.log(btnCart);
+            btnCart.onclick = function showmockupcart() {
+                cart.classList.add('open1');
+                let item = setTimeout("deletemockupcart()", 4000);
+                // console.log(item);
+            }
             $.ajax({
                 type: "GET",
                 url: "?act=addgiohang",

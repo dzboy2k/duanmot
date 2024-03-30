@@ -56,7 +56,7 @@
                                                                                   ?> VND </p>
                 <div class="d-flex justify-content-between ">
                   <div class="buy-product">
-                    <a href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>&luotxem=<?=$item['luotxem']?>"  class="btn btn-primary">Mua ngay</a>
+                    <a href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>&luotxem=<?=$item['luotxem']?>&soluong=<?=$item['soluong']?>"  class="btn btn-primary">Mua ngay</a>
                   </div>
                   <a class="mt-2 luotxem" style="cursor: pointer;" link="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>&soluong=<?= $item['soluong'] ?>" luotxem="<?=$item['luotxemspct']?>"   ><i style="color: #CC8811;">Xem chi tiết -></i></a>
                 </div>

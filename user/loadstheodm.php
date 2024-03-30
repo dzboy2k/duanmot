@@ -38,7 +38,7 @@
 <a style="cursor: pointer;" link="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>&soluong=<?= $item['soluong'] ?>" luotxem="<?= $item['luotxemspct'] ?>" class="mt-2 luotxem"   ><i style="color: #CC8811;">Xem chi tiết -></i></a>
 
                                     <div class="card-btn">
-                                        <button><a href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>">Thêm giỏ hàng</a></button>
+                                        <button><a href="?act=chitietsp&id_spct=<?php echo $item['id_spct'] ?>&id_sp=<?= $item['id_sp'] ?>&luotxem=<?=$item['luotxemspct']?>&soluong=<?=$item['soluong']?>">Thêm giỏ hàng</a></button>
                                     </div>
 
                                 </div>

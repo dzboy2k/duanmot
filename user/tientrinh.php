@@ -29,8 +29,8 @@
                                             <tbody>
                                                 <?php foreach ($quanlydonhang as $key => $item) {
                                                     // $tongtien=0;
-                                                    echo $item['tentientrinh'];         
-                                                    if ($item['iddh'] == $dh['id_dh']) { $tongtientheoiddh=tongtientheoiddh($item['iddh']); ?>
+                                                       
+                                                    if ($item['iddh'] == $dh['id_dh']) { $tongtientheoiddh=tongtientheoiddh($item['iddh']);  ?>
                                                             
                                                         <tr>
                                                             <td>
@@ -63,7 +63,7 @@
                                                 </tr>
                                                 <tr class="fw-bold">
                                                     <td colspan="2">Thành tiền</td>
-                                                    <td class="text-end"><?= number_format($tongtientheoiddh['tongtientheoiddh'] * (100 - $dh['giamgia']) / 100) ?>VND</td>
+                                                    <td class="text-end"><?= number_format($tongtientheoiddh['tongtientheoiddh'] * (100 - $dh['giamgia']) / 100)  ?>VND</td>
                                                 </tr>
                                             </tfoot>
                                         </table>
@@ -76,7 +76,7 @@
                                             <div class="col-lg-6">
                                                 <h3 class="h6">Thành tiền</h3>
                                                 <p>
-                                                    Thành tiền:<?= number_format($tongtientheoiddh['tongtientheoiddh'] * (100 - $item['giamgia']) / 100) ?>VND  
+                                                    Thành tiền:<?= number_format($tongtientheoiddh['tongtientheoiddh'] * (100 - $dh['giamgia']) / 100) ?>VND  
                                                     <span class="badge bg-success rounded-pill"><?=$dh['tentientrinh']?></span>
                                                 </p>
                                             </div>
